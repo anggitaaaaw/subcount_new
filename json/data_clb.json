@@ -1,0 +1,26 @@
+{
+    "data": [
+      {
+        "id": "1",
+        "spk_no": "00093187718",
+        "batch_no": "BA2938328880000",
+        "item_code": "188239819200",
+        "desc": "Tiger Nixon",
+        "uom": "Meters",
+        "heatno": "5421",
+        "cuser": "Michael",
+        "cdate": "Reprint"
+      },
+      {
+        "id": "2",
+        "spk_no": "00093187718",
+        "batch_no": "BA2938328880000",
+        "item_code": "188239819200",
+        "desc": "Tiger Nixon",
+        "uom": "Meters",
+        "heatno": "5421",
+        "cuser": "Michael",
+        "cdate": "Reprint"
+      }
+    ]
+}
