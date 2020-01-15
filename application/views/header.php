@@ -44,7 +44,7 @@
                             </div>
                             <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
                             <span style="padding-left: 20px; font-size: 16px;">Welcome <b><?php echo $this->session->userdata('username');?></b> in Application Subcount Process your are login by <b>Administrator</b> on <b>29 November 2019 12:56:34</b> Lets Work!! </span>
-                            <input type="hidden" id="nik    " value="<?php echo $this->session->userdata('nik');?>">
+                            <input type="hidden" id="nik" value="<?php echo $this->session->userdata('id');?>">
                         </div>
                         <div class="top-menu d-flex align-items-center">
                             <div class="dropdown">
