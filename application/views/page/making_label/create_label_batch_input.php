@@ -36,7 +36,7 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">SPK NO</label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="spk_no">
+                                                                <select class="form-control select2" id="spk_no" onchange="select_spk(this.value)"> 
                                                                     <option value="">-SELECT SPK NO-</option>
                                                                 </select>
                                                             </div>
@@ -54,15 +54,21 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
-                                                            <label class="col-sm-3 col-form-label">Heat No</label>
+                                                            <label class="col-sm-3 col-form-label">Heat No A</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="heatno">
+                                                                <input type="text" class="form-control" id="heatno_a">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" style="margin: 1px;">
+                                                            <label class="col-sm-3 col-form-label">Heat No B</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="heatno_b">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">LPP No</label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="lpp_no">
+                                                                <select class="form-control select2" id="lpp_no" onchange="select_lpp_no(this.value)">
                                                                     <option value="">-SELECT LPP NO-</option>
                                                                 </select>
                                                             </div>
@@ -130,3 +136,5 @@
                             </div>
                         </div>
                     </div>
+                    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>

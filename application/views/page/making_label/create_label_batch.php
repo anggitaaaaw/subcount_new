@@ -41,7 +41,9 @@
                                                             <div class="form-group row" style="margin: 1px;">
                                                                 <label class="col-sm-3 col-form-label">SPK NO</label>
                                                                 <div class="col-sm-8">
-                                                                    <select class="form-control select2">
+                                                                    <select class="form-control select">
+                                                                        <option value="cheese">SPK NO</option>
+                                                                        <option value="cheese">SPK NO</option>
                                                                         <option value="cheese">SPK NO</option>
                                                                     </select>
                                                                 </div>
@@ -203,3 +205,5 @@
                             </div>
                         </div>
                     </div>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>
