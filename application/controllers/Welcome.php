@@ -3,11 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-	public function __construct(){
-		parent::__construct();
-       $this->load->library('session');
-		}
-
 	public function index(){
 		$this->load->helper('url');
 		$this->load->view('login');
@@ -84,14 +79,43 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function delivery_note_input(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/making_label/delivery_note_input');
+		$this->load->view('footer');
+	}
+
+	public function vendor_delivery(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/making_label/vendor_delivery');
+		$this->load->view('footer');
+	}
+
 	public function print_sj(){
 		$this->load->helper('url');
 		$this->load->view('page/making_label/print_sj');
 	}
 
+	public function print_packinglist(){
+		$this->load->helper('url');
+		$this->load->view('page/making_label/print_packinglist');
+	}
+
 	public function print_label(){
 		$this->load->helper('url');
 		$this->load->view('page/making_label/print_label');
+	}
+
+	public function print_label2(){
+		$this->load->helper('url');
+		$this->load->view('page/making_label/print_label2');
+	}
+
+	public function print_dn(){
+		$this->load->helper('url');
+		$this->load->view('page/making_label/print_dn');
 	}
 
 }

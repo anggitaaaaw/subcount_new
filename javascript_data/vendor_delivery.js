@@ -1,5 +1,5 @@
 function format ( d ) {
-    return  'Detail of : '+d.name+
+    return  'Detail of : '+d.spk_no+
             '<table class="table">'+
                 '<thead>'+
                     '<tr>'+
@@ -12,27 +12,33 @@ function format ( d ) {
                         '<th>Quantity</th>'+
                         '<th>Actual</th>'+
                         '<th>Balance</th>'+
+                        '<th>Create</th>'+
+                        '<th>Print Label</th>'+
+                        '<th>Status</th>'+
                     '</tr>'+
                 '</thead>'+
                 '<tbody>'+
                     '<tr>'+
-                        '<td>99823991</td>'+
-                        '<td>Product Name</td>'+
-                        '<td>2198391</td>'+
                         '<td>1233</td>'+
-                        '<td>123</td>'+
                         '<td>123333</td>'+
+                        '<td>1233</td>'+
                         '<td>123333</td>'+
+                        '<td>1233</td>'+
                         '<td>123333</td>'+
+                        '<td>1233</td>'+
                         '<td>123333</td>'+
+                        '<td>1233</td>'+
+                        '<td><input type="checkbox"></td>'+
+                        '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2"><i class="ik ik-printer"></i>Print</button></td>'+
+                        '<td>Open</td>'+
                     '</tr>'+
                 '</tbody>'+
             '</table>';
 }
 
 $(document).ready(function() {
-    var table = $('#receiving_disubcount').DataTable( {
-        "ajax": "../json/data_rd.json",
+    var table = $('#vendor_delivery').DataTable( {
+        "ajax": "../json/data_vd.json",
         "searching": false,
         "paging":   false,
         "columns": [
@@ -42,18 +48,25 @@ $(document).ready(function() {
                 "data":           null,
                 "defaultContent": '<i class="ik ik-plus-circle"></i>'
             },
-            { "data": "name" },
-            { "data": "position" },
-            { "data": "office" },
-            { "data": "salary" },
-            { "data": "office2" },
-            { "data": "office3" }
+            { "data": "spk_no" },
+            { "data": "batch_no" },
+            { "data": "item_code" },
+            { "data": "desc" },
+            { "data": "heatno" },
+            { "data": "cuser" },
+            { "data": "cdate" },
+            { "data": "cdate2" },
+            { "data": "cdate3" },
+            { "data": "cdate4" }
+        ],
+        buttons: [
+            'copy', 'excel', 'pdf'
         ],
         "order": [[1, 'asc']]
     } );
     
     // Add event listener for opening and closing details
-    $('#receiving_disubcount tbody').on('click', 'td.details-control', function () {
+    $('#vendor_delivery tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
 

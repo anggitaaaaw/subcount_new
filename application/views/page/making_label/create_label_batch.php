@@ -179,9 +179,10 @@
                                                     -->
                                                     <br><br><br>
                                                     <div class="dt-responsive">
-                                                        <table id="create_label_batch" class="table table-striped table-bordered nowrap">
+                                                        <table id="create_label_batch" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
+                                                                    <th width="5"></th>
                                                                     <th>SPK No</th>
                                                                     <th>Batch No</th>
                                                                     <th>Item Code</th>
@@ -189,7 +190,6 @@
                                                                     <th>Heat No</th>
                                                                     <th>UoM</th>
                                                                     <th>Create By</th>
-                                                                    <th>Create Date</th>
                                                                     <th width="20">Action</th>
                                                                 </tr>
                                                             </thead>

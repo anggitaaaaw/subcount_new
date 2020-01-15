@@ -14,7 +14,7 @@
         <script src="<?php echo base_url() ?>assets/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url() ?>assets/plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="<?php echo base_url() ?>assets/plugins/screenfull/dist/screenfull.js"></script>
-        <script src="<?php echo base_url() ?>assets/js/datatables.js?x"></script>
+        <script src="<?php echo base_url() ?>assets/js/datatables.js"></script>
         <script src="<?php echo base_url() ?>assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="<?php echo base_url() ?>assets/plugins/dataTables/js/jquery.dataTables.js"></script>
         <script src="<?php echo base_url() ?>assets/plugins/moment/moment.js"></script>
@@ -52,6 +52,14 @@
                 $('#print_label').click(function() {
                     $("#iframe2").get(0).contentWindow.print();
                 });
+            });
+
+            $(document).ready(function() {
+                $('#spk_no').select2();
+            });
+
+            $(document).ready(function() {
+                $('#lpp_no').select2();
             });
         </script>
     </body>
