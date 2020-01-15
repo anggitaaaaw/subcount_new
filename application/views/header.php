@@ -1,4 +1,5 @@
 <!doctype html>
+<?php if(isset($_SESSION['logged_in'])){ ?>
 <html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
@@ -83,3 +84,6 @@
             <script src="<?php echo base_url() ?>javascript_data/tree_menu.js"></script>
                 
                 
+            <?php }else{
+  redirect(site_url('Welcome'));
+}?>

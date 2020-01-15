@@ -242,8 +242,8 @@ public function new_user(){
   }
 
   public function tree_menu(){
-    $nik = "32014589623510002";
-    //$nik = $this->input->post('nik');
+    //$nik = "32014589623510002";
+    $nik = $this->input->post('nik');
     $menu = $this->usersmodel->get_tree_menu($nik)->result();
     echo json_encode($menu);
   }
