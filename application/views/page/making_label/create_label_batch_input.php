@@ -90,10 +90,11 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
                                                                 <br>
-                                                                <button type="button" class="btn btn-primary">Add Data</button>
-                                                                <button type="button" class="btn btn-primary">Save Data</button>
-                                                                <button type="button" class="btn btn-primary">View Label Batch</button>
-                                                                <button type="button" id="print_label" class="btn btn-primary">Print Label Batch</button>
+                                                                <button type="button" class="btn btn-primary"><i class="ik ik-save"></i>Save Data</button>
+                                                                <button type="button" class="btn btn-success"><i class="ik ik-edit"></i>Update Data</button>
+                                                                <button type="button" class="btn btn-danger"><i class="ik ik-trash"></i>Delete Data</button>
+                                                                <button type="button" class="btn btn-primary"><i class="ik ik-file"></i>View Label</button>
+                                                                <button type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -115,7 +116,7 @@
                                                                     <th>Description</th>
                                                                     <th>Heat No</th>
                                                                     <th>Quantity</th>
-                                                                    <th width="20">Action</th>
+                                                                    <th>Weight</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -126,12 +127,7 @@
                                                                     <td>Description</td>
                                                                     <td>UoM</td>
                                                                     <td>Heat No</td>
-                                                                    <td>
-                                                                        <div class="table-actions">
-                                                                            <a href="#"><i class="ik ik-edit-2"></i></a>
-                                                                            <a href="#"><i class="ik ik-trash-2"></i></a>
-                                                                        </div>
-                                                                    </td>
+                                                                    <td>Weight</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
