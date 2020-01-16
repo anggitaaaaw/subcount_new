@@ -51,19 +51,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="card col-md-8" style="min-height: 484px;">
+                                    <div class="card col-md-12" style="min-height: 700px;">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <form class="forms-sample">
-                                                        <div class="form-group row" style="margin: 1px;">
-                                                            <label class="col-sm-2 col-form-label">Vendor Name</label>
-                                                            <div class="col-sm-4">
-                                                                <select class="form-control select2">
-                                                                    <option value="">-SELECT VENDOR NAME-</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-2 col-form-label">Plat No</label>
                                                             <div class="col-sm-4">
@@ -94,6 +86,7 @@
                                                         <table id="simpletable4" class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>Vendor Name</th>
                                                                     <th>SPK No</th>
                                                                     <th>LPP No</th>
                                                                     <th>Item Code</th>
@@ -105,6 +98,7 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
+                                                                    <td>Vendor Name</td>
                                                                     <td>SPK No</td>
                                                                     <td>Batch No</td>
                                                                     <td>Item Code</td>

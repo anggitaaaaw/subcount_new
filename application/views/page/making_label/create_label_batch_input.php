@@ -78,6 +78,14 @@
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" id="lpp_qty">
                                                             </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="input-group">
+                                                                    <input type="text" placeholder="Weight" class="form-control" id="lpp_qty">
+                                                                    <span class="input-group-append" id="basic-addon3">
+                                                                        <label class="input-group-text">Kg</label>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
@@ -137,4 +145,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>
+                    <script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>
