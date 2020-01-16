@@ -82,8 +82,8 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
                                                                 <br>
-                                                                <button type="button" class="btn btn-primary">Add Data</button>
-                                                                <button type="button" class="btn btn-primary">Save Data</button>
+                                                                <button type="button" class="btn btn-primary" onclick="reload()">Add Data</button>
+                                                                <button type="button" class="btn btn-primary" onclick="save_data()">Save Data</button>
                                                                 <button type="button" class="btn btn-primary">View Label Batch</button>
                                                                 <button type="button" id="print_label" class="btn btn-primary">Print Label Batch</button>
                                                             </div>
@@ -137,4 +137,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>
+<script src="<?php echo base_url() ?>javascript_data/create_label_batch_input.js"></script>
