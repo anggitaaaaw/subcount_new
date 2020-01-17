@@ -197,17 +197,6 @@
                                                                     <th>Weight</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>SPK No</td>
-                                                                    <td>Batch No</td>
-                                                                    <td>Item Code</td>
-                                                                    <td>Description</td>
-                                                                    <td>UoM</td>
-                                                                    <td>Heat No</td>
-                                                                    <td>Weight</td>
-                                                                </tr>
-                                                            </tbody>
                                                         </table>
                                                     </div>
                                                 </div>

@@ -128,7 +128,7 @@ function view_label(){
             { "data": "item_id" },
             { "data": "item_name" },
             { "data": "heatno_a" },
-            { "data": "heatno_b" },
+            { "data": "lpp_qty" },
             { "data": "weight" }
         ]   
     });
