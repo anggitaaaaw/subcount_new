@@ -34,6 +34,12 @@
                                                 <div class="col-md-8">
                                                     <form id="myForm" class="forms-sample">
                                                         <div class="form-group row" style="margin: 1px;">
+                                                            <label class="col-sm-3 col-form-label">Serial ID</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" readonly class="form-control" id="serial_id">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">SPK NO</label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="spk_no" onchange="select_spk(this.value)"> 
@@ -91,12 +97,10 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
                                                                 <br>
+                                                                <button type="button" class="btn btn-primary" ><i class="ik ik-plus"></i>Add Data</button>
                                                                 <button type="button" class="btn btn-primary" onclick="save_data()"  ><i class="ik ik-save"></i>Save Data</button>
                                                                 <button type="button" class="btn btn-success" id="edit_label" data-toggle="modal" ><i class="ik ik-edit"></i>Update Data</button>
                                                                 <button type="button" class="btn btn-danger" id="delete_label" ><i class="ik ik-trash"></i>Delete Data</button>
-                                                                <button type="button" class="btn btn-primary" id="view_label_barcode"><i class="ik ik-file"></i>View Label</button>
-                                                                <button type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
-
                                                             </div>
                                                         </div>
                                                     </form>
@@ -180,9 +184,11 @@
                                         <iframe src="<?php echo site_url('welcome/print_label') ?>" id="iframe2" style="border:1px solid gray;" height="100%" width="100%;">
 
                                         </iframe>
+                                        <button style="margin: 5px;" type="button" class="btn btn-primary" id="view_label_barcode"><i class="ik ik-file"></i>View Label</button>
+                                        <button style="margin: 5px;" type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
                                     </div>
                                     <div class="col-md-12">
-                                    <br><br>
+                                    <br><br><br><br>
                                         <div class="dt-responsive">
                                             <table id="simpletable" class="table table-striped table-bordered nowrap">
                                                 <thead>
