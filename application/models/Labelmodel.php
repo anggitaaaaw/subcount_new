@@ -27,7 +27,7 @@ class Labelmodel extends CI_Model {
     }
 
     function select_lpp_no($id_spk){
-        $sql = "select distinct a.id_spk, b.spk_number, c.item_code, c.item_name, d.heat_no_a, d.heat_no_b, b.lot_number, b.qty_lot FROM trx_bst_fcs a join trx_lot b on a.id_spk = b.id_spk join m_item c on a.id_finishgood = c.id join trx_spk d on b.spk_number = d.spk_number where a.kode_fcs_destination = 'PL-01'";
+        $sql = "select distinct b.lot_number, b.qty_lot FROM trx_bst_fcs a join trx_lot b on a.id_spk = b.id_spk join m_item c on a.id_finishgood = c.id join trx_spk d on b.spk_number = d.spk_number where a.kode_fcs_destination = 'PL-01' and a.id_spk = '$id_spk'";
         $result = $this->db->query($sql)->result();
         return $result;
     }
