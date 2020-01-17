@@ -41,6 +41,44 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function viewLabel(){
+        $this->db->select('*');
+		$this->db->from('m_batch');
+        return $this->db->get();
+    }
+
+    function getLabel($id){
+        $this->db->select('*');
+        $this->db->from('m_batch');
+        $this->db->where('serial_number', $id);
+        return $this->db->get();
+    }
+
+    function deleteLabel($id) {
+		$this->db->where('serial_number', $id);
+		$this->db->delete('m_batch');
+			if($this->db->affected_rows()==1){
+				return TRUE;
+			}
+			return FALSE;
+			
+    }
+    
+    function editLabel($data, $id) {
+		//return $this->mongo_db->where(array('id_menu' => $id_menu))->set($data)->update('adm_m_menu');
+		$this->db->where('serial_number', $id);
+        $this->db->update('m_batch', $data);
+    } 
+    
+    function getSerial($sn){
+        $this->db->select('*');
+        $this->db->from('m_batch');
+        $this->db->like('serial_number', $sn);
+        $this->db->order_by('serial_number', 'desc');
+        $this->db->limit(1);
+        return $this->db->get();
+    }
+
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */

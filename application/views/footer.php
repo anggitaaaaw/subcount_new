@@ -61,6 +61,13 @@
             $(document).ready(function() {
                 $('#lpp_no').select2();
             });
+            $(document).ready(function() {
+                $('#edit_spk_no').select2();
+            });
+
+            $(document).ready(function() {
+                $('#edit_lpp_no').select2();
+            });
         </script>
     </body>
 </html>
