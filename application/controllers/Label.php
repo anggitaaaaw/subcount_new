@@ -28,7 +28,7 @@ class Label extends CI_Controller {
 
     public function select_lpp_no(){
         $id_spk = $this->input->post('id_spk');
-        $get_item = $this->labelmodel->select_lpp_no($id_spk)->result();
+        $get_item = $this->labelmodel->select_lpp_no($id_spk);
         echo json_encode($get_item);
     }
  
@@ -115,6 +115,14 @@ class Label extends CI_Controller {
          echo "0";
        }
     
+    }
+
+    public function view_label_barcode(){
+        $serial_number = $this->input->post('id');
+        $data['label'] = $this->labelmodel->getLabel($serial_number)->row();
+        //echo json_encode($label);
+        $this->load->view('page/making_label/print_label', $data);
+
     }
     
 }

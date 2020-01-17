@@ -38,7 +38,7 @@
             </div>
             <div style="width: 20%; float: left;">
                 <img src="<?php echo base_url() ?>assets/phpqrcode/CONTOH QRCODE.png" width="70" style="margin:2px; float: right;">
-                <center style="font-size: 10px;">10000000000</center>
+                <center style="font-size: 10px;"><?php echo $label->serial_number?></center>
             </div>
             <div style="width: 100%; float: left;">
                 <table style="border-collapse: collapse;">

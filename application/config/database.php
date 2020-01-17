@@ -76,8 +76,13 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
+	//ini untuk di localhost
 	'username' => 'root',
 	'password' => '',
+	//ini untuk  di hosting
+	/*'username' => 'u6585232_hilman',
+	'password' => 'hilmanf11',*/
+	//////////
 	'database' => 'subcount',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
