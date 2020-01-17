@@ -39,21 +39,23 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
-    function viewLabel(){
+    function viewLabel($serial_id){
         $this->db->select('*');
-		$this->db->from('m_batch');
+        $this->db->from('m_batch');
+	    $this->db->where('serial_number', $serial_id);
+        
         return $this->db->get();
     }
 
     function getLabel($id){
         $this->db->select('*');
         $this->db->from('m_batch');
-        $this->db->where('serial_number', $id);
+        $this->db->where('id', $id);
         return $this->db->get();
     }
 
     function deleteLabel($id) {
-		$this->db->where('serial_number', $id);
+		$this->db->where('id', $id);
 		$this->db->delete('m_batch');
 			if($this->db->affected_rows()==1){
 				return TRUE;
@@ -64,7 +66,7 @@ class Labelmodel extends CI_Model {
     
     function editLabel($data, $id) {
 		//return $this->mongo_db->where(array('id_menu' => $id_menu))->set($data)->update('adm_m_menu');
-		$this->db->where('serial_number', $id);
+		$this->db->where('id', $id);
         $this->db->update('m_batch', $data);
     } 
     
