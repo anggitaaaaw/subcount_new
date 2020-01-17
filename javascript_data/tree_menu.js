@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    nik = $('#nik').val();
+    nik = $('#id_user').val();
     $.post('../User/tree_menu',{ 'nik' : nik },
     function(data){ 
         dataa = JSON.parse(data);

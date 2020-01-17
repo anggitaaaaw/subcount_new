@@ -180,8 +180,24 @@ function view_label(){
         }
         $('#simpletable').DataTable().ajax.reload();
     });
+
+    $('#view_label_barcode').click( function () {
+        select_row = table.rows('.selected').data ().length;
+        if(select_row == 1 ){
+            id = table.rows('.selected').data()[0].serial_number;
+            view_label_bar(id);
+        }else{
+            swal("Your can wiew label only 1 row!");
+        }
+        $('#simpletable').DataTable().ajax.reload();
+    });
 }
 
+function view_label_bar(id){
+    $.post('../Label/view_label_barcode',{'id' : id},function(data){ 
+       
+    });
+}
 function delete_label(id){
     $.post('../Label/delete_label',{'id' : id},function(data){ 
        
