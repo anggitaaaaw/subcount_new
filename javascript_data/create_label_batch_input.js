@@ -3,6 +3,7 @@ $(document).ready(function() {
         dataa = JSON.parse(data);
        // console.log(dataa);
             table = '';
+            table += '<option value="" selected disabled>-SELECT SPK NO-</option>';
         for(i in dataa){
             table += '<option value="'+dataa[i].id_spk+'.'+dataa[i].spk_number+'">'+dataa[i].spk_number+'</option>';
         }
@@ -36,6 +37,7 @@ function select_spk(spk){
         dataa = JSON.parse(data);
         //console.log(dataa);
             table = '';
+            table += '<option value="" seleced>-SELECT LPP NO-</option>';
         for(i in dataa){
             table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
         }
@@ -74,6 +76,7 @@ function select_spk_edit(spk){
         dataa = JSON.parse(data);
         //console.log(dataa);
             table = '';
+            table += '<option value="" seleced disabled>-SELECT LPP NO-</option>';
         for(i in dataa){
             table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
         }

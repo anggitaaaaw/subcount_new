@@ -176,37 +176,37 @@
                                             </div>
                                         </div>
                                     </div>
-                                                <div class="col-md-4">
-                                                    <iframe src="<?php echo site_url('welcome/print_label') ?>" id="iframe2" style="border:1px solid gray;" height="100%" width="100%;">
+                                    <div class="col-md-4">
+                                        <iframe src="<?php echo site_url('welcome/print_label') ?>" id="iframe2" style="border:1px solid gray;" height="100%" width="100%;">
 
-                                                    </iframe>
-                                                </div>
-                                                <div class="col-md-12">
-                                                <br><br>
-                                                    <div class="dt-responsive">
-                                                        <table id="simpletable" class="table table-striped table-bordered nowrap">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No</th>
-                                                                    <th>SPK No</th>
-                                                                    <th>LPP No</th>
-                                                                    <th>Item Code</th>
-                                                                    <th>Description</th>
-                                                                    <th>Heat No</th>
-                                                                    <th>Quantity</th>
-                                                                    <th>Weight</th>
-                                                                </tr>
-                                                            </thead>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </iframe>
+                                    </div>
+                                    <div class="col-md-12">
+                                    <br><br>
+                                        <div class="dt-responsive">
+                                            <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                                <thead>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>SPK No</th>
+                                                        <th>LPP No</th>
+                                                        <th>Item Code</th>
+                                                        <th>Description</th>
+                                                        <th>Heat No</th>
+                                                        <th>Quantity</th>
+                                                        <th>Weight</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-                    <script src="<?php echo base_url() ?>javascript_data/create_label_batch_input.js"></script>
+                </div>
+            </div>
+        </div>
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="<?php echo base_url() ?>javascript_data/create_label_batch_input.js?<?php echo time() ?>"></script>
 
