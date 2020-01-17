@@ -32,13 +32,14 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <form id="myForm" class="forms-sample">
+                                                    
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Serial ID</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" readonly class="form-control" id="serial_id">
                                                             </div>
                                                         </div>
+                                                        <form id="myForm" class="forms-sample">
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">SPK NO</label>
                                                             <div class="col-sm-8">
@@ -97,7 +98,7 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
                                                                 <br>
-                                                                <button type="button" class="btn btn-primary" ><i class="ik ik-plus"></i>Add Data</button>
+                                                                <button type="button" class="btn btn-primary" onclick="location.reload()"><i class="ik ik-plus"></i>Add Data</button>
                                                                 <button type="button" class="btn btn-primary" onclick="save_data()"  ><i class="ik ik-save"></i>Save Data</button>
                                                                 <button type="button" class="btn btn-success" id="edit_label" data-toggle="modal" ><i class="ik ik-edit"></i>Update Data</button>
                                                                 <button type="button" class="btn btn-danger" id="delete_label" ><i class="ik ik-trash"></i>Delete Data</button>
@@ -194,7 +195,8 @@
                                             <table id="simpletable" class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
-                                                        <th>No</th>
+                                                        <th>ID  </th>
+                                                        <th>Serial ID</th>
                                                         <th>SPK No</th>
                                                         <th>LPP No</th>
                                                         <th>Item Code</th>

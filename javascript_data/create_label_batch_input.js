@@ -3,14 +3,18 @@ $(document).ready(function() {
         dataa = JSON.parse(data);
        // console.log(dataa);
             table = '';
-            table += '<option value="" selected disabled>-SELECT SPK NO-</option>';
         for(i in dataa){
             table += '<option value="'+dataa[i].id_spk+'.'+dataa[i].spk_number+'">'+dataa[i].spk_number+'</option>';
         }
         $('#spk_no').append(table);
     });
 
-   view_label();
+    $.post('../Label/get_serial_id',{},function(data){ 
+        $('#serial_id').val(data);
+        view_label(data);
+    });
+
+   
 });
 
 function select_spk(spk){
@@ -37,7 +41,6 @@ function select_spk(spk){
         dataa = JSON.parse(data);
         //console.log(dataa);
             table = '';
-            table += '<option value="" seleced>-SELECT LPP NO-</option>';
         for(i in dataa){
             table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
         }
@@ -92,6 +95,7 @@ function select_lpp_no_edit(str){
 //
 function save_data(){
     spk = $('#spk_no').val();
+    serial_id = $('#serial_id').val();
     spkk = spk.split('.');
     id_spk = spkk[0];
     no_spk = spkk[1];
@@ -105,7 +109,7 @@ function save_data(){
     lpp_qty = lppp[0];
     lpp_number = lppp[1];
 
-    $.post('../Label/save_data',{'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
+    $.post('../Label/save_data',{'serial_id': serial_id ,'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
         dataa = JSON.parse(data);
         if(data == "1"){
             swal("Label added successfully!");
@@ -119,12 +123,20 @@ function save_data(){
     });
 
     document.getElementById("myForm").reset();
+    $('#spk_no').select2("destroy");
+    $('#lpp_no').select2("destroy");
+
 }
 
-function view_label(){
+function view_label(serial_id){
+   // serial_id =  $('#serial_id').val();
+    //console.log(serial_id);
     var table = $('#simpletable').DataTable( {
-        "ajax": "../Label/view_label",
+       "processing": true,
+            "destroy": true,
+            "ajax": '../Label/view_label/'+serial_id ,
         "columns": [
+            { "data": "id" },
             { "data": "serial_number" },
             { "data": "spk_no" },
             { "data": "lpp_no" },
@@ -155,7 +167,7 @@ function view_label(){
             if (willDelete) {
                 var no_select = table.rows('.selected').data().length;
                 for(i=0; i < no_select; i++){
-                    delete_label(table.rows('.selected').data()[i].serial_number);
+                    delete_label(table.rows('.selected').data()[i].id);
                 }
              
               swal('User Success Deleted ' + no_select + ' rows', {
@@ -175,7 +187,7 @@ function view_label(){
     $('#edit_label').click( function () {
         select_row = table.rows('.selected').data ().length;
         if(select_row == 1 ){
-            id = table.rows('.selected').data()[0].serial_number;
+            id = table.rows('.selected').data()[0].id;
             $("#editModal").modal("show");
             edit_label(id);
         }else{
@@ -187,7 +199,7 @@ function view_label(){
     $('#view_label_barcode').click( function () {
         select_row = table.rows('.selected').data ().length;
         if(select_row == 1 ){
-            id = table.rows('.selected').data()[0].serial_number;
+            id = table.rows('.selected').data()[0].id;
             view_label_bar(id);
         }else{
             swal("Your can wiew label only 1 row!");
@@ -214,7 +226,7 @@ function edit_label(id){
           dataa = JSON.parse(data);
           console.log(dataa);
           $('#edit_spk_id').val(dataa.id_spk);
-          $('#edit_id').val(dataa.serial_number);
+          $('#edit_id').val(dataa.id);
           $('#edit_spk_no').select2({
             data:[{id:0,text:dataa.spk_no}]
         });
@@ -243,6 +255,7 @@ function edit_label(id){
   }
 
   function proses_edit_label(){
+    serial_id = $('serial_id').val()
     id = $('#edit_id').val();
     spk = $('#edit_spk_no').val();
    // console.log(spk);
@@ -277,7 +290,7 @@ function edit_label(id){
 
    
    
-   $.post('../Label/proses_edit_label',{'id' : id,'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
+   $.post('../Label/proses_edit_label',{'id' : id, 'serial_id' : serial_id, 'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
       //console.log(data);
 
       if(data == 1){

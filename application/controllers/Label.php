@@ -38,7 +38,7 @@ class Label extends CI_Controller {
         echo json_encode($get_item);
     }
 
-    public function save_data(){
+    public function get_serial_id(){
         $date = date('dmY');
         $ser = $this->labelmodel->getSerial($date)->row();
         if($ser == null){
@@ -49,7 +49,12 @@ class Label extends CI_Controller {
             $angka = $num + 1;
             $serial_number = $angka;
         }
-        $data['serial_number'] = $serial_number;
+
+        echo $serial_number;
+    }
+    public function save_data(){
+       
+        $data['serial_number'] = $this->input->post('serial_id');
         $data['id_spk'] = $this->input->post('id_spk');
         $data['spk_no'] = $this->input->post('no_spk');
         $data['item_id'] = $this->input->post('item_code');
@@ -72,8 +77,9 @@ class Label extends CI_Controller {
     
     }
 
-    public function view_label(){
-        $label = $this->labelmodel->viewLabel()->result();
+    public function view_label($id){
+        $serial_id = explode("?", $id);
+        $label = $this->labelmodel->viewLabel($serial_id[0])->result();
         $data["data"] = $label;
         echo json_encode($data);
     
@@ -93,8 +99,8 @@ class Label extends CI_Controller {
 
     
       public function proses_edit_label(){
-      
-        $data['serial_number'] = $this->input->post('id');
+        $id = $this->input->post('id');
+        $data['serial_number'] = $this->input->post('serial_id');
         $data['id_spk'] = $this->input->post('id_spk');
         $data['spk_no'] = $this->input->post('no_spk');
         $data['item_id'] = $this->input->post('item_code');
@@ -108,7 +114,7 @@ class Label extends CI_Controller {
         $data['user_created'] = $this->session->userdata('username');
         $data['date_created'] = date('Y-m-d H:m:s');
 
-        $edit = $this->labelmodel->editLabel($data, $data['serial_number']);
+        $edit = $this->labelmodel->editLabel($data, $data['id']);
         if ($this->db->affected_rows() == 1) {
          echo "1";
        }else{
