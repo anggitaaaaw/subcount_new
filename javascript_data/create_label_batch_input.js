@@ -6,7 +6,7 @@ $(document).ready(function() {
         for(i in dataa){
             table += '<option value="'+dataa[i].id_spk+'.'+dataa[i].spk_number+'">'+dataa[i].spk_number+'</option>';
         }
-        $('#spk_no').html(table);
+        $('#spk_no').append(table);
     });
 
    view_label();
@@ -39,7 +39,7 @@ function select_spk(spk){
         for(i in dataa){
             table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
         }
-        $('#lpp_no').html(table);
+        $('#lpp_no').append(table);
     });
 }
 
