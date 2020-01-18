@@ -41,9 +41,7 @@
                                                             <div class="form-group row" style="margin: 1px;">
                                                                 <label class="col-sm-3 col-form-label">SPK NO</label>
                                                                 <div class="col-sm-8">
-                                                                    <select class="form-control select">
-                                                                        <option value="cheese">SPK NO</option>
-                                                                        <option value="cheese">SPK NO</option>
+                                                                    <select class="form-control select2">
                                                                         <option value="cheese">SPK NO</option>
                                                                     </select>
                                                                 </div>
@@ -180,17 +178,13 @@
                                                     <button data-toggle="modal" data-target="#modal_printsj" class="btn btn-primary mr-2"><i class="ik ik-printer"></i>Cetak SJ</button>
                                                     -->
                                                     <br><br><br>
+                                                    <input type="text" id="det_sn">
                                                     <div class="dt-responsive">
-                                                        <table id="create_label_batch" class="table table-bordered nowrap">
+                                                        <table id="create_label_batch" class="table table-striped table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
-                                                                    <th width="5"></th>
-                                                                    <th>SPK No</th>
-                                                                    <th>Batch No</th>
-                                                                    <th>Item Code</th>
-                                                                    <th>Description</th>
-                                                                    <th>Heat No</th>
-                                                                    <th>UoM</th>
+                                                                    <th>Detail</th>
+                                                                    <th>Serial Number</th>
                                                                     <th>Create By</th>
                                                                     <th width="20">Action</th>
                                                                 </tr>
@@ -205,5 +199,3 @@
                             </div>
                         </div>
                     </div>
-<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>

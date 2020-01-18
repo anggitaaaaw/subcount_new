@@ -120,6 +120,8 @@ class Label extends CI_Controller {
        }else{
          echo "0";
        }
+
+     
     
     }
 
@@ -131,4 +133,14 @@ class Label extends CI_Controller {
 
     }
     
+    public function view_label_sn(){
+        $label = $this->labelmodel->viewLabelSn()->result();
+        $data["data"] = $label;
+        echo json_encode($data);
+       }
+       public function view_label_all(){
+        $serial_number = $this->input->post('serial_number');
+        $label = $this->labelmodel->viewLabelAll($serial_number)->result();
+        echo json_encode($label);
+       }
 }

@@ -47,6 +47,22 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function viewLabelSn(){
+        $this->db->select('*');
+        $this->db->from('m_batch');
+        $this->db->group_by('serial_number');
+        
+        return $this->db->get();
+    }
+
+    function viewLabelAll($sn){
+        $this->db->select('*');
+        $this->db->from('m_batch');
+        $this->db->where('serial_number', $sn);
+        
+        return $this->db->get();
+    }
+
     function getLabel($id){
         $this->db->select('*');
         $this->db->from('m_batch');

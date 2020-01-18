@@ -123,9 +123,19 @@ function save_data(){
     });
 
     document.getElementById("myForm").reset();
-    $('#spk_no').select2("destroy");
-    $('#lpp_no').select2("destroy");
-
+    $('#spk_no').select2({
+        placeholder: {
+          id: '-1', // the value of the option
+          text: '-SELECT SPK NO-'
+        }
+      });
+      $('#lpp_no').select2({
+        placeholder: {
+          id: '-1', // the value of the option
+          text: '-SELECT LPP NO-'
+        }
+      });
+    
 }
 
 function view_label(serial_id){
