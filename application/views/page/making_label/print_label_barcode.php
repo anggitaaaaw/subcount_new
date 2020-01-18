@@ -30,7 +30,7 @@
 
     <body>
         
-        <div style="width: 340px; height: 529px; border: 1px solid black; padding: 5px;">
+        <div style="width: 340px; height: 500px; float: left; border: 1px solid black; padding: 5px;">
             <div style="width: 80%; float: left;">
                 <img src="<?php echo base_url() ?>assets/ismu-logo.png" width="80" class="header-brand-img" alt="lavalite">
                 <p style="font-weight: bold; font-size: 17px;"><u>PT. INDOSEIKI METALUTAMA</u></p>
@@ -88,6 +88,9 @@
                     </tr>
                 </table>
             </div>
+            
+
+
         </div>
     </body>
 </html>
