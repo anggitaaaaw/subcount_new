@@ -9,7 +9,7 @@
                                                 <div class="page-header-title">
                                                     <i class="ik ik-settings bg-blue"></i>
                                                     <div class="d-inline">
-                                                        <h5>Setting Menu</h5>
+                                                        <h5>Master Vendor</h5>
                                                         <span>Please enter data completely and correctly</span>
                                                     </div>
                                                 </div>
@@ -20,8 +20,8 @@
                                                         <li class="breadcrumb-item">
                                                             <a href="../index.html"><i class="ik ik-home"></i></a>
                                                         </li>
-                                                        <li class="breadcrumb-item"><a href="#">Administrator</a></li>
-                                                        <li class="breadcrumb-item active"><a href="#">Setting Menu</a></li>
+                                                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
+                                                        <li class="breadcrumb-item active"><a href="#">Master Vendor</a></li>
                                                     </ol>
                                                 </nav>
                                             </div>
@@ -39,41 +39,62 @@
                                                 <form class="forms-sample">
                                                     <div class="modal-body">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">ID Menu <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label">Vendor Code </label>
                                                             <div class="col-sm-4">
-                                                                <input type="number" required class="form-control" id="id_menu" name="id_menu">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Parent Menu <i style="color: red;"></i></label>
-                                                            <div class="col-sm-8">
-                                                                <select class="form-control select2" id="parent_menu" name="parent_menu">
-                                                             
+                                                                <select class="form-control select2" id="vendor_code" >
+                                                                   
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Menu Name <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label"> Vendor Name</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" required class="form-control" id="menu_name" name="menu_name">
+                                                                <input type="text" class="form-control" id="vendor_name" name="vendor_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Link <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label">Vendor Address </label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" required class="form-control" id="link" name="link">
+                                                                <select class="form-control select2" id="vendor_address">
+                                                                   
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Contact Person </label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="contact_person" name="contact_person">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Order Number</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="order_number" name="order_number">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Email Contact</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="email" class="form-control" id="email_contact" name="email_contact">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Batch QTY</label>
                                                             <div class="col-sm-4">
-                                                                <input type="number" class="form-control" id="order_number" name="order_number">
+                                                                <input type="number" class="form-control" id="batch_qty" name="batch_qty">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">STD Container </label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" id="standard_container" name="standard_container">
                                                             </div>
                                                         </div>
                                                     
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" onclick="new_menu()">Simpan</button>
+                                                        <button type="button" class="btn btn-primary">Simpan</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -81,6 +102,7 @@
                                         </div>
                                     </div>
                         <!-- Edit Menu Data -->
+                        <!--
                                     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -91,13 +113,13 @@
                                                 <form class="forms-sample">
                                                     <div class="modal-body">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">ID Menu <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label">ID Menu /label>
                                                             <div class="col-sm-4">
                                                                 <input type="number" required class="form-control" id="edit_id_menu" name="id_menu">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Parent Menu <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label">Parent Menu /label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="edit_parent_menu" name="parent_menu">
                                                                  
@@ -105,13 +127,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Menu Name <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label">Menu Name /label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" required class="form-control" id="edit_menu_name" name="menu_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Link <i style="color: red;">*</i></label>
+                                                            <label class="col-sm-3 col-form-label">Link /label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" required class="form-control" id="edit_link" name="link">
                                                             </div>
@@ -132,7 +154,7 @@
                                             </div>
                                         </div>
                                     </div>
- 
+                                -->
                                 <div class="row">
                                         <div class="col-md-12">
                                             <div class="card" style="min-height: 484px;">
@@ -145,11 +167,13 @@
                                                         <table id="example" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>ID Menu</th>
-                                                                    <th>Parent Menu</th>
-                                                                    <th>Menu Name</th>
-                                                                    <th>Link</th>
-                                                                    <th>Order Number</th>
+                                                                    <th>Vendor Code</th>
+                                                                    <th>Vendor Name</th>
+                                                                    <th>Vendor Address</th>
+                                                                    <th>Contact Person</th>
+                                                                    <th>Email Contact</th>
+                                                                    <th>Batch QTY</th>
+                                                                    <th>Standard Container</th>
                                                                 </tr>
                                                             </thead>
                                                         </table>
@@ -162,4 +186,3 @@
                         </div>
                     </div>
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="<?php echo base_url() ?>javascript_data/setting_menu.js?s"></script>
