@@ -32,13 +32,14 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    
+                                                        <!--
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Serial ID</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" readonly class="form-control" id="serial_id">
                                                             </div>
                                                         </div>
+                                                        -->
                                                         <form id="myForm" class="forms-sample">
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">SPK NO</label>
@@ -58,6 +59,18 @@
                                                             <label class="col-sm-3 col-form-label">Description</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="deskripsi">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" style="margin: 1px;">
+                                                            <label class="col-sm-3 col-form-label">Qty Batch</label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" id="qty_batch">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" style="margin: 1px;">
+                                                            <label class="col-sm-3 col-form-label">Qty Container</label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" id="qty_container">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
@@ -98,10 +111,11 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
                                                                 <br>
-                                                                <button type="button" class="btn btn-primary" onclick="location.reload()"><i class="ik ik-plus"></i>Add Data</button>
-                                                                <button type="button" class="btn btn-primary" onclick="save_data()"  ><i class="ik ik-save"></i>Save Data</button>
-                                                                <button type="button" class="btn btn-success" id="edit_label" data-toggle="modal" ><i class="ik ik-edit"></i>Update Data</button>
-                                                                <button type="button" class="btn btn-danger" id="delete_label" ><i class="ik ik-trash"></i>Delete Data</button>
+                                                                <button type="button" class="btn btn-primary" onclick="location.reload()"><i class="ik ik-plus"></i>New</button>
+                                                                <button type="button" class="btn btn-primary"><i class="ik ik-plus"></i>Add</button>
+                                                                <button type="button" class="btn btn-primary" onclick="save_data()"><i class="ik ik-save"></i>Save</button>
+                                                                <button type="button" class="btn btn-success" id="edit_label" data-toggle="modal" ><i class="ik ik-edit"></i>Update</button>
+                                                                <button type="button" class="btn btn-danger" id="delete_label" ><i class="ik ik-trash"></i>Delete</button>
                                                                 <button style="float: right;" type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
                                                                 <button style="float: right; margin-right: 5px;" type="button" class="btn btn-primary" id="view_label_barcode"><i class="ik ik-file"></i>View Label</button>
                                                                 

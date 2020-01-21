@@ -41,9 +41,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Vendor Code </label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control select2" id="vendor_code" >
-                                                                   
-                                                                </select>
+                                                                <input type="text" class="form-control" id="vendor_code" name="vendor_code">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -55,9 +53,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Vendor Address </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="vendor_address">
-                                                                   
-                                                                </select>
+                                                                <textarea type="text" class="form-control" id="vendor_address" rows="3" name="vendor_address"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
