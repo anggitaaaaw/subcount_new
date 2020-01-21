@@ -6,7 +6,7 @@
         link = $('#link').val();
         order_number = $('#order_number').val();
         
-        if(id_menu == '' || parent_menu == '' || menu_name == '' || link == ''){
+        if(id_menu == '' || menu_name == '' || link == ''){
             alert('mohon lengkapi data anda');
         }else{
             $.post('../User/new_menu',{ 'id_menu' : id_menu ,'parent_menu' : parent_menu, 'menu_name': menu_name, 'link' : link, 'order_number' : order_number},

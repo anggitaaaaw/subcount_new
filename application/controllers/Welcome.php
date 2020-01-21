@@ -118,4 +118,20 @@ class Welcome extends CI_Controller {
 		$this->load->view('page/making_label/print_dn');
 	}
 
+	//MODUL MASTER DATA
+	public function mst_vendor(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/master_data/mst_vendor');
+		$this->load->view('footer');
+	}
+
+	public function mst_setting_vendor(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/master_data/setting_vendor');
+		$this->load->view('footer');
+	}
+
+
 }
