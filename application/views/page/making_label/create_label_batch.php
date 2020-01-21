@@ -178,7 +178,6 @@
                                                     <button data-toggle="modal" data-target="#modal_printsj" class="btn btn-primary mr-2"><i class="ik ik-printer"></i>Cetak SJ</button>
                                                     -->
                                                     <br><br><br>
-                                                    <input type="text" id="det_sn">
                                                     <div class="dt-responsive">
                                                         <table id="create_label_batch" class="table table-striped table-bordered nowrap">
                                                             <thead>
