@@ -36,12 +36,12 @@
                                                     <h5 class="modal-title" id="demoModalLabel">New Data</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
-                                                <form class="forms-sample">
+                                                <form id="myForm     " class="forms-sample">
                                                     <div class="modal-body">
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Item No </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="item_no" >
+                                                                <select class="form-control select2" id="item_no" onchange="select_item_no(this.value)">
                                                                    
                                                                 </select>
                                                             </div>
@@ -55,7 +55,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Subcont Vendor </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="subcont_vendor">
+                                                                <select class="form-control select2" id="subcount_vendor" onchange="select_subcount_vendor(this.value)">
                                                                    
                                                                 </select>
                                                             </div>
@@ -75,7 +75,7 @@
                                                     
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary">Simpan</button>
+                                                        <button type="button" class="btn btn-primary"name="masuk" onclick="new_set_vendor()">Simpan</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -83,66 +83,68 @@
                                         </div>
                                     </div>
                         <!-- Edit Menu Data -->
-                        <!--
-                                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                    
+                                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="demoModalLabel">Edit Data</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
-                                                <form class="forms-sample">
+                                                <form id="myForm     " class="forms-sample">
+                                          
                                                     <div class="modal-body">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">ID Menu /label>
-                                                            <div class="col-sm-4">
-                                                                <input type="number" required class="form-control" id="edit_id_menu" name="id_menu">
+                                                            <label class="col-sm-3 col-form-label">Item No </label>
+                                                            <div class="col-sm-8">
+                                                               <input type="text" class="form-control" id="edit_item_no" disabled="disabled">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Parent Menu /label>
+                                                            <label class="col-sm-3 col-form-label"> Description</label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="edit_parent_menu" name="parent_menu">
-                                                                 
+                                                                <input type="text" class="form-control" id="edit_item_name" name="item_name">
+                                                            </div>
+                                                        </div>
+                                                        <input type="hidden" id="edit_vendor_code">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Subcont Vendor </label>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control select2" id="edit_subcount_vendor" onchange="edit_select_subcount_vendor(this.value)">
+                                                                   
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Menu Name /label>
+                                                            <label class="col-sm-3 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" required class="form-control" id="edit_menu_name" name="menu_name">
+                                                                <input type="text" class="form-control" id="edit_batch_qty" name="batch_qty">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Link /label>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" required class="form-control" id="edit_link" name="link">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Order Number</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="number" class="form-control" id="edit_order_number" name="order_number">
+                                                            <label class="col-sm-3 col-form-label">Container QTY</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="edit_container_qty" name="container_qty">
                                                             </div>
                                                         </div>
                                                     
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" onclick="proses_edit_menu()">Simpan</button>
+                                                        <button type="button" class="btn btn-primary"name="masuk" onclick="proses_edit_set_vendor()">Simpan</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
-                                -->
+                            
                                 <div class="row">
                                         <div class="col-md-12">
                                             <div class="card" style="min-height: 484px;">
                                                 <div class="card-body">
                                                     <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#demoModal"><i class="ik ik-plus"></i>New Data</button>
-                                                    <button class="btn btn-info mr-2" id="edit_menu" data-toggle="modal" ><i class="ik ik-edit"></i>Edit Data</button>
-                                                    <button class="btn btn-danger mr-2" id="delete_menu"><i class="ik ik-trash"></i>Delete</button>
+                                                    <button class="btn btn-info mr-2" id="edit_set_vendor" data-toggle="modal" ><i class="ik ik-edit"></i>Edit Data</button>
+                                                    <button class="btn btn-danger mr-2" id="delete_set_vendor"><i class="ik ik-trash"></i>Delete</button>
                                                     <br><br><br>
                                                     <div class="dt-responsive">
                                                         <table id="example" class="table table-bordered nowrap">
@@ -165,3 +167,4 @@
                         </div>
                     </div>
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+            <script src="<?php echo base_url() ?>javascript_data/mst_setting_vendor.js?"></script>

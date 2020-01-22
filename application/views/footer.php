@@ -68,6 +68,11 @@
             $(document).ready(function() {
                 $('#edit_lpp_no').select2();
             });
+
+            $(document).ready(function() {
+                $('#item_no').select2();
+                $('#subcount_vendor').select2();
+            });
         </script>
     </body>
 </html>

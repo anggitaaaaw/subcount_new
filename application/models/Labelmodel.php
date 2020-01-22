@@ -95,6 +95,8 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    
+
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */
