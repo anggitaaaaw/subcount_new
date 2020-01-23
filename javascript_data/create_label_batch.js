@@ -17,15 +17,11 @@ function format ( d ) {
 
             return table;*/
     var table = '';
-           table = 'Detail of : '+d.serial_number;
-           table +='<table class="table table-striped table-bordered nowrap" id="det_batch'+d.serial_number+'">';
+           table = 'Detail of : '+d.spk_no;
+           table +='<table class="table table-striped table-bordered nowrap" id="det_batch'+d.spk_no+'">';
                table += '<thead>';
                    table += '<tr>';
-                       table += '<th>SPK NO</th>';
-                       table += '<th>Item ID</th>';
-                       table += '<th>Item Name</th>';
-                       table += '<th>Heat No A</th>';
-                       table += '<th>Heat No B</th>';
+                       table += '<th>Serial Number</th>';
                        table += '<th>LPP NO</th>';
                        table += '<th>LPP Qty</th>';
                        table += '<th>Weight</th>';
@@ -36,16 +32,12 @@ function format ( d ) {
             table += '</tbody>';
             table += '</table>';
 
-            $.post('../Label/view_label_all',{'serial_number' : d.serial_number},function(data){ 
+            $.post('../Label/view_label_all',{'serial_number' : d.spk_no},function(data){ 
                 dataa = JSON.parse(data);
                 console.log(dataa);
                 for(i in dataa){
                     table += '<tr>';
-                    table += '<th>'+dataa[i].spk_no+'</th>';
-                    table += '<th>'+dataa[i].item_id+'</th>';
-                    table += '<th>'+dataa[i].item_name+'</th>';
-                    table += '<th>'+dataa[i].heatno_a+'</th>';
-                    table += '<th>'+dataa[i].heatno_b+'</th>';
+                    table += '<th>'+dataa[i].serial_number+'</th>';
                     table += '<th>'+dataa[i].lpp_no+'</th>';
                     table += '<th>'+dataa[i].lpp_qty+'</th>';
                     table += '<th>'+dataa[i].weight+'</th>';
@@ -54,7 +46,7 @@ function format ( d ) {
                    
                 }
 
-                $('#det_batch'+d.serial_number).html(table);
+                $('#det_batch'+d.spk_no).html(table);
     
             });
             
@@ -77,7 +69,9 @@ $(document).ready(function() {
                 "defaultContent": '<i class="ik ik-plus-circle"></i>'
             },
            
-            { "data": "serial_number" },
+            { "data": "spk_no" },
+            { "data": "item_id" },
+            { "data": "item_name" },
             { "data": "user_created" },
             { "data": "status_print" }
         ],

@@ -81,7 +81,8 @@ $db['default'] = array(
 	'password' => '',
 	//ini untuk  di hosting
 	/*'username' => 'u6585232_hilman',
-	'password' => 'hilmanf11',*/
+	'password' => 'hilmanf11',
+	'database' => 'u6585232_subcount',*/
 	//////////
 	'database' => 'subcount',
 	'dbdriver' => 'mysqli',

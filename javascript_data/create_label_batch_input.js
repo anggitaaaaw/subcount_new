@@ -9,12 +9,8 @@ $(document).ready(function() {
         $('#spk_no').append(table);
     });
 
-    $.post('../Label/get_serial_id',{},function(data){ 
-        $('#serial_id').val(data);
-        view_label(data);
-    });
+    view_label();
 
-   
 });
 
 function select_spk(spk){
@@ -25,8 +21,18 @@ function select_spk(spk){
         $('#item_code').val(dataa[0].item_code);
         $('#deskripsi').val(dataa[0].item_name);
         
+        $.post('../Label/batch_qty',{'item_no' : dataa[0].item_code},function(data){ 
+            dataa = JSON.parse(data);
+           // console.log(dataa);
+            $('#qty_batch').val(dataa.qty_batch);
+            $('#qty_container').val(dataa.qty_container);
+            $('#vendor_code').val(dataa.vendor_code);
+            
+           
+        });
        
     });
+   
 
     $.post('../Label/get_heat_no',{'id_spk' : id_spk[0]},function(data){ 
         dataa = JSON.parse(data);
@@ -54,38 +60,6 @@ function select_lpp_no(str){
    
 }
 
-//edit label
-function select_spk_edit(spk){
-    id_spk = spk.split(".");
-    $.post('../Label/item_deskripsi',{'id_spk' : id_spk[0]},function(data){ 
-        dataa = JSON.parse(data);
-       // console.log(dataa);
-        $('#edit_item_code').val(dataa[0].item_code);
-        $('#edit_deskripsi').val(dataa[0].item_name);
-        
-       
-    });
-
-    $.post('../Label/get_heat_no',{'id_spk' : id_spk[0]},function(data){ 
-        dataa = JSON.parse(data);
-      //  console.log(dataa);
-        $('#edit_heatno_a').val(dataa[0].heat_no_a);
-        $('#edit_heatno_b').val(dataa[0].heat_no_b);
-        
-       
-    });
-
-    $.post('../Label/select_lpp_no',{'id_spk' : id_spk[0]},function(data){ 
-        dataa = JSON.parse(data);
-        //console.log(dataa);
-            table = '';
-            table += '<option value="" seleced disabled>-SELECT LPP NO-</option>';
-        for(i in dataa){
-            table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
-        }
-        $('#edit_lpp_no').html(table);
-    });
-}
 
 function select_lpp_no_edit(str){
     lpp = str.split(".");
@@ -95,7 +69,7 @@ function select_lpp_no_edit(str){
 //
 function save_data(){
     spk = $('#spk_no').val();
-    serial_id = $('#serial_id').val();
+    vendor_code = $('#vendor_code').val();
     spkk = spk.split('.');
     id_spk = spkk[0];
     no_spk = spkk[1];
@@ -109,26 +83,23 @@ function save_data(){
     lpp_qty = lppp[0];
     lpp_number = lppp[1];
 
-    $.post('../Label/save_data',{'serial_id': serial_id ,'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
+    $.post('../Label/save_data',{'vendor_code': vendor_code ,'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
         dataa = JSON.parse(data);
         if(data == "1"){
             swal("Label added successfully!");
             $('#simpletable').DataTable().ajax.reload();
-        }else{
+        }else if(data == '0'){
             swal("Label not successfully added!");
+            $('#simpletable').DataTable().ajax.reload();
+        }else{
+            swal("Label already exists");
             $('#simpletable').DataTable().ajax.reload();
         }
         
        
     });
 
-    document.getElementById("myForm").reset();
-    $('#spk_no').select2({
-        placeholder: {
-          id: '-1', // the value of the option
-          text: '-SELECT SPK NO-'
-        }
-      });
+
       $('#lpp_no').select2({
         placeholder: {
           id: '-1', // the value of the option
@@ -144,9 +115,8 @@ function view_label(serial_id){
     var table = $('#simpletable').DataTable( {
        "processing": true,
             "destroy": true,
-            "ajax": '../Label/view_label/'+serial_id ,
+            "ajax": '../Label/view_label/',
         "columns": [
-            { "data": "id" },
             { "data": "serial_number" },
             { "data": "spk_no" },
             { "data": "lpp_no" },
@@ -177,7 +147,7 @@ function view_label(serial_id){
             if (willDelete) {
                 var no_select = table.rows('.selected').data().length;
                 for(i=0; i < no_select; i++){
-                    delete_label(table.rows('.selected').data()[i].id);
+                    delete_label(table.rows('.selected').data()[i].serial_number);
                 }
              
               swal('User Success Deleted ' + no_select + ' rows', {
@@ -197,7 +167,7 @@ function view_label(serial_id){
     $('#edit_label').click( function () {
         select_row = table.rows('.selected').data ().length;
         if(select_row == 1 ){
-            id = table.rows('.selected').data()[0].id;
+            id = table.rows('.selected').data()[0].serial_number;
             $("#editModal").modal("show");
             edit_label(id);
         }else{
@@ -209,7 +179,7 @@ function view_label(serial_id){
     $('#view_label_barcode').click( function () {
         select_row = table.rows('.selected').data ().length;
         if(select_row == 1 ){
-            id = table.rows('.selected').data()[0].id;
+            id = table.rows('.selected').data()[0].serial_number;
             view_label_bar(id);
         }else{
             swal("Your can wiew label only 1 row!");
@@ -236,10 +206,8 @@ function edit_label(id){
           dataa = JSON.parse(data);
           console.log(dataa);
           $('#edit_spk_id').val(dataa.id_spk);
-          $('#edit_id').val(dataa.id);
-          $('#edit_spk_no').select2({
-            data:[{id:0,text:dataa.spk_no}]
-        });
+          $('#edit_serial_id').val(id);
+          $('#edit_spk_no').val(dataa.spk_no);
           // $('#edit_spk_no').val(dataa.spk_no);
           $('#edit_item_code').val(dataa.item_id);
           $('#edit_deskripsi').val(dataa.item_name);
@@ -265,19 +233,10 @@ function edit_label(id){
   }
 
   function proses_edit_label(){
-    serial_id = $('serial_id').val()
-    id = $('#edit_id').val();
-    spk = $('#edit_spk_no').val();
-   // console.log(spk);
-    n = spk.search(".");
-    if(spk != 0){
-        spkk = spk.split('.');
-        id_spk = spkk[0];
-        no_spk = spkk[1];
-    }else if(spk == 0){
-        no_spk = $('#edit_spk_no :selected').text();
-        id_spk = $('#edit_spk_id').val();
-    }
+    serial_id = $('#edit_serial_id').val()
+    
+    no_spk = $('#edit_spk_no').val();
+    id_spk = $('#edit_spk_id').val();
     //console.log(id_spk);
     //console.log(no_spk);
     item_code = $('#edit_item_code').val();
@@ -292,7 +251,7 @@ function edit_label(id){
         lpp_qty = lppp[0];
         lpp_number = lppp[1];
     }else{
-        lpp_number = $('#edit_spk_no :selected').text();
+        lpp_number = $('#edit_lpp_no :selected').text();
         lpp_qty = $('#edit_lpp_qty').val();
     }
     //console.log(lpp_number);
@@ -300,7 +259,7 @@ function edit_label(id){
 
    
    
-   $.post('../Label/proses_edit_label',{'id' : id, 'serial_id' : serial_id, 'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
+   $.post('../Label/proses_edit_label',{ 'serial_id' : serial_id, 'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
       //console.log(data);
 
       if(data == 1){
@@ -318,3 +277,34 @@ function edit_label(id){
       });
   
   }
+
+  function delete_data(){
+    $.post('../Label/delete_data',{ },function(data){ 
+        //console.log(data);
+  
+       
+          swal("Label empty!", {
+              icon: "success",
+            });
+            $('#simpletable').DataTable().ajax.reload();
+        
+     
+        });
+    
+    
+  }
+
+  function move_data(){
+    $.post('../Label/move_data',{ },function(data){ 
+        //console.log(data);
+  
+       
+        swal("Label save in m_batch!", {
+            icon: "success",
+          });
+          $('#simpletable').DataTable().ajax.reload();
+        $("#editModal").modal("hide");
+        });
+    
+    
+}

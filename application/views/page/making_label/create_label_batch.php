@@ -183,7 +183,9 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Detail</th>
-                                                                    <th>Serial Number</th>
+                                                                    <th>SPK no</th>
+                                                                    <th>Item No</th>
+                                                                    <th>Item Name</th>
                                                                     <th>Create By</th>
                                                                     <th width="20">Action</th>
                                                                 </tr>

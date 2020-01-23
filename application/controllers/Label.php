@@ -38,23 +38,25 @@ class Label extends CI_Controller {
         echo json_encode($get_item);
     }
 
-    public function get_serial_id(){
-        $date = date('dmY');
-        $ser = $this->labelmodel->getSerial($date)->row();
+    public function get_serial_id($vendor_code){
+        $date = date('ym');
+        $n = $vendor_code.$date;
+        $ser = $this->labelmodel->getSerial($n)->row();
         if($ser == null){
-            $serial_number = $date."00001";
+            $serial_number = $n."00001";
         }else{
-            $num = $ser->serial_number;
-            //$numm = explode("-", $num);
-            $angka = $num + 1;
-            $serial_number = $angka;
+            $str = strlen($ser->serial_number);
+            $sub = substr($ser->serial_number,$str-6,6);
+            $num = $sub + 1;
+            $depan = substr($ser->serial_number,0,$str-6);
+            $serial_number = $depan.$num;
         }
 
-        echo $serial_number;
+         return $serial_number;
     }
     public function save_data(){
-       
-        $data['serial_number'] = $this->input->post('serial_id');
+        $vendor_code = $this->input->post('vendor_code');
+        $data['serial_number'] = $this->get_serial_id($vendor_code);
         $data['id_spk'] = $this->input->post('id_spk');
         $data['spk_no'] = $this->input->post('no_spk');
         $data['item_id'] = $this->input->post('item_code');
@@ -68,18 +70,23 @@ class Label extends CI_Controller {
         $data['user_created'] = $this->session->userdata('username');
         $data['date_created'] = date('Y-m-d H:m:s');
 
-        $this->db->insert('m_batch', $data);
-        if ($this->db->affected_rows() == 1) {
-            echo "1";
-          }else{
-            echo "0";
-          }
+        $user = $this->labelmodel->getLpp($data['lpp_no'])->row();
+        if($user == null){
+            $this->db->insert('m_batch_temp', $data);
+            if ($this->db->affected_rows() == 1) {
+                echo "1";
+            }else{
+                echo "0";
+            }
+        }else{
+              echo "2";
+              
+        }
     
     }
 
-    public function view_label($id){
-        $serial_id = explode("?", $id);
-        $label = $this->labelmodel->viewLabel($serial_id[0])->result();
+    public function view_label(){
+        $label = $this->labelmodel->viewLabel()->result();
         $data["data"] = $label;
         echo json_encode($data);
     
@@ -99,7 +106,7 @@ class Label extends CI_Controller {
 
     
       public function proses_edit_label(){
-        $id = $this->input->post('id');
+     
         $data['serial_number'] = $this->input->post('serial_id');
         $data['id_spk'] = $this->input->post('id_spk');
         $data['spk_no'] = $this->input->post('no_spk');
@@ -114,15 +121,19 @@ class Label extends CI_Controller {
         $data['user_created'] = $this->session->userdata('username');
         $data['date_created'] = date('Y-m-d H:m:s');
 
-        $edit = $this->labelmodel->editLabel($data, $data['id']);
+        $edit = $this->labelmodel->editLabel($data, $data['serial_number']);
         if ($this->db->affected_rows() == 1) {
          echo "1";
        }else{
-         echo "0";
+         print_r($data);
        }
-
-     
     
+    }
+
+    public function batch_qty(){
+        $item_no = $this->input->post('item_no');
+        $label = $this->labelmodel->getBatch($item_no)->row();
+        echo json_encode($label);
     }
 
     public function view_label_barcode(){
@@ -143,4 +154,14 @@ class Label extends CI_Controller {
         $label = $this->labelmodel->viewLabelAll($serial_number)->result();
         echo json_encode($label);
        }
+
+    public function move_data(){
+        $this->labelmodel->move_m_batch();
+        $this->labelmodel->delete_m_batch();
+    }
+
+    public function delete_data(){
+        $this->labelmodel->delete_m_data();
+
+    }
 }

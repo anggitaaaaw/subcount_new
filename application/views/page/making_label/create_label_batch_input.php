@@ -73,6 +73,7 @@
                                                                 <input type="text" class="form-control" id="qty_container">
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" id="vendor_code">
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Heat No A</label>
                                                             <div class="col-sm-8">
@@ -111,9 +112,9 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-12">
                                                                 <br>
-                                                                <button type="button" class="btn btn-primary" onclick="location.reload()"><i class="ik ik-plus"></i>New</button>
-                                                                <button type="button" class="btn btn-primary"><i class="ik ik-plus"></i>Add</button>
-                                                                <button type="button" class="btn btn-primary" onclick="save_data()"><i class="ik ik-save"></i>Save</button>
+                                                                <button type="button" class="btn btn-primary" onclick="delete_data()"><i class="ik ik-plus"></i>New</button>
+                                                                <button type="button" class="btn btn-primary" onclick="save_data()"><i class="ik ik-plus"></i>Add</button>
+                                                                <button type="button" class="btn btn-primary" onclick="move_data()"><i class="ik ik-save"></i>Save</button>
                                                                 <button type="button" class="btn btn-success" id="edit_label" data-toggle="modal" ><i class="ik ik-edit"></i>Update</button>
                                                                 <button type="button" class="btn btn-danger" id="delete_label" ><i class="ik ik-trash"></i>Delete</button>
                                                                 <button style="float: right;" type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
@@ -135,36 +136,36 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">SPK NO</label>
                                                             <div class="col-sm-8">
-                                                                <input type="hidden" id="edit_id" >
-                                                                <input type="hidden" id="edit_spk_id" >
+                                                                <input type="hidden" id="edit_spk_id" disabled>
+                                                                <input type="hidden" id="edit_serial_id" disabled>
+                                                                <input type="text" class="form-control" id="edit_spk_no" disabled>
 
-                                                                <select class="form-control select2" id="edit_spk_no" onchange="select_spk_edit(this.value)"> 
                                                              
-                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Item Code</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="edit_item_code">
+                                                                <input type="text" class="form-control" id="edit_item_code" disabled>
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Description</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="edit_deskripsi">
+                                                                <input type="text" class="form-control" id="edit_deskripsi" disabled>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Heat No A</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="edit_heatno_a">
+                                                                <input type="text" class="form-control" id="edit_heatno_a"  disabled>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Heat No B</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="edit_heatno_b">
+                                                                <input type="text" class="form-control" id="edit_heatno_b"  disabled>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
@@ -209,7 +210,6 @@
                                             <table id="simpletable" class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
-                                                        <th>ID  </th>
                                                         <th>Serial ID</th>
                                                         <th>SPK No</th>
                                                         <th>LPP No</th>
