@@ -7,12 +7,12 @@ class Labelmodel extends CI_Model {
            $this->load->database();
      }
 	
-	function get_select_spk() {
+     function get_select_spk() {
 
-        $sql = "SELECT spk_number, id_spk FROM `trx_lot` WHERE id_spk IN ( SELECT id_spk FROM `trx_bst_fcs` WHERE kode_fcs_destination = 'PL-01' ) GROUP BY spk_number";
+        $sql = "SELECT spk_number, id_spk FROM `trx_lot` WHERE id_spk IN ( SELECT id_spk FROM `trx_bst_fcs` WHERE kode_fcs_destination = 'PL-01' ) and spk_number NOT IN (SELECT distinct spk_no from m_batch) GROUP BY spk_number";
         $result = $this->db->query($sql)->result();
         return $result;
-    } 
+    }
     
     function get_item_deskripsi($id_spk){
         $sql = "SELECT item_code, item_name FROM `m_item` WHERE id IN ( SELECT id_finishgood FROM `trx_bst_fcs` WHERE id_spk = '$id_spk' )";
@@ -27,7 +27,7 @@ class Labelmodel extends CI_Model {
     }
 
     function select_lpp_no($id_spk){
-        $sql = "select distinct b.lot_number, b.qty_lot FROM trx_bst_fcs a join trx_lot b on a.id_spk = b.id_spk join m_item c on a.id_finishgood = c.id join trx_spk d on b.spk_number = d.spk_number where a.kode_fcs_destination = 'PL-01' and a.id_spk = '$id_spk'";
+        $sql = "select distinct b.lot_number, b.qty_lot FROM trx_bst_fcs a join trx_lot b on a.id_spk = b.id_spk join m_item c on a.id_finishgood = c.id join trx_spk d on b.spk_number = d.spk_number where a.kode_fcs_destination = 'PL-01' and a.id_spk = '$id_spk' and b.lot_number NOT IN (SELECT DISTINCT lpp_no from m_batch where id_spk = '$id_spk')";
         $result = $this->db->query($sql)->result();
         return $result;
     }
@@ -53,16 +53,14 @@ class Labelmodel extends CI_Model {
     function viewLabel(){
         $this->db->select('*');
         $this->db->from('m_batch_temp');
-        
         return $this->db->get();
     }
 
     function viewLabelSn(){
-        $this->db->select('*');
-        $this->db->from('m_batch');
-        $this->db->group_by('spk_no');
+     $sql ='select distinct c.vendor_name, a.spk_no, a.item_id, a.item_name, a.user_created, a.status_print from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code order by a.spk_no asc';
         
-        return $this->db->get();
+     $result = $this->db->query($sql)->result();
+     return $result;
     }
 
     function viewLabelAll($sn){
@@ -98,7 +96,7 @@ class Labelmodel extends CI_Model {
     
     function getSerial($sn){
         $this->db->select('*');
-        $this->db->from('m_batch_temp');
+        $this->db->from('m_batch');
         $this->db->like('serial_number', $sn);
         $this->db->order_by('serial_number', 'desc');
         $this->db->limit(1);

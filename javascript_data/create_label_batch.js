@@ -69,6 +69,7 @@ $(document).ready(function() {
                 "defaultContent": '<i class="ik ik-plus-circle"></i>'
             },
            
+            { "data": "vendor_name" },
             { "data": "spk_no" },
             { "data": "item_id" },
             { "data": "item_name" },

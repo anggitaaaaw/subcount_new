@@ -55,8 +55,7 @@ class Label extends CI_Controller {
          return $serial_number;
     }
     public function save_data(){
-        $vendor_code = $this->input->post('vendor_code');
-        $data['serial_number'] = $this->get_serial_id($vendor_code);
+        $data['vendor_code'] = $this->input->post('vendor_code');
         $data['id_spk'] = $this->input->post('id_spk');
         $data['spk_no'] = $this->input->post('no_spk');
         $data['item_id'] = $this->input->post('item_code');
@@ -145,7 +144,7 @@ class Label extends CI_Controller {
     }
     
     public function view_label_sn(){
-        $label = $this->labelmodel->viewLabelSn()->result();
+        $label = $this->labelmodel->viewLabelSn();
         $data["data"] = $label;
         echo json_encode($data);
        }
@@ -156,12 +155,29 @@ class Label extends CI_Controller {
        }
 
     public function move_data(){
-        $this->labelmodel->move_m_batch();
+       $temp = $this->labelmodel->viewLabel()->result();
+       foreach($temp as $t){
+           $vendor_code = $t->vendor_code;
+        $data['serial_number'] = $this->get_serial_id($vendor_code);
+        $data['id_spk'] = $t->id_spk;
+        $data['spk_no'] = $t->spk_no;
+        $data['item_id'] = $t->item_id;
+        $data['item_name'] = $t->item_name;
+        $data['heatno_a'] = $t->heatno_a;
+        $data['heatno_b'] = $t->heatno_b;
+        $data['weight'] = $t->weight;
+        $data['lpp_qty'] = $t->lpp_qty;
+        $data['lpp_no'] = $t->lpp_no;
+        $data['user_created'] = $t->user_created;
+        $data['date_created'] = $t->date_created;
+
+        $this->db->insert('m_batch', $data);
+       }
         $this->labelmodel->delete_m_batch();
     }
 
     public function delete_data(){
-        $this->labelmodel->delete_m_data();
+        $this->labelmodel->delete_m_batch();
 
     }
 }

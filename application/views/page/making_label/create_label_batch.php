@@ -183,6 +183,7 @@
                                                             <thead>
                                                                 <tr>
                                                                     <th>Detail</th>
+                                                                    <th>Vendor</th>
                                                                     <th>SPK no</th>
                                                                     <th>Item No</th>
                                                                     <th>Item Name</th>

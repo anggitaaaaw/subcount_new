@@ -288,7 +288,7 @@ function edit_label(id){
               icon: "success",
             });
             $('#simpletable').DataTable().ajax.reload();
-        
+            document.getElementById("myForm").reset();
      
         });
     
@@ -304,7 +304,7 @@ function edit_label(id){
             icon: "success",
           });
           $('#simpletable').DataTable().ajax.reload();
-        $("#editModal").modal("hide");
+          document.getElementById("myForm").reset();
         });
     
     
