@@ -106,9 +106,10 @@ class Labelmodel extends CI_Model {
     }
 
     function getBatch($sn){
-        $this->db->select('qty_batch, qty_container, vendor_code');
-        $this->db->from('m_vendor_set');
-        $this->db->where('item_no', $sn);
+       $this->db->select('m_vendor_set.*, m_vendor.vendor_name');
+       $this->db->from('m_vendor_set');
+       $this->db->join('m_vendor', 'm_vendor.vendor_code = m_vendor_set.vendor_code');
+       $this->db->where('m_vendor_set.item_no', $sn);
        return $this->db->get();
     }
 

@@ -62,13 +62,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
+                                                            <label class="col-sm-3 col-form-label">Vendor</label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" id="vendor_name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Qty Batch</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" id="qty_batch">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
-                                                            <label class="col-sm-3 col-form-label">Qty Container</label>
+                                                            <label class="col-sm-3 col-form-label">Capacity</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" id="qty_container">
                                                             </div>

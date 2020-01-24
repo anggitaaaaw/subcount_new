@@ -62,12 +62,9 @@
                                                                 <input type="text" class="form-control" id="contact_person" name="contact_person">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Order Number</label>
-                                                            <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="order_number" name="order_number">
-                                                            </div>
-                                                        </div>
+                                                       
+                                                             
+                                                           
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Email Contact</label>
                                                             <div class="col-sm-6">
@@ -82,7 +79,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">STD Container </label>
+                                                            <label class="col-sm-3 col-form-label">Capacity</label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" id="standard_container" name="standard_container">
                                                             </div>
@@ -130,12 +127,6 @@
                                                             <label class="col-sm-3 col-form-label">Contact Person </label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="edit_contact_person" name="contact_person">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Order Number</label>
-                                                            <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="edit_order_number" name="order_number">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">

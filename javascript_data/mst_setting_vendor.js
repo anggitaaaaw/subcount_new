@@ -1,5 +1,11 @@
 $(document).ready(function() {
-    view_setting_vendor();
+    $('#item_no').select2({
+        dropdownParent: $('#demoModal')
+    });
+    $('#subcount_vendor').select2({
+        dropdownParent: $('#demoModal')
+    });
+      view_setting_vendor();
     $.post('../Vendor/select_item_no',{},
         function(data){ 
         //console.log(data);
@@ -11,7 +17,7 @@ $(document).ready(function() {
         $('#item_no').html(table);
         
     });
-
+    
     $.post('../Vendor/select_vendor',{},
         function(data){ 
         //console.log(data);

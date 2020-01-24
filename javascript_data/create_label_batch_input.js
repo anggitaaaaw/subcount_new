@@ -27,6 +27,7 @@ function select_spk(spk){
             $('#qty_batch').val(dataa.qty_batch);
             $('#qty_container').val(dataa.qty_container);
             $('#vendor_code').val(dataa.vendor_code);
+            $('#vendor_name').val(dataa.vendor_name);
             
            
         });

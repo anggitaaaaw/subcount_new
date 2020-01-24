@@ -3,14 +3,14 @@ function new_vendor(){
     vendor_name = $('#vendor_name').val();
     vendor_address = $('#vendor_address').val();
     contact_person = $('#contact_person').val();
-    order_number = $('#order_number').val();
+ 
     email = $('#email_contact').val();
     batch_qty = $('#batch_qty').val();
     container_qty = $('#standard_container').val();
-    if(vendor_code == '' || vendor_name == '' || vendor_address == '' || contact_person == '' || order_number == '' || email == '' || batch_qty == '' || container_qty == ''){
+    if(vendor_code == '' || vendor_name == '' || vendor_address == '' || contact_person == '' ||  email == '' || batch_qty == '' || container_qty == ''){
         alert('mohon lengkapi data anda');
     }else{
-        $.post('../Vendor/new_vendor',{ 'vendor_code' : vendor_code ,'vendor_name' : vendor_name, 'vendor_address' : vendor_address, 'contact_person' : contact_person, 'order_number' : order_number, 'email': email, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
+        $.post('../Vendor/new_vendor',{ 'vendor_code' : vendor_code ,'vendor_name' : vendor_name, 'vendor_address' : vendor_address, 'contact_person' : contact_person, 'email': email, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
         function(data){ 
         console.log(data);
 
@@ -108,7 +108,6 @@ function edit_vendor(nik){
         $('#edit_vendor_name').val(dataa.vendor_name);
         $('#edit_vendor_address').val(dataa.vendor_address);
         $('#edit_contact_person').val(dataa.contact_person);
-        $('#edit_order_number').val(dataa.order_number);
         $('#edit_email_contact').val(dataa.email);
         $('#edit_batch_qty').val(dataa.batch_qty);
         $('#edit_standard_container').val(dataa.container_qty);
@@ -126,12 +125,11 @@ function proses_edit_vendor(){
     vendor_name = $('#edit_vendor_name').val();
     vendor_address = $('#edit_vendor_address').val();
     contact_person = $('#edit_contact_person').val();
-    order_number = $('#edit_order_number').val();
     email = $('#edit_email_contact').val();
     batch_qty = $('#edit_batch_qty').val();
     container_qty = $('#edit_standard_container').val();
    
-    $.post('../Vendor/proses_edit_vendor',{ 'vendor_code' : vendor_code ,'vendor_name' : vendor_name, 'vendor_address' : vendor_address, 'contact_person' : contact_person, 'order_number' : order_number, 'email': email, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
+    $.post('../Vendor/proses_edit_vendor',{ 'vendor_code' : vendor_code ,'vendor_name' : vendor_name, 'vendor_address' : vendor_address, 'contact_person' : contact_person, 'email': email, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
       function(data){ 
       //console.log(data);
 
