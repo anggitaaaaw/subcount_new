@@ -15,7 +15,6 @@ class Vendor extends CI_Controller {
             $data['vendor_name'] = $this->input->post('vendor_name');
             $data['vendor_address'] = $this->input->post('vendor_address');
             $data['contact_person'] =$this->input->post('contact_person');
-            $data['order_number'] = $this->input->post('order_number');
             $data['email'] = $this->input->post('email');
             $data['batch_qty'] = $this->input->post('batch_qty');
             $data['container_qty'] = $this->input->post('container_qty');
@@ -56,7 +55,6 @@ class Vendor extends CI_Controller {
             $data['vendor_name'] = $this->input->post('vendor_name');
             $data['vendor_address'] = $this->input->post('vendor_address');
             $data['contact_person'] =$this->input->post('contact_person');
-            $data['order_number'] = $this->input->post('order_number');
             $data['email'] = $this->input->post('email');
             $data['batch_qty'] = $this->input->post('batch_qty');
             $data['container_qty'] = $this->input->post('container_qty');

@@ -14,7 +14,7 @@ function new_vendor(){
         function(data){ 
         console.log(data);
 
-        if(data != '1'){
+        if(data == '1'){
             swal("Vendor added successfully!");
             $('#example').DataTable().ajax.reload();
             
@@ -24,6 +24,7 @@ function new_vendor(){
         }
 
         $("#demoModal").modal("hide");
+        $('#example').DataTable().ajax.reload();
         document.getElementById("myForm").reset();
         });
     }
@@ -134,7 +135,7 @@ function proses_edit_vendor(){
       //console.log(data);
 
       if(data == 1){
-        swal("User Success Edited!", {
+        swal("User Success Edited!", { 
             icon: "success",
           });
           $('#example').DataTable().ajax.reload();
