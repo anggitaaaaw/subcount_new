@@ -74,7 +74,7 @@ class Labelmodel extends CI_Model {
     function getLabel($id){
         $this->db->select('*');
         $this->db->from('m_batch_temp');
-        $this->db->where('serial_number', $id);
+        //$this->db->where('serial_number', $id);
         return $this->db->get();
     }
 

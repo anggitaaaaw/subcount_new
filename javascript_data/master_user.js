@@ -1,4 +1,29 @@
-   
+    
+    $(document).ready(function() {
+        $("#div_vendor").hide();
+        $("#group").change(function() {
+            var group = $('#group').val();
+            if(group == "vendor"){
+                $("#div_vendor").show();
+            }else{
+                $("#div_vendor").hide();
+            }
+        });
+
+        $.post('../Vendor/select_vendor',{},
+            function(data){ 
+            //console.log(data);
+            dataa = JSON.parse(data);
+            table = '';
+                table += '<option value="" disabled selected>-SELECT VENDOR-</option>';
+                for(i in dataa){
+                table += '<option value="'+dataa[i].vendor_code+'">'+dataa[i].vendor_name+'</option>';
+            }
+            $('#vendor').html(table);
+            
+        });
+    });
+
     function new_user(){
         nik = $('#nik').val();
         full_name = $('#full_name').val();
@@ -6,11 +31,12 @@
         password = $('#password').val();
         position = $('#position').val();
         group = $('#group').val();
+        vendor = $('#vendor').val();
         status = $('#status').val();
         if(nik == '' || full_name == '' || username == '' || password == ''){
             alert('mohon lengkapi data anda');
         }else{
-            $.post('../User/new_user',{ 'nik' : nik ,'fullname' : full_name, 'username' : username, 'password' : password, 'position': position, 'group' : group, 'status' : status},
+            $.post('../User/new_user',{ 'nik' : nik ,'fullname' : full_name, 'username' : username, 'password' : password, 'position': position, 'group' : group, 'vendor' : vendor, 'status' : status},
             function(data){ 
             console.log(data);
     
@@ -100,12 +126,43 @@
         $.post('../User/edit_user',{'nik' : nik},function(data){ 
             dataa = JSON.parse(data);
             console.log(dataa);
+
+            $("#div_edit_vendor").hide();
+            if(dataa.group == "vendor"){
+                $("#div_edit_vendor").show();
+            }else{
+                $("#div_edit_vendor").hide();
+            }
+
+            $("#edit_group").change(function() {
+                var group = $('#edit_group').val();
+                if(group == "vendor"){
+                    $("#div_edit_vendor").show();
+                }else{
+                    $("#div_edit_vendor").hide();
+                }
+            });
+
+            $.post('../Vendor/select_vendor',{},
+                function(data){ 
+                //console.log(data);
+                dataa = JSON.parse(data);
+                table = '';
+                    table += '<option value="" disabled selected>-SELECT VENDOR-</option>';
+                    for(i in dataa){
+                    table += '<option value="'+dataa[i].vendor_code+'">'+dataa[i].vendor_name+'</option>';
+                }
+                $('#edit_vendor').html(table);
+                
+            });
+
             $('#edit_nik').val(dataa.nik);
             $('#edit_full_name').val(dataa.fullname);
             $('#edit_username').val(dataa.username);
             $('#edit_password').val(dataa.password);
             $('#edit_position').val(dataa.position);
             $('#edit_group').val(dataa.group);
+            $('#edit_vendor').val(dataa.vendor);
             $('#edit_status').val(dataa.status);
         });
     }
@@ -123,9 +180,10 @@
         password = $('#edit_password').val();
         position = $('#edit_position').val();
         group = $('#edit_group').val();
+        vendor = $('#edit_vendor').val();
         status = $('#edit_status').val();
        
-        $.post('../User/proses_edit_user',{ 'nik' : nik ,'fullname' : full_name, 'username' : username, 'password' : password, 'position': position, 'group' : group, 'status' : status},
+        $.post('../User/proses_edit_user',{ 'nik' : nik ,'fullname' : full_name, 'username' : username, 'password' : password, 'position': position, 'group' : group, 'vendor' : vendor, 'status' : status},
           function(data){ 
           //console.log(data);
   

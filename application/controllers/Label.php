@@ -137,7 +137,7 @@ class Label extends CI_Controller {
 
     public function view_label_barcode(){
         $serial_number = $this->input->post('id');
-        $data['label'] = $this->labelmodel->getLabel($serial_number)->row();
+        $data['label'] = $this->labelmodel->getLabel($serial_number)->result();
         //echo json_encode($label);
         $this->load->view('page/making_label/print_label', $data);
 

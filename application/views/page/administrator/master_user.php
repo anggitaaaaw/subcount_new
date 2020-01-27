@@ -66,6 +66,7 @@
                                                             <label class="col-sm-3 col-form-label">Position</label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="position" name="position">
+                                                                    <option value="" disabled selected>-SELECT POSITION-</option>
                                                                     <option value="administrator">Administrator</option>
                                                                     <option value="spv">Supervisor</option>
                                                                     <option value="staff">Staff</option>
@@ -77,8 +78,17 @@
                                                             <label class="col-sm-3 col-form-label">Group</label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="group" name="group">
+                                                                    <option value="" disabled selected>-SELECT GROUP-</option>
                                                                     <option value="indoseiki">Indoseiki</option>
-                                                                    <option value="subcount">Subcount</option>
+                                                                    <option value="vendor">Vendor</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" id="div_vendor">
+                                                            <label class="col-sm-3 col-form-label">Vendor Name</label>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control select2" id="vendor" name="vendor">
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -86,6 +96,7 @@
                                                             <label class="col-sm-3 col-form-label">Status </label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="status" name="status">
+                                                                    <option value="" disabled selected>-SELECT STATUS-</option>
                                                                     <option value="aktif">Aktif</option>
                                                                     <option value="tidak_aktif">Tidak Aktif</option>
                                                                 </select>
@@ -150,7 +161,15 @@
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="edit_group" name="group">
                                                                     <option value="indoseiki">Indoseiki</option>
-                                                                    <option value="subcount">Subcount</option>
+                                                                    <option value="vendor">Vendor</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" id="div_edit_vendor">
+                                                            <label class="col-sm-3 col-form-label">Vendor Name</label>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control select2" id="edit_vendor" name="vendor">
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -207,4 +226,4 @@
                     </div>
                     
 <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="<?php echo base_url() ?>javascript_data/master_user.js"></script>
+<script src="<?php echo base_url() ?>javascript_data/master_user.js?<?php echo time() ?>"></script>

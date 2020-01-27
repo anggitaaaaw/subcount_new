@@ -185,7 +185,7 @@ function view_label(serial_id){
         }else{
             swal("Your can wiew label only 1 row!");
         }
-        $('#simpletable').DataTable().ajax.reload();
+        //$('#simpletable').DataTable().ajax.reload();
     });
 }
 

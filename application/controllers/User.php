@@ -78,6 +78,7 @@ public function new_user(){
   $data['password'] = md5($this->input->post('password'));
   $data['position'] = $this->input->post('position');
   $data['group'] = $this->input->post('group');
+  $data['vendor'] = $this->input->post('vendor');
   $data['status'] = $this->input->post('status');
  
   $user = $this->usersmodel->getUsers($data['nik'])->row();
@@ -123,6 +124,7 @@ public function new_user(){
       $data['password'] = md5($this->input->post('password'));
       $data['position'] = $this->input->post('position');
       $data['group'] = $this->input->post('group');
+      $data['vendor'] = $this->input->post('vendor');
       $data['status'] = $this->input->post('status');
      
       //$user = $this->usersmodel->getUsers($data['nik']);
