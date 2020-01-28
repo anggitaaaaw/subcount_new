@@ -40,7 +40,7 @@
 
         <!-- Datatables Javascript -->
         <script src="<?php echo base_url() ?>javascript_data/receiving_disubcount.js"></script>
-        <script src="<?php echo base_url() ?>javascript_data/create_label_batch.js?s"></script>
+        <script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>
         <script>
             $(document).ready(function() {
                 $('#print_sj').click(function() {

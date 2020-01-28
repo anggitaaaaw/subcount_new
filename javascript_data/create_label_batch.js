@@ -74,11 +74,24 @@ $(document).ready(function() {
             { "data": "item_id" },
             { "data": "item_name" },
             { "data": "user_created" },
-            { "data": "status_print" }
+            {
+                "targets": -1,
+                "data": null,
+                "defaultContent": "<button>Reprint</button>"
+            }
         ],
         "order": [[1, 'asc']]
     } );
     
+    $('#create_label_batch tbody').on( 'click', 'button', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        console.log(data.vendor_name);
+      //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
+      $("#iframe2").get(0).contentWindow.print();
+        $("#iframe2").attr("src","print_label/"+data.spk_no);
+        
+    } );
+
     // Add event listener for opening and closing details
     $('#create_label_batch tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');

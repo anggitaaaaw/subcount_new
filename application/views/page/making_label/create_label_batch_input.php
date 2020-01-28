@@ -206,7 +206,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <iframe src="<?php echo site_url('welcome/print_label') ?>" id="iframe2" style="border:1px solid gray;" height="100%" width="100%;">
+
+                                        <iframe  id="iframe2" style="border:1px solid gray;" height="100%" width="100%;">
 
                                         </iframe>
                                     </div>

@@ -56,8 +56,15 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function viewLabelSpk($spk){
+      $sql = "SELECT DISTINCT a.*, b.spk_start, b.spk_end, c.vendor_name, c.vendor_code, d.qty_batch, e.process_name from m_batch a join trx_spk b on a.spk_no = b.spk_number join m_vendor c on SUBSTR(a.serial_number, 1, 6) = c.vendor_code JOIN m_vendor_set d on SUBSTR(a.serial_number, 1, 6) = d.vendor_code LEFT JOIN m_prosesproduksi e on d.process_code = e.process_code where a.spk_no = '$spk' ";
+
+      $result = $this->db->query($sql)->result();
+      return $result;
+    }
+
     function viewLabelSn(){
-     $sql ='select distinct c.vendor_name, a.spk_no, a.item_id, a.item_name, a.user_created, a.status_print from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code order by a.spk_no asc';
+     $sql ='select distinct c.vendor_name, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code group by a.spk_no asc';
         
      $result = $this->db->query($sql)->result();
      return $result;

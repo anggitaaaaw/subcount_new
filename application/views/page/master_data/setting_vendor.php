@@ -61,6 +61,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Process Name </label>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control select2" id="process_code" >
+                                                                   
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="batch_qty" name="batch_qty">
@@ -115,6 +123,15 @@
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <input type="hidden" id="edit_process">
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Process Name </label>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control select2" id="edit_process_code" >
+                                                                   
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
@@ -153,6 +170,7 @@
                                                                     <th>Item No</th>
                                                                     <th>Description</th>
                                                                     <th>Subcont</th>
+                                                                    <th>Process Name</th>
                                                                     <th>Batch No</th>
                                                                     <th>Container QTY</th>
                                                                 </tr>

@@ -5,7 +5,15 @@ $(document).ready(function() {
     $('#subcount_vendor').select2({
         dropdownParent: $('#demoModal')
     });
+    $('#edit_subcount_vendor').select2({
+        dropdownParent: $('#editModal')
+    });
+    $('#process_code').select2({
+        dropdownParent: $('#demoModal')
+    });
+
       view_setting_vendor();
+
     $.post('../Vendor/select_item_no',{},
         function(data){ 
         //console.log(data);
@@ -30,7 +38,19 @@ $(document).ready(function() {
         
     });
 
+    $.post('../Vendor/select_process',{},
+        function(data){ 
+        //console.log(data);
+        dataa = JSON.parse(data);
+        table = '';
+            for(i in dataa){
+            table += '<option value="'+dataa[i].process_code+'">'+dataa[i].process_name+'</option>';
+        }
+        $('#process_code').html(table);
+    
+    });
 });
+
 function select_item_no(item_code){
     $.post('../Vendor/get_item_name',{'item_code' : item_code},
         function(data){ 
@@ -52,17 +72,19 @@ function select_subcount_vendor(vendor_code){
     });
          
 }
+
 function new_set_vendor(){
     item_no = $('#item_no').val();
     item_name = $('#item_name').val();
     vendor_code = $('#subcount_vendor').val();
+    process_code = $('#process_code').val();
     batch_qty = $('#batch_qty').val();
     container_qty = $('#container_qty').val();
   
-    if(item_no == '' || item_name == '' || subcount_vendor == '' || batch_qty == '' || container_qty == '' ){
+    if(item_no == '' || item_name == '' || subcount_vendor == '' || process_code == '' || batch_qty == '' || container_qty == '' ){
         alert('mohon lengkapi data anda');
     }else{
-        $.post('../Vendor/new_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code,  'batch_qty' : batch_qty, 'container_qty' : container_qty},
+        $.post('../Vendor/new_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'batch_qty' : batch_qty, 'container_qty' : container_qty},
         function(data){ 
         console.log(data);
 
@@ -90,6 +112,7 @@ function view_setting_vendor(){
             { "data": "item_no" },
             { "data": "item_name" },
             { "data": "vendor_code" },
+            { "data": "process_name" },
             { "data": "qty_batch" },
             { "data": "qty_container" }
         ]   
@@ -158,6 +181,10 @@ function edit_set_vendor(nik){
         $('#edit_subcount_vendor').select2({
             data:[{id:0,text:dataa.vendor_name}]
         });
+        $('#edit_process_code').select2({
+            data:[{id:0,text:dataa.process_name}]
+        });
+        $('#edit_process').val(dataa.process_code);
         $('#edit_batch_qty').val(dataa.qty_batch);
         $('#edit_container_qty').val(dataa.qty_container);
 
@@ -177,6 +204,18 @@ function edit_set_vendor(nik){
             $('#edit_subcount_vendor').append(table);
             
         });
+
+        $.post('../Vendor/select_process',{},
+        function(data){ 
+        //console.log(data);
+        dataa = JSON.parse(data);
+        table = '';
+            for(i in dataa){
+            table += '<option value="'+dataa[i].process_code+'">'+dataa[i].process_name+'</option>';
+        }
+        $('#edit_process_code').html(table);
+    
+    });
 }
 
 function delete_set_vendor(nik){
@@ -195,11 +234,18 @@ function proses_edit_set_vendor(){
         vendor_code = $('#edit_vendor_code').val();
         
     }
+    process = $('#edit_process_code').val();
+    if(process != 0){
+        process_code = $('#edit_process_code').val();
+    }else if(vendor == 0){
+        process_code = $('#edit_process').val();
+        
+    }
     batch_qty = $('#edit_batch_qty').val();
     container_qty = $('#edit_container_qty').val();
   
     
-    $.post('../Vendor/proses_edit_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code,  'batch_qty' : batch_qty, 'container_qty' : container_qty},
+    $.post('../Vendor/proses_edit_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'batch_qty' : batch_qty, 'container_qty' : container_qty},
     function(data){ 
       console.log(data);
 

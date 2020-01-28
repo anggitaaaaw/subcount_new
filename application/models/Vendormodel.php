@@ -67,15 +67,17 @@ class Vendormodel extends CI_Model {
     }
 
     function viewSetVendor(){
-        $this->db->select('*');
+        $this->db->select('m_vendor_set.*, m_prosesproduksi.process_name');
         $this->db->from('m_vendor_set');
+        $this->db->join('m_prosesproduksi', 'm_vendor_set.process_code = m_prosesproduksi.process_code');
         
         return $this->db->get();
     }
 
     function getSetVendor($id){
-        $this->db->select('m_vendor_set.*, m_vendor.vendor_name');
+        $this->db->select('m_vendor_set.*, m_vendor.vendor_name, m_prosesproduksi.process_name');
         $this->db->from('m_vendor_set');
+        $this->db->join('m_prosesproduksi', 'm_vendor_set.process_code = m_prosesproduksi.process_code');
         $this->db->join('m_vendor', 'm_vendor.vendor_code = m_vendor_set.vendor_code');
         $this->db->where('m_vendor_set.item_no', $id);
         return $this->db->get();
@@ -95,6 +97,12 @@ class Vendormodel extends CI_Model {
 		$this->db->where('item_no', $id);
         $this->db->update('m_vendor_set', $data);
     } 
+
+    function get_process(){
+        $this->db->select('process_code, process_name');
+        $this->db->from('m_prosesproduksi');
+        return $this->db->get();
+    }
 
 
 }

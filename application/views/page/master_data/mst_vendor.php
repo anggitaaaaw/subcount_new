@@ -41,7 +41,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Vendor Code </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="vendor_code" name="vendor_code">
+                                                                <input type="text" class="form-control" id="vendor_code" name="vendor_code" maxlength="6">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -108,7 +108,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Vendor Code </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="edit_vendor_code" name="vendor_code">
+                                                                <input type="text" class="form-control" id="edit_vendor_code" name="vendor_code" minlength="6" maxlength="6">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
