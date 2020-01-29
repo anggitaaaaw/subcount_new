@@ -144,7 +144,8 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <iframe  id="iframe3" style="border:1px solid gray;" height="100%" width="100%;">
+                                            </iframe>
                                     <!-- Print Label -->
                                     <div class="modal fade" id="modal_printlabel" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">

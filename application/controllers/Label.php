@@ -173,6 +173,7 @@ class Label extends CI_Controller {
 
         $this->db->insert('m_batch', $data);
        }
+       echo  $data['spk_no'];
         $this->labelmodel->delete_m_batch();
     }
 

@@ -103,12 +103,16 @@ class Welcome extends CI_Controller {
 		$this->load->view('page/making_label/print_packinglist');
 	}
 
-	public function print_label($spk){
+	public function print_label($spk = null){
+		if($spk == null){
+			echo "Coba klik lagi tombol reprintnya";
+		}else{
 		$this->load->helper('url');
 		$this->load->model('labelmodel');
 		$data['label'] = $this->labelmodel->viewLabelSpk($spk);
 	//	print_r($data);
 		$this->load->view('page/making_label/print_label', $data);
+		}
 	}
 
 	public function print_label2(){

@@ -87,9 +87,10 @@ $(document).ready(function() {
         var data = table.row( $(this).parents('tr') ).data();
         console.log(data.vendor_name);
       //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
-      $("#iframe2").get(0).contentWindow.print();
-        $("#iframe2").attr("src","print_label/"+data.spk_no);
         
+      //$("#iframe2").attr("src","print_label/"+data.spk_no);
+        $("#iframe3").get(0).contentWindow.print();
+        $("#iframe3").attr("src","print_label/"+data.spk_no);
     } );
 
     // Add event listener for opening and closing details

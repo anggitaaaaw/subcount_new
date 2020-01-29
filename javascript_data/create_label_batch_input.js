@@ -297,8 +297,11 @@ function edit_label(id){
 
   function move_data(){
     $.post('../Label/move_data',{ },function(data){ 
-        //console.log(data);
-  
+        console.log(data);
+        
+        
+        $("#iframe2").get(0).contentWindow.print();
+        $("#iframe2").attr("src","print_label/"+data);
        
         swal("Label save in m_batch!", {
             icon: "success",
@@ -306,6 +309,7 @@ function edit_label(id){
           $('#simpletable').DataTable().ajax.reload();
           document.getElementById("myForm").reset();
         });
-    
+        
+       
     
 }

@@ -123,9 +123,9 @@
                                                                 <button type="button" class="btn btn-primary" onclick="move_data()"><i class="ik ik-save"></i>Save</button>
                                                                 <button type="button" class="btn btn-success" id="edit_label" data-toggle="modal" ><i class="ik ik-edit"></i>Update</button>
                                                                 <button type="button" class="btn btn-danger" id="delete_label" ><i class="ik ik-trash"></i>Delete</button>
-                                                                <button style="float: right;" type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
+                                                                <!--<button style="float: right;" type="button" id="print_label" class="btn btn-primary"><i class="ik ik-printer"></i>Print Label</button>
                                                                 <button style="float: right; margin-right: 5px;" type="button" class="btn btn-primary" id="view_label_barcode"><i class="ik ik-file"></i>View Label</button>
-                                                                
+                                                                -->
                                                             </div>
                                                         </div>
                                                     </form>
