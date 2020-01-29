@@ -28,6 +28,8 @@ class User extends CI_Controller {
                   $array_items = array(
                       'id' => $temp_account->nik,
                       'username' => $temp_account->username,
+                      'group' => $temp_account->group,
+                      'vendor' => $temp_account->vendor,
                       'logged_in' => true
                   );
                   $data = array(
@@ -56,6 +58,13 @@ class User extends CI_Controller {
               
           }
 
+  }
+
+  public function logout(){
+    $this->load->driver('cache');
+    $this->session->sess_destroy();
+    $this->cache->clean();
+    redirect(site_url('welcome'));
   }
 
   function get_client_ip() {

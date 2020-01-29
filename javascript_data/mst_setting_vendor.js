@@ -19,6 +19,7 @@ $(document).ready(function() {
         //console.log(data);
         dataa = JSON.parse(data);
         table = '';
+        table += '<option >-SELECT ITEM NO-</option>';
             for(i in dataa){
             table += '<option value="'+dataa[i].item_code+'">'+dataa[i].item_code+'</option>';
         }
@@ -31,6 +32,7 @@ $(document).ready(function() {
         //console.log(data);
         dataa = JSON.parse(data);
         table = '';
+        table += '<option >-SELECT VENDOR-</option>';
             for(i in dataa){
             table += '<option value="'+dataa[i].vendor_code+'">'+dataa[i].vendor_name+'</option>';
         }
@@ -43,6 +45,7 @@ $(document).ready(function() {
         //console.log(data);
         dataa = JSON.parse(data);
         table = '';
+        table += '<option >-SELECT PROCESS-</option>';
             for(i in dataa){
             table += '<option value="'+dataa[i].process_code+'">'+dataa[i].process_name+'</option>';
         }

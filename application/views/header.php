@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
-                            <span style="padding-left: 20px; font-size: 16px;">Welcome <b><?php echo $this->session->userdata('username');?></b> in Application Subcount Process your are login by <b>Administrator</b> on <b>29 November 2019 12:56:34</b> Lets Work!! </span>
+                            <span style="padding-left: 20px; font-size: 16px;">Welcome <b><?php echo $this->session->userdata('username');?></b> in Application Subcount Process your are login by <b><?php echo $this->session->userdata('group');?> / <?php echo $this->session->userdata('vendor');?></b> on <b><?php echo date('d M Y')?></b> </span>
                             <input type="hidden" id="id_user" value="<?php echo $this->session->userdata('id');?>">
                         </div>
                         <div class="top-menu d-flex align-items-center">
@@ -51,7 +51,7 @@
                                 <a class="dropdown-toggle" href="<?php echo base_url() ?>assets/#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo base_url() ?>assets/img/user.jpg" alt=""></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="<?php echo base_url() ?>assets/#"><i class="ik ik-settings dropdown-icon"></i> Change Password</a>
-                                    <a class="dropdown-item" href="<?php echo base_url() ?>assets/login.html"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                    <a class="dropdown-item" href="<?php echo site_url('User/logout') ?>"><i class="ik ik-power dropdown-icon"></i> Logout</a>
                                 </div>
                             </div>
                         </div>

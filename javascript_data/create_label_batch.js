@@ -40,7 +40,7 @@ function format ( d ) {
                     table += '<th>'+dataa[i].serial_number+'</th>';
                     table += '<th>'+dataa[i].lpp_no+'</th>';
                     table += '<th>'+dataa[i].lpp_qty+'</th>';
-                    table += '<th>'+dataa[i].weight+'</th>';
+                    table += '<th>'+dataa[i].weight+' KG</th>';
                     table += '<th>'+dataa[i].date_created+'</th>';
                     table += '</tr>';
                    
