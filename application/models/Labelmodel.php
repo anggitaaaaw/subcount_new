@@ -125,6 +125,18 @@ class Labelmodel extends CI_Model {
        return $this->db->get();
     }
 
+    function select_driver(){
+        $this->db->select('*');
+        $this->db->from('m_driver');
+       return $this->db->get();
+    }
+
+    function view_del_note($scan){
+        $sql ="select distinct c.vendor_name, b.qty_batch, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code where a.serial_number = '$scan' ";
+        
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
     
 
 }

@@ -104,6 +104,36 @@ class Vendormodel extends CI_Model {
         return $this->db->get();
     }
 
+    function viewDriver(){
+        $this->db->select('*');
+        $this->db->from('m_driver');
+        
+        return $this->db->get();
+    }
+
+    function getDriver($id){
+        $this->db->select('*');
+        $this->db->from('m_driver');
+        $this->db->where('id_driver', $id);
+        return $this->db->get();
+    }
+
+    function deleteDriver($id) {
+		$this->db->where('id_driver', $id);
+		$this->db->delete('m_driver');
+			if($this->db->affected_rows()==1){
+				return TRUE;
+			}
+			return FALSE;
+			
+    }
+    
+    function editDriver($data,$id) {
+		$this->db->where('id_driver', $id);
+        $this->db->update('m_driver', $data);
+    } 
+
+
 
 }
 /* End of file usersmodel.php */

@@ -41,7 +41,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Plat No </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="plat_no" name="plat_no" maxlength="6">
+                                                                <input type="text" class="form-control" id="plat_no" name="plat_no" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -85,30 +85,31 @@
                                                     <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Plat No </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="plat_no" name="plat_no" maxlength="6">
+                                                                <input type="hidden" class="form-control" id="edit_id_driver" name="plat_no" >
+                                                                <input type="text" class="form-control" id="edit_plat_no" name="plat_no" >
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label"> Vehicle Name</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="vehicle_name" name="vehicle_name">
+                                                                <input type="text" class="form-control" id="edit_vehicle_name" name="vehicle_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label"> Driver Name</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="driver_name" name="driver_name">
+                                                                <input type="text" class="form-control" id="edit_driver_name" name="driver_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label"> No Telp Driver</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="no_telp" name="no_telp">
+                                                                <input type="text" class="form-control" id="edit_no_telp" name="no_telp">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" onclick="proses_edit_vendor()">Simpan</button>
+                                                        <button type="button" class="btn btn-primary" onclick="proses_edit_driver()">Simpan</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -121,13 +122,14 @@
                                             <div class="card" style="min-height: 484px;">
                                                 <div class="card-body">
                                                     <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#demoModal"><i class="ik ik-plus"></i>New Data</button>
-                                                    <button class="btn btn-info mr-2" id="edit_vendor" data-toggle="modal" ><i class="ik ik-edit"></i>Edit Data</button>
-                                                    <button class="btn btn-danger mr-2" id="delete_vendor"><i class="ik ik-trash"></i>Delete</button>
+                                                    <button class="btn btn-info mr-2" id="edit_driver" data-toggle="modal" ><i class="ik ik-edit"></i>Edit Data</button>
+                                                    <button class="btn btn-danger mr-2" id="delete_driver"><i class="ik ik-trash"></i>Delete</button>
                                                     <br><br><br>
                                                     <div class="dt-responsive">
                                                         <table id="example" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>Id Driver</th>
                                                                     <th>Plat No</th>
                                                                     <th>Vehicle Name</th>
                                                                     <th>Driver Name</th>
@@ -144,4 +146,4 @@
                         </div>
                     </div>
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="<?php echo base_url() ?>javascript_data/mst_vendor.js?"></script>
+            <script src="<?php echo base_url() ?>javascript_data/mst_driver.js?"></script>

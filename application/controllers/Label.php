@@ -181,4 +181,20 @@ class Label extends CI_Controller {
         $this->labelmodel->delete_m_batch();
 
     }
+
+    public function select_plat_no(){
+        $label = $this->labelmodel->select_driver()->result();
+        echo json_encode($label);
+    }
+
+    public function select_driver_name(){
+        $label = $this->labelmodel->select_driver()->result();
+        echo json_encode($label);
+    }
+
+    public function view_del_note($scan){
+        $label = $this->labelmodel->view_del_note($scan);
+        $data["data"] = $label;
+        echo json_encode($data);
+    }
 }

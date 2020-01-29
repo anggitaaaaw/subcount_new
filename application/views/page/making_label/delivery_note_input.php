@@ -78,11 +78,11 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="forms-sample">
+                                                    
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-2 col-form-label">Plat No</label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control select2">
+                                                                <select class="form-control select2" id="select_plat_no">
                                                                     <option value="">-SELECT PLAT NO-</option>
                                                                 </select>
                                                             </div>
@@ -90,7 +90,7 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-2 col-form-label">Driver Name</label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control select2">
+                                                                <select class="form-control select2" id="select_driver_name">
                                                                     <option value="">-SELECT DRIVER NAME-</option>
                                                                 </select>
                                                             </div>
@@ -99,14 +99,14 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-4 col-form-label" style="font-size: 30px; font-weight: bold;">SCAN LABEL BACTH</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" style="font-size: 40px;" class="form-control" id="scan_label" name="scan_label">
+                                                                <input type="text" style="font-size: 40px;" class="form-control" id="scan_label" name="scan_label" onchange="scan_label(this.value)">
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                   
                                                     
                                                     <br>
                                                     <div class="dt-responsive">
-                                                        <table id="simpletable4" class="table table-striped table-bordered nowrap">
+                                                        <table id="example" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Vendor Name</th>
@@ -116,7 +116,7 @@
                                                                     <th>Description</th>
                                                                     <th>Heat No</th>
                                                                     <th>Quantity</th>
-                                                                    <th width="20">Action</th>
+                                                                    
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -128,10 +128,10 @@
                                                                     <td>Description</td>
                                                                     <td>UoM</td>
                                                                     <td>Heat No</td>
-                                                                    <td>
+                                                                    <!--<td>
                                                                         <div class="table-actions">
                                                                             <a href="#"><i class="ik ik-trash-2"></i></a>
-                                                                        </div>
+                                                                        </div>-->
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -150,3 +150,5 @@
                             </div>
                         </div>
                     </div>
+                    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="<?php echo base_url() ?>javascript_data/delivery_note_input.js?<?php echo time() ?>"></script>
