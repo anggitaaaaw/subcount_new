@@ -140,5 +140,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function mst_driver(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/master_data/mst_driver');
+		$this->load->view('footer');
+	}
+
 
 }

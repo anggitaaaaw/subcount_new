@@ -51,6 +51,29 @@
                                         </div>
                                     </div>
 
+                                    <!-- Print Packing List -->
+                                    <div class="modal fade" id="modal_printpackinglist" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width: 800px;">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="demoModalLabel">Print SJ</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form class="forms-sample">
+                                                    <div class="modal-body" style="height: 600px;">
+                                                        <iframe src="<?php echo site_url('welcome/print_packinglist') ?>" id="iframe" style="border:none;" height="100%" width="100%;">
+
+                                                        </iframe>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="print_sj" class="btn btn-primary">Print</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="card col-md-12" style="min-height: 700px;">
                                         <div class="card-body">
                                             <div class="row">
@@ -117,6 +140,7 @@
                                                     <div style="float: right;">
                                                         <button type="submit" class="btn btn-primary mr-2"><i class="ik ik-check"></i>Create Delivery Note</button>
                                                         <button data-toggle="modal" data-target="#modal_printdn" class="btn btn-primary mr-2"><i class="ik ik-printer"></i>Print Delivery Note</button>
+                                                        <button data-toggle="modal" data-target="#modal_printpackinglist" class="btn btn-primary mr-2"><i class="ik ik-printer  "></i>Print Packing List</button>
                                                     </div>
                                                 </div>
                                             </div>
