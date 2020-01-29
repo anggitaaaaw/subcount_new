@@ -88,9 +88,9 @@ $(document).ready(function() {
         console.log(data.vendor_name);
       //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
         
-      //$("#iframe2").attr("src","print_label/"+data.spk_no);
-        $("#iframe3").get(0).contentWindow.print();
+     
         $("#iframe3").attr("src","print_label/"+data.spk_no);
+        $("#modal_printlabel").modal("show");
     } );
 
     // Add event listener for opening and closing details

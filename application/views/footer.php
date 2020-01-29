@@ -50,6 +50,9 @@
 
             $(document).ready(function() {
                 $('#print_label').click(function() {
+                    $("#iframe3").get(0).contentWindow.print();
+                });
+                $('#print_labelinput').click(function() {
                     $("#iframe2").get(0).contentWindow.print();
                 });
             });

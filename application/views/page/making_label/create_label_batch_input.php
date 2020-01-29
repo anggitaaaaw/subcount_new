@@ -207,9 +207,28 @@
                                     </div>
                                     <div class="col-md-4">
 
-                                        <iframe  id="iframe2" style="border:1px solid gray;" height="100%" width="100%;">
+                                    <!-- Print Label -->
+                                    <div class="modal fade" id="modal_printlabelinput" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content" style="width: 900px; height: 720px">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="demoModalLabel">Print Label</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form class="forms-sample">
+                                                    <div class="modal-body" style="height: 100%; width: 100%">
+                                                         <iframe  id="iframe2" style="border:1px solid gray;" height="500px" width="800px;">
+                                                         </iframe>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="print_labelinput" class="btn btn-primary">Print</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                        </iframe>
                                     </div>
                                     <div class="col-md-12">
                                     <br><br><br><br>
