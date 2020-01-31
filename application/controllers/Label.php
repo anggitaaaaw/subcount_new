@@ -197,4 +197,29 @@ class Label extends CI_Controller {
         $data["data"] = $label;
         echo json_encode($data);
     }
+
+    public function get_dn_no($vendor_code){
+        $date = date('ym');
+        $n = 'DN'.$vendor_code.$date;
+        $ser = $this->labelmodel->getSerial($n)->row();
+        if($ser == null){
+            $serial_number = $n."00001";
+        }else{
+            $str = strlen($ser->serial_number);
+            $sub = substr($ser->serial_number,$str-6,6);
+            $num = $sub + 1;
+            $depan = substr($ser->serial_number,0,$str-6);
+            $serial_number = $depan.$num;
+        }
+
+         return $serial_number;
+    }
+
+    public function save_dn_temp(){
+        $scan = $this->input->post('serial_id');
+        $label = $this->labelmodel->view_del_note($scan);
+        $data['dn_no'] = $this->get_dn_no($label->vendor_code);
+
+
+    }
 }

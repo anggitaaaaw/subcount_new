@@ -64,7 +64,7 @@ class Labelmodel extends CI_Model {
     }
 
     function viewLabelSn(){
-     $sql ='select distinct c.vendor_name, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code group by a.spk_no asc';
+     $sql ='select distinct c.vendor_name, c.batch_qty, c.container_qty, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code group by a.spk_no asc';
         
      $result = $this->db->query($sql)->result();
      return $result;

@@ -73,6 +73,8 @@ $(document).ready(function() {
             { "data": "spk_no" },
             { "data": "item_id" },
             { "data": "item_name" },
+            { "data": "container_qty" },
+            { "data": "batch_qty" },
             { "data": "user_created" },
             {
                 "targets": -1,

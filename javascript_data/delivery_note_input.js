@@ -27,6 +27,11 @@ $(document).ready(function() {
 function scan_label(scan){
     console.log(scan);
     
+    $.post('../Label/save_dn_temp',{'serial_id' : scan},function(data){ 
+        dataa = JSON.parse(data);
+      
+    });
+
     var table = $('#example').DataTable( {
         "ajax": "../Label/view_del_note/"+scan,
         "columns": [
@@ -39,6 +44,7 @@ function scan_label(scan){
             { "data": "qty_batch" }
         ]   
     });
+
     $('#example').DataTable().destroy();
 }
 
