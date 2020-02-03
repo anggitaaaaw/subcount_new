@@ -100,7 +100,9 @@ class Welcome extends CI_Controller {
 
 	public function print_packinglist(){
 		$this->load->helper('url');
-		$this->load->view('page/making_label/print_packinglist');
+		$this->load->model('labelmodel');
+		$data['label'] = $this->labelmodel->view_dn_temp()->result();
+		$this->load->view('page/making_label/print_packinglist', $data);
 	}
 
 	public function print_label($spk = null){
@@ -122,7 +124,9 @@ class Welcome extends CI_Controller {
 
 	public function print_dn(){
 		$this->load->helper('url');
-		$this->load->view('page/making_label/print_dn');
+		$this->load->model('labelmodel');
+		$data['label'] = $this->labelmodel->view_dn_temp()->result();
+		$this->load->view('page/making_label/print_dn', $data);
 	}
 
 	//MODUL MASTER DATA

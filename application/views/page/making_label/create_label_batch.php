@@ -186,6 +186,8 @@
                                                                     <th>SPK no</th>
                                                                     <th>Item No</th>
                                                                     <th>Item Name</th>
+                                                                    <th>Capacity</th>
+                                                                    <th>Batch Qty</th>
                                                                     <th>Create By</th>
                                                                     <th width="20">Action</th>
                                                                 </tr>

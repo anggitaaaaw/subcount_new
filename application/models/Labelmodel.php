@@ -64,7 +64,7 @@ class Labelmodel extends CI_Model {
     }
 
     function viewLabelSn(){
-     $sql ='select distinct c.vendor_name, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code group by a.spk_no asc';
+     $sql ='select distinct c.vendor_name, c.batch_qty, c.container_qty, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code group by a.spk_no asc';
         
      $result = $this->db->query($sql)->result();
      return $result;
@@ -125,8 +125,77 @@ class Labelmodel extends CI_Model {
        return $this->db->get();
     }
 
-    
+    function select_driver(){
+        $this->db->select('*');
+        $this->db->from('m_driver');
+       return $this->db->get();
+    }
 
+    function view_del_note($scan){
+        $sql ="select distinct c.vendor_name, c.vendor_code, b.qty_batch, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code where a.serial_number = '$scan' ";
+        
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+    
+    function get_dn_no($sn){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->like('dn_no', $sn);
+        $this->db->order_by('dn_no', 'desc');
+        $this->db->limit(1);
+        return $this->db->get();
+    }
+
+    function cek_spk($spk_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote_temp');
+        $this->db->where('spk_no', $spk_no);
+       
+        return $this->db->get();
+    }
+
+    function cek_sn($spk_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote_temp');
+        $this->db->where('serial_id', $spk_no);
+       
+        return $this->db->get();
+    }
+
+    function view_dn_temp(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote_temp'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote_temp.vendor_code');
+        return $this->db->get();
+    }
+
+    function move_dn(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote_temp'); 
+        return $this->db->get();
+    }
+
+    function delete_dn(){
+        $sql = "TRUNCATE trx_deliverynote_temp";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    function view_dn(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        return $this->db->get();
+    }
+
+    function view_dn_det($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->where('trx_delivery_note.dn_no', $dn_no);
+        return $this->db->get();
+    }
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */

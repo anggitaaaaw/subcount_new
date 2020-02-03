@@ -91,7 +91,7 @@
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                         <!-- Edit Menu Data -->
@@ -143,7 +143,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">STD Container </label>
+                                                            <label class="col-sm-3 col-form-label">Capacity </label>
                                                             <div class="col-sm-4">
                                                                 <input type="text" class="form-control" id="edit_standard_container" name="standard_container">
                                                             </div>

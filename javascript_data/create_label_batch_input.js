@@ -83,12 +83,20 @@ function save_data(){
     lppp = lpp.split('.');
     lpp_qty = lppp[0];
     lpp_number = lppp[1];
-
+    $('#lpp_no').select2({
+        placeholder: {
+          id: '-1', // the value of the option
+          text: '-SELECT LPP NO-'
+        }
+      });
     $.post('../Label/save_data',{'vendor_code': vendor_code ,'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
         dataa = JSON.parse(data);
+       
+
         if(data == "1"){
             swal("Label added successfully!");
             $('#simpletable').DataTable().ajax.reload();
+            
         }else if(data == '0'){
             swal("Label not successfully added!");
             $('#simpletable').DataTable().ajax.reload();
@@ -97,16 +105,10 @@ function save_data(){
             $('#simpletable').DataTable().ajax.reload();
         }
         
-       
     });
 
 
-      $('#lpp_no').select2({
-        placeholder: {
-          id: '-1', // the value of the option
-          text: '-SELECT LPP NO-'
-        }
-      });
+     
     
 }
 
@@ -289,8 +291,23 @@ function edit_label(id){
             });
             $('#simpletable').DataTable().ajax.reload();
             document.getElementById("myForm").reset();
-     
+            
+            $('#lpp_no').select2({
+                placeholder: {
+                  id: '-1', // the value of the option
+                  text: '-SELECT LPP NO-'
+                }
+              });
+    
+              $('#spk_no').select2({
+                placeholder: {
+                  id: '-1', // the value of the option
+                  text: '-SELECT LPP NO-'
+                }
+              });
         });
+
+      
     
     
   }
@@ -308,7 +325,22 @@ function edit_label(id){
           });
           $('#simpletable').DataTable().ajax.reload();
           document.getElementById("myForm").reset();
+
+          $('#lpp_no').select2({
+            placeholder: {
+              id: '-1', // the value of the option
+              text: '-SELECT LPP NO-'
+            }
+          });
+        
+          $('#spk_no').select2({
+            placeholder: {
+              id: '-1', // the value of the option
+              text: '-SELECT LPP NO-'
+            }
+          });
         });
+        
         
        
     

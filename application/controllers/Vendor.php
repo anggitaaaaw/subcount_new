@@ -151,4 +151,53 @@ class Vendor extends CI_Controller {
       echo json_encode($process);
     }
 
+    public function new_driver(){
+      $data['plat_no'] = $this->input->post('plat_no');
+      $data['vehicle_name'] = $this->input->post('vehicle_name');
+      $data['driver_name'] = $this->input->post('driver_name');
+      $data['no_telp'] =$this->input->post('no_telp');
+
+      $this->db->insert('m_driver', $data);
+      if ($this->db->affected_rows() == 1) {
+          echo "1";
+        }else{
+          echo "0";
+        }
+
+  }
+
+  public function view_driver(){
+          $vendor = $this->vendormodel->viewDriver()->result();
+          $data["data"] = $vendor;
+          echo json_encode($data);
+  }
+
+  public function delete_driver(){
+      $id = $this->input->post('id_driver');
+      $this->vendormodel->deleteDriver($id);
+  }
+
+  public function edit_driver(){
+      $id = $this->input->post('id_driver');
+      $label = $this->vendormodel->getDriver($id)->row();
+      echo json_encode($label);
+  
+    }
+    
+    public function proses_edit_driver(){
+      $id = $this->input->post('id_driver');
+      $data['plat_no'] = $this->input->post('plat_no');
+      $data['vehicle_name'] = $this->input->post('vehicle_name');
+      $data['driver_name'] = $this->input->post('driver_name');
+      $data['no_telp'] =$this->input->post('no_telp');
+
+      $edit = $this->vendormodel->editDriver($data, $id);
+      if ($this->db->affected_rows() == 1) {
+          echo "1";
+        }else{
+          echo "0";
+        }
+
+  }
+
 }
