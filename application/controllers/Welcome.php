@@ -82,6 +82,8 @@ class Welcome extends CI_Controller {
 	public function delivery_note_input(){
 		$this->load->helper('url');
 		$this->load->view('header');
+		$this->load->model('labelmodel');
+		$this->labelmodel->delete_dn();
 		$this->load->view('page/making_label/delivery_note_input');
 		$this->load->view('footer');
 	}
