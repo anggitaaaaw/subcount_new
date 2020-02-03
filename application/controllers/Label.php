@@ -192,8 +192,8 @@ class Label extends CI_Controller {
         echo json_encode($label);
     }
 
-    public function view_del_note($scan){
-        $label = $this->labelmodel->view_del_note($scan);
+    public function view_del_note(){
+        $label = $this->labelmodel->view_dn_temp()->result();
         $data["data"] = $label;
         echo json_encode($data);
     }
@@ -201,14 +201,14 @@ class Label extends CI_Controller {
     public function get_dn_no($vendor_code){
         $date = date('ym');
         $n = 'DN'.$vendor_code.$date;
-        $ser = $this->labelmodel->getSerial($n)->row();
+        $ser = $this->labelmodel->get_dn_no($n)->row();
         if($ser == null){
             $serial_number = $n."00001";
         }else{
             $str = strlen($ser->serial_number);
             $sub = substr($ser->serial_number,$str-6,6);
             $num = $sub + 1;
-            $depan = substr($ser->serial_number,0,$str-6);
+            $depan = substr($ser->serial_number,0,8);
             $serial_number = $depan.$num;
         }
 
@@ -218,8 +218,82 @@ class Label extends CI_Controller {
     public function save_dn_temp(){
         $scan = $this->input->post('serial_id');
         $label = $this->labelmodel->view_del_note($scan);
-        $data['dn_no'] = $this->get_dn_no($label->vendor_code);
+        $data['dn_no'] = $this->get_dn_no($label[0]->vendor_code);
+        $data['serial_id'] = $label[0]->serial_number;
+        $data['vendor_code'] = $label[0]->vendor_code;
+        $data['plat_no'] = $this->input->post('plat_no');
+        $data['driver_name'] = $this->input->post('driver_name');
+        $data['spk_no'] = $label[0]->spk_no;
+        $data['lpp_no'] = $label[0]->lpp_no;
+        $data['item_code'] = $label[0]->item_id;
+        $data['item_name'] = $label[0]->item_name;
+        $data['heatno_a'] = $label[0]->heatno_a;
+        $data['heatno_b'] = $label[0]->heatno_b;
+        $data['lpp_qty'] = $label[0]->lpp_qty;
+        $data['status_dn'] = 'open';
+        $data['created_by'] = $this->session->userdata('username');
+        $data['created_date'] = date('Y-m-d H:m:s');
 
+        $cek_spk = $this->labelmodel->cek_spk($label[0]->spk_no)->row();
+        $cek_sn = $this->labelmodel->cek_sn($label[0]->serial_number)->row();
+        if($cek_spk != null){
+            if($cek_sn == null){
+                $this->db->insert('trx_deliverynote_temp', $data);
+                if ($this->db->affected_rows() == 1) {
+                    echo "1";
+                }else{
+                    echo "0";
+                }
+            }else{
+                echo "Serial ID sudah ada";
+            }
+        }else{
+            if($cek_spk == null){
+                $this->db->insert('trx_deliverynote_temp', $data);
+                if ($this->db->affected_rows() == 1) {
+                    echo "1";
+                }else{
+                    echo "0";
+                }
+            }
+            echo "SPK no tidak boleh berbeda";
+        }
 
+    }
+
+    public function create_dn(){
+        $dn = $this->labelmodel->move_dn()->result();
+        foreach($dn as $d){
+            $data['dn_no'] = $d->dn_no;
+            $data['serial_id'] = $d->serial_id;
+            $data['vendor_code'] = $d->vendor_code;
+            $data['plat_no'] = $d->plat_no;
+            $data['driver_name'] = $d->driver_name;
+            $data['spk_no'] = $d->spk_no;
+            $data['lpp_no'] = $d->lpp_no;
+            $data['item_code'] = $d->item_code;
+            $data['item_name'] = $d->item_name;
+            $data['heatno_a'] = $d->heatno_a;
+            $data['heatno_b'] = $d->heatno_b;
+            $data['lpp_qty'] = $d->lpp_qty;
+            $data['status_dn'] = $d->status_dn;
+            $data['created_by'] = $d->created_by;
+            $data['created_date'] = $d->created_date;
+
+            $this->db->insert('trx_deliverynote', $data);
+        }
+        $this->labelmodel->delete_dn();
+    }
+
+    public function view_deliverynote(){
+        $label = $this->labelmodel->view_dn()->result();
+        $data["data"] = $label;
+        echo json_encode($data);
+    }
+
+    public function view_dn_det(){
+        $dn_no = $this->input->post('dn_no');
+        $label = $this->labelmodel->view_dn_det($dn_no)->result();
+        echo json_encode($label);
     }
 }

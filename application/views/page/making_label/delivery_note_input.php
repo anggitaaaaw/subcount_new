@@ -38,7 +38,7 @@
                                                 </div>
                                                 <form class="forms-sample">
                                                     <div class="modal-body" style="height: 600px;">
-                                                        <iframe src="<?php echo site_url('welcome/print_dn') ?>" id="iframe" style="border:none;" height="100%" width="100%;">
+                                                        <iframe  id="iframe1" style="border:none;" height="100%" width="100%;">
 
                                                         </iframe>
                                                     </div>
@@ -61,7 +61,7 @@
                                                 </div>
                                                 <form class="forms-sample">
                                                     <div class="modal-body" style="height: 600px;">
-                                                        <iframe src="<?php echo site_url('welcome/print_packinglist') ?>" id="iframe" style="border:none;" height="100%" width="100%;">
+                                                        <iframe  id="iframe2" style="border:none;" height="100%" width="100%;">
 
                                                         </iframe>
                                                     </div>
@@ -78,7 +78,7 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    
+                                                        
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-2 col-form-label">Plat No</label>
                                                             <div class="col-sm-4">
@@ -138,9 +138,9 @@
                                                         </table>
                                                     </div>
                                                     <div style="float: right;">
-                                                        <button type="submit" class="btn btn-primary mr-2"><i class="ik ik-check"></i>Create Delivery Note</button>
-                                                        <button data-toggle="modal" data-target="#modal_printdn" class="btn btn-primary mr-2"><i class="ik ik-printer"></i>Print Delivery Note</button>
-                                                        <button data-toggle="modal" data-target="#modal_printpackinglist" class="btn btn-primary mr-2"><i class="ik ik-printer  "></i>Print Packing List</button>
+                                                        <button type="submit" class="btn btn-primary mr-2" onclick="create_dn()" id="create_dn"><i class="ik ik-check"></i>Create Delivery Note</button>
+                                                        <button data-toggle="modal" data-target="#modal_printdn" class="btn btn-primary mr-2" id="print_dn" onclick ="print_dn()"><i class="ik ik-printer"></i>Print Delivery Note</button>
+                                                        <button data-toggle="modal" data-target="#modal_printpackinglist" class="btn btn-primary mr-2" id="print_packing" onclick="print_pl()"><i class="ik ik-printer  "></i>Print Packing List</button>
                                                     </div>
                                                 </div>
                                             </div>

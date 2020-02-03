@@ -31,7 +31,7 @@
         
         <div style="width: 700px; height: 500px; padding: 5px;">
             <div style="width: 100%; float: left; text-align: center;">
-                <p style="font-weight: bold; font-size: 30px;">PT JAKARTA MARTIN</p>
+                <p style="font-weight: bold; font-size: 30px;"><?php echo $label[0]->vendor_name?></p>
             </div>
             <div style="width: 690px; float: left;">
                 <hr>
@@ -39,8 +39,8 @@
             </div>
             <div style="width: 200px; padding: 10px; float: left;">
                 <span style="font-size: 12px; margin: 0px;">Packing List No : PL-VEN0011219-0001</span><br>
-                <span style="font-size: 12px; margin: 0px;">Driver Name : Mr. XXXX</span><br>
-                <span style="font-size: 12px; margin: 0px;">Plat No : B 1278 AEX</span>
+                <span style="font-size: 12px; margin: 0px;">Driver Name : <?php echo $label[0]->driver_name?> </span><br>
+                <span style="font-size: 12px; margin: 0px;">Plat No : <?php echo $label[0]->plat_no?><span>
                 <div style="width: 100%; padding: 8px; border: 1px solid black;">
                     <span style="font-size: 12px; margin: 0px;">Deliver to :</span><br>
                     <span style="font-size: 12px; margin: 0px;">Attention Mr. XXXX</span><br>
@@ -50,8 +50,8 @@
             </div>
             <div style="width: 150px; padding: 10px; float: right;">
                 <span style="font-size: 12px; margin: 0px;">PL Date : <?php echo date("Y-m-d") ?></span><br>
-                <span style="font-size: 12px; margin: 0px;">PL No : DN1219-0001</span><br>
-                <img src="<?php echo base_url() ?>assets/phpqrcode/CONTOH QRCODE.png" width="100" style="margin:10px;">
+                <span style="font-size: 12px; margin: 0px;">PL No : <?php echo $label[0]->dn_no?></span><br>
+                <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $label[0]->dn_no?>&choe=UTF-8',60,55,40,0,'PNG'" width="100%" style="margin:0px;">
             </div>
             
             <div style="width: 100%; float: left;">
@@ -76,6 +76,19 @@
                         <td></td>
                         <td></td>
                     </tr>
+                    <?php $no = 1;
+                foreach($label as $l){ ?>
+                    <tr>
+                        <td style="height: 20px;"><?php echo $no?></td>
+                        <td style="height: 20px;"><?php echo $l->spk_no?></td>
+                        <td style="height: 20px;"><?php echo $l->batch_qty?></td>
+                        <td style="height: 20px;"><?php echo $l->item_code?></td>
+                        <td style="height: 20px;"><?php echo $l->item_name?></td>
+                        <td style="height: 20px;"><?php echo $l->heatno_a?></td>
+                        <td style="height: 20px;"><?php echo $l->lpp_qty?></td>
+                        <td style="height: 20px;"></td>
+                    </tr>
+                <?php $no++; } ?>
                     <tr>
                         <td style="height: 20px;"></td>
                         <td style="height: 20px;"></td>
@@ -96,86 +109,7 @@
                         <td style="height: 20px;"></td>
                         <td style="height: 20px;"></td>
                     </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
-                    <tr>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                        <td style="height: 20px;"></td>
-                    </tr>
+                   
                     <tr>
                         <td></td>
                         <td></td>

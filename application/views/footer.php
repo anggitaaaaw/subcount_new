@@ -45,6 +45,8 @@
             $(document).ready(function() {
                 $('#print_sj').click(function() {
                     $("#iframe").get(0).contentWindow.print();
+                    document.getElementById("create_dn").disabled = false;
+                    
                 });
             });
 

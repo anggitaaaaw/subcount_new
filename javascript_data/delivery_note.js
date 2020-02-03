@@ -1,5 +1,5 @@
 function format ( d ) {
-    return  'Detail of : '+d.spk_no+
+    /*return  'Detail of : '+d.dn_no+
             '<table class="table">'+
                 '<thead>'+
                     '<tr>'+
@@ -23,12 +23,53 @@ function format ( d ) {
                         '<td>1233</td>'+
                     '</tr>'+
                 '</tbody>'+
-            '</table>';
+            '</table>';*/
+
+            var table = '';
+            table = 'Detail of : '+d.dn_no;
+            table +='<table class="table table-striped table-bordered nowrap" id="det_batch'+d.dn_no+'">';
+                table += '<thead>';
+                    table += '<tr>';
+                        table += '<th>SPK No</th>'+
+                        '<th>Batch No</th>'+
+                        '<th>Item Code</th>'+
+                        '<th>Description</th>'+
+                        '<th>Heat No</th>'+
+                        '<th>Quantity</th>'+
+                        '<th>Uom</th>';
+                    table += '</tr>';
+                table += '</thead>';
+                table += '<tbody >'; 
+             table += '</tbody>';
+             table += '</table>';
+ 
+             $.post('../Label/view_dn_det',{'dn_no' : d.dn_no},function(data){ 
+                 dataa = JSON.parse(data);
+                 console.log(dataa);
+                 for(i in dataa){
+                     table += '<tr>';
+                     table += '<th>'+dataa[i].spk_no+'</th>';
+                     table += '<th>'+dataa[i].batch_qty+'</th>';
+                     table += '<th>'+dataa[i].item_code+'</th>';
+                     table += '<th>'+dataa[i].item_name+' KG</th>';
+                     table += '<th>'+dataa[i].heatno_a+'</th>';
+                     table += '<th>'+dataa[i].lpp_qty+'</th>';
+                     table += '<th></th>';
+                     table += '</tr>';
+                    
+                 }
+ 
+                 $('#det_batch'+d.dn_no).html(table);
+     
+             });
+             
+             return table;
+ 
 }
 
 $(document).ready(function() {
     var table = $('#delivery_note').DataTable( {
-        "ajax": "../json/data_clb.json",
+        "ajax": "../Label/view_deliverynote",
         "searching": false,
         "paging":   false,
         "columns": [
@@ -38,13 +79,13 @@ $(document).ready(function() {
                 "data":           null,
                 "defaultContent": '<i class="ik ik-plus-circle"></i>'
             },
-            { "data": "spk_no" },
-            { "data": "batch_no" },
-            { "data": "item_code" },
-            { "data": "desc" },
-            { "data": "heatno" },
-            { "data": "cuser" },
-            { "data": "cdate" }
+            { "data": "dn_no" },
+            { "data": "created_date" },
+            { "data": "vendor_name" },
+            { "data": "plat_no" },
+            { "data": "driver_name" },
+            { "data": "created_by" },
+            { "data": "created_date" }
         ],
         "order": [[1, 'asc']]
     } );
