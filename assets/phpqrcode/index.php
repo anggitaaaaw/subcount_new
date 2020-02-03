@@ -1,33 +1,64 @@
 <?php
-/**
- * QR Code + Logo Generator
- *
- * http://labs.nticompassinc.com
- */
-$data = isset($_GET['data']) ? $_GET['data'] : 'http://labs.nticompassinc.com';
-$size = isset($_GET['size']) ? $_GET['size'] : '200x200';
-$logo = isset($_GET['logo']) ? $_GET['logo'] : FALSE;
+/*
+if (isset($_GET['input'])){
+	$nama = $_GET['nama'];
+	$exten= ".png";
+	$imgname = $nama.$exten;
+	$data = isset($_GET['data']) ? $_GET['data'] : "$nama";
+	$logo = isset($_GET['logo']) ? $_GET['logo'] : 'logo.png';
+	$sdir = explode("/",$_SERVER['REQUEST_URI']);
+	$dir = str_replace($sdir[count($sdir)-1],"",$_SERVER['REQUEST_URI']);
+*/
 
-header('Content-type: image/png');
-// Get QR Code image from Google Chart API
-// http://code.google.com/apis/chart/infographics/docs/qr_codes.html
-$QR = imagecreatefrompng('https://chart.googleapis.com/chart?cht=qr&chld=H|1&chs='.$size.'&chl='.urlencode($data));
+$nama 		= "CONTOH QRCODE";
+$exten 		= ".png";
+$imgname 	= $nama.$exten;
+$logo 		= "logo.png";
+
+// === Create qrcode image
+include('phpqrcode/qrlib.php');
+QRcode::png($nama, $imgname,QR_ECLEVEL_L, 11.45, 0);
+
+// === Adding image to qrcode
+$QR = imagecreatefrompng($imgname);
 if($logo !== FALSE){
-	$logo = imagecreatefromstring(file_get_contents($logo));
-
+	$logopng = imagecreatefrompng($logo);
 	$QR_width = imagesx($QR);
 	$QR_height = imagesy($QR);
+	$logo_width = imagesx($logopng);
+	$logo_height = imagesy($logopng);
 	
-	$logo_width = imagesx($logo);
-	$logo_height = imagesy($logo);
+	list($newwidth, $newheight) = getimagesize($logo);
+	$out = imagecreatetruecolor($QR_width, $QR_width);
+	imagecopyresampled($out, $QR, 0, 0, 0, 0, $QR_width, $QR_height, $QR_width, $QR_height);
+	imagecopyresampled($out, $logopng, $QR_width/2.65, $QR_height/2.65, 0, 0, $QR_width/4, $QR_height/4, $newwidth, $newheight);
 	
-	// Scale logo to fit in the QR Code
-	$logo_qr_width = $QR_width/3;
-	$scale = $logo_width/$logo_qr_width;
-	$logo_qr_height = $logo_height/$scale;
-	
-	imagecopyresampled($QR, $logo, $QR_width/3, $QR_height/3, 0, 0, $logo_qr_width, $logo_qr_height, $logo_width, $logo_height);
 }
-imagepng($QR);
-imagedestroy($QR);
+imagepng($out,$imgname);
+imagedestroy($out);
+
+// === Change image color
+$im = imagecreatefrompng($imgname);
+$r = 44;$g = 62;$b = 80;
+for($x=0;$x<imagesx($im);++$x){
+	for($y=0;$y<imagesy($im);++$y){
+        $index 	= imagecolorat($im, $x, $y);
+        $c   	= imagecolorsforindex($im, $index);
+        if(($c['red'] < 100) && ($c['green'] < 100) && ($c['blue'] < 100)) { // dark colors
+            // here we use the new color, but the original alpha channel
+            $colorB = imagecolorallocatealpha($im, 0x12, 0x2E, 0x31, $c['alpha']);
+            imagesetpixel($im, $x, $y, $colorB);
+        }
+	}
+}
+imagepng($im,$imgname);
+imagedestroy($im);
+
+// === Convert Image to base64
+$type = pathinfo($imgname, PATHINFO_EXTENSION);
+$data = file_get_contents($imgname);
+$imgbase64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+// === Show image
+echo "<img src='$imgbase64' style='position:relative; display:block;width:240px;height:240px;margin:50px auto;'>";
 ?>

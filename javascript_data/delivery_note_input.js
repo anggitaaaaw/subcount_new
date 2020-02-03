@@ -40,6 +40,7 @@ function scan_label(scan){
             console.log(data);
             document.getElementById("print_dn").disabled = false;
             document.getElementById("print_packing").disabled = false;
+            document.getElementById("scan_label").value = '';
         });
     }
 
@@ -52,7 +53,7 @@ function scan_label(scan){
             { "data": "item_code" },
             { "data": "item_name" },
             { "data": "heatno_a" },
-            { "data": "batch_qty" }
+            { "data": "lpp_qty" }
         ]   
     });
 
