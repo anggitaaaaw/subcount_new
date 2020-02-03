@@ -99,7 +99,8 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-4 col-form-label" style="font-size: 30px; font-weight: bold;">SCAN LABEL BACTH</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" style="font-size: 40px;" class="form-control" id="scan_label" name="scan_label">
+                                                                <input type="text" require style="font-size: 40px;" class="form-control" id="scan_label" name="scan_label">
+                                                                <button hidden type="submit" name="simpan">Submit</button>
                                                             </div>
                                                         </div>
                                                     </form>
