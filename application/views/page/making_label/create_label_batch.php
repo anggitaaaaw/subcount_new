@@ -202,3 +202,4 @@
                             </div>
                         </div>
                     </div>
+                    <script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>

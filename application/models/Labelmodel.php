@@ -186,6 +186,7 @@ class Labelmodel extends CI_Model {
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
         $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->group_by('trx_deliverynote.dn_no');
         return $this->db->get();
     }
 
@@ -193,9 +194,46 @@ class Labelmodel extends CI_Model {
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
         $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
-        $this->db->where('trx_delivery_note.dn_no', $dn_no);
+        $this->db->where('trx_deliverynote.dn_no', $dn_no);
         return $this->db->get();
     }
+
+    function find_spk(){
+        $this->db->select('spk_no');
+        $this->db->from('trx_deliverynote_temp'); 
+        $this->db->limit(1);
+        return $this->db->get();
+    }
+
+    function jml_lpp($spk_no){
+        $sql = "SELECT COUNT(lpp_no) AS jml_lpp FROM m_batch where spk_no = '$spk_no'";
+        $result = $this->db->query($sql);
+        return $result;
+        
+    }
+
+    function jml_row(){
+        $sql = "SELECT COUNT(spk_no) AS jml_spk FROM trx_deliverynote_temp";
+        $result = $this->db->query($sql);
+        return $result;
+        
+    }
+
+    function view_search_dn($status_delivery, $kategori, $search){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->where('trx_deliverynote.status_dn', $status_delivery);
+        if($kategori == 'dn_no'){
+            $this->db->like('trx_deliverynote.dn_no', $search);
+        }else if($kategori == 'product_no'){
+            $this->db->like('trx_deliverynote.item_code', $search);
+        }
+        $this->db->group_by('trx_deliverynote.dn_no');
+        return $this->db->get();
+    }
+
+
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */

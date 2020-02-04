@@ -39,15 +39,11 @@
         <script src="<?php echo base_url() ?>assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
 
         <!-- Datatables Javascript -->
-        <script src="<?php echo base_url() ?>javascript_data/receiving_disubcount.js"></script>
-        <script src="<?php echo base_url() ?>javascript_data/create_label_batch.js"></script>
+       
+        
         <script>
             $(document).ready(function() {
-                $('#print_sj').click(function() {
-                    $("#iframe").get(0).contentWindow.print();
-                    document.getElementById("create_dn").disabled = false;
-                    
-                });
+               
             });
 
             $(document).ready(function() {

@@ -138,3 +138,4 @@
                         </div>
                     </div>
                     
+                    <script src="<?php echo base_url() ?>javascript_data/receiving_disubcount.js"></script>

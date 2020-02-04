@@ -38,7 +38,7 @@
                                                         </div>
                                                         <label class="col-sm-1 col-form-label">Search By</label>
                                                         <div class="col-sm-2">
-                                                            <select class="form-control select2">
+                                                            <select class="form-control select2" id="status_delivery">
                                                                 <option value="">-Status Delivery-</option>
                                                                 <option value="all">All</option>
                                                                 <option value="open">Open</option>
@@ -47,7 +47,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-1">
-                                                            <select class="form-control select2">
+                                                            <select class="form-control select2" id="kategori">
                                                                 <option value="dn_no">DN No</option>
                                                                 <option value="product_no">Product No</option>
                                                             </select>
@@ -56,7 +56,7 @@
                                                             <input type="text" class="form-control" placeholder="What are you looking for" id="search_by">
                                                         </div>
                                                         <div class="col-sm-1">
-                                                            <button type="submit" class="btn btn-primary mr-2"><i class="ik ik-search"></i>Find</button>
+                                                            <button type="submit" class="btn btn-primary mr-2" onclick="search()"><i class="ik ik-search"></i>Find</button>
                                                         </div>
                                                     </div>
                                                     <div class="dt-responsive">

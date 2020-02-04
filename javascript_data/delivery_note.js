@@ -68,8 +68,19 @@ function format ( d ) {
 }
 
 $(document).ready(function() {
+
+});
+
+function search(){
+    $status_delivery = $('#status_delivery').val();
+    $kategori = $('#kategori').val();
+    $search_by = $('#search_by').val();
+    console.log($status_delivery);
+    console.log($kategori);
+    console.log($search_by);
+    $('#delivery_note').DataTable().destroy();
     var table = $('#delivery_note').DataTable( {
-        "ajax": "../Label/view_deliverynote",
+        "ajax": "../Label/view_search_dn/"+$status_delivery+"/"+$kategori+"/"+$search_by,
         "searching": false,
         "paging":   false,
         "columns": [
@@ -89,9 +100,8 @@ $(document).ready(function() {
         ],
         "order": [[1, 'asc']]
     } );
-    
-    // Add event listener for opening and closing details
-    $('#delivery_note tbody').on('click', 'td.details-control', function () {
+
+     $('#delivery_note tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
 
@@ -106,4 +116,4 @@ $(document).ready(function() {
             tr.addClass('shown');
         }
     } );
-});
+}

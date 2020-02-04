@@ -66,7 +66,7 @@
                                                         </iframe>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" id="print_sj" class="btn btn-primary">Print</button>
+                                                        <button type="button" id="print_pl" class="btn btn-primary">Print</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -106,10 +106,11 @@
                                                     
                                                     <br>
                                                     <div class="dt-responsive">
-                                                        <table id="example" class="table table-bordered nowrap">
+                                                        <table id="tbl_create_dn" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Vendor Name</th>
+                                                                    <th>Serial ID</th>
                                                                     <th>SPK No</th>
                                                                     <th>LPP No</th>
                                                                     <th>Item Code</th>
@@ -120,27 +121,14 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td>Vendor Name</td>
-                                                                    <td>SPK No</td>
-                                                                    <td>Batch No</td>
-                                                                    <td>Item Code</td>
-                                                                    <td>Description</td>
-                                                                    <td>UoM</td>
-                                                                    <td>Heat No</td>
-                                                                    <!--<td>
-                                                                        <div class="table-actions">
-                                                                            <a href="#"><i class="ik ik-trash-2"></i></a>
-                                                                        </div>-->
-                                                                    </td>
-                                                                </tr>
+                                                               
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                     <div style="float: right;">
                                                         <button type="submit" class="btn btn-primary mr-2" onclick="create_dn()" id="create_dn"><i class="ik ik-check"></i>Create Delivery Note</button>
-                                                        <button data-toggle="modal" data-target="#modal_printdn" class="btn btn-primary mr-2" id="print_dn" onclick ="print_dn()"><i class="ik ik-printer"></i>Print Delivery Note</button>
-                                                        <button data-toggle="modal" data-target="#modal_printpackinglist" class="btn btn-primary mr-2" id="print_packing" onclick="print_pl()"><i class="ik ik-printer  "></i>Print Packing List</button>
+                                                        <button data-toggle="modal" class="btn btn-primary mr-2" id="print_dn" onclick ="print_dn()"><i class="ik ik-printer"></i>Print Delivery Note</button>
+                                                        <button data-toggle="modal" class="btn btn-primary mr-2" id="print_packing" onclick="print_pl()"><i class="ik ik-printer  "></i>Print Packing List</button>
                                                     </div>
                                                 </div>
                                             </div>

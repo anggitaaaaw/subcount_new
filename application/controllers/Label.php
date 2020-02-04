@@ -205,11 +205,11 @@ class Label extends CI_Controller {
         if($ser == null){
             $serial_number = $n."00001";
         }else{
-            $str = strlen($ser->serial_number);
-            $sub = substr($ser->serial_number,$str-6,6);
+            $str = strlen($ser->serial_id);
+            $sub = substr($ser->serial_id,$str-6,6);
             $num = $sub + 1;
-            $depan = substr($ser->serial_number,0,8);
-            $serial_number = $depan.$num;
+            $depan = substr($ser->serial_id,0,8);
+            $serial_number = 'DN'.$depan.$num;
         }
 
          return $serial_number;
@@ -296,4 +296,23 @@ class Label extends CI_Controller {
         $label = $this->labelmodel->view_dn_det($dn_no)->result();
         echo json_encode($label);
     }
+
+    public function cek_jml(){
+        $spk_no = $this->labelmodel->find_spk()->row();
+        $jml_lpp = $this->labelmodel->jml_lpp($spk_no->spk_no)->row();
+        $jml_row = $this->labelmodel->jml_row()->row();
+
+        if($jml_lpp->jml_lpp == $jml_row->jml_spk){
+            echo "1";
+        }else{
+            echo "0";
+        }
+    }
+
+    public function view_search_dn($status_delivery, $kategori, $search_by){
+        $label = $this->labelmodel->view_search_dn($status_delivery, $kategori, $search_by)->result();
+        $data["data"] = $label;
+        echo json_encode($data);
+    }
+
 }
