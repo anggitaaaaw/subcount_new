@@ -28,7 +28,6 @@
         <!-- Combobox -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/select2/dist/css/select2.min.css">
     </head>
-
     <body>
 
         <div class="wrapper">

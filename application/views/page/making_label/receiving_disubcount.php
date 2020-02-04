@@ -29,7 +29,7 @@
 
                                     <!-- Vendor Receipt -->
                                     <div class="modal fade" id="modal_vendor" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
+                                        <div class="modal-dialog modal-dialog-centered" style="max-width: 1100px;">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="demoModalLabel">Vendor Receive</h5>
