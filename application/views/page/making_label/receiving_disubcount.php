@@ -28,7 +28,7 @@
                                     </div>
 
                                     <!-- Vendor Receipt -->
-                                    <div class="modal fade" id="modal_vendor" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="modal_dn_no" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" style="max-width: 1100px;">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -40,7 +40,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Delivery Note No</label>
                                                             <div class="col-sm-4">
-                                                                <select class="form-control select2">
+                                                                <select class="form-control select2" id="select_dn_no" onchange="tes(this.value)" >
                                                                     <option value="">-SELECT DELIVERY NOTE NO-</option>
                                                                 </select>
                                                             </div>
@@ -58,7 +58,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="dt-responsive" style="padding: 10px;">
-                                                            <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                                            <table id="tbl_dn_no" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     <tr>
                                                                         <th width="5">No</th>
@@ -68,8 +68,8 @@
                                                                         <th>Description</th>
                                                                         <th>Heat No</th>
                                                                         <th>Quantity</th>
-                                                                        <th>Actual</th>
-                                                                        <th>Balance</th>
+                                                                        <!--<th>Actual</th>
+                                                                        <th>Balance</th>-->
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -81,8 +81,7 @@
                                                                         <td>Produk A</td>
                                                                         <td>10</td>
                                                                         <td>23</td>
-                                                                        <td>10</td>
-                                                                        <td>13</td>
+                                                                        
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -104,7 +103,7 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group row">
                                                             <div class="col-sm-8">
-                                                                <button data-toggle="modal" data-target="#modal_vendor" class="btn btn-primary mr-2"><i class="ik ik-list"></i>Vendor Receive</button>
+                                                                <button data-toggle="modal" data-target="#modal_dn_no" class="btn btn-primary mr-2"><i class="ik ik-list"></i>Vendor Receive</button>
                                                             </div>
                                                             <label class="col-sm-1 col-form-label">Delivery Note</label>
                                                             <div class="col-sm-3">
@@ -137,5 +136,5 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
                     <script src="<?php echo base_url() ?>javascript_data/receiving_disubcount.js"></script>

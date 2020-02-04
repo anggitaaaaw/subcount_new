@@ -30,7 +30,45 @@ function format ( d ) {
             '</table>';
 }
 
+function tes(dn_no){
+   console.log(dn_no);
+    $.post('../Label/plat_driver',{'dn_no' : dn_no},function(data){ 
+        dataa = JSON.parse(data);
+        console.log(dataa);
+            //table = '';
+    
+        $('#plat_no').val(dataa[0].plat_no);
+        $('#driver_name').val(dataa[0].driver_name);
+    });
+
+    var table = $('#tbl_dn_no').DataTable( {
+        "ajax": "../Label/view_dn_tbl/"+dn_no,
+        "columns": [
+            { "data": "vspk_no" },
+            { "data": "lpp_no" },
+            { "data": "item_code" },
+            { "data": "item_name" },
+            { "data": "heatno_a" },
+            { "data": "lpp_qty" }
+        ]   
+    });
+}
+
 $(document).ready(function() {
+    $('#select_dn_no').select2({
+        dropdownParent: $('#modal_dn_no')
+    });
+
+    $.post('../Label/select_dn_no',{},function(data){ 
+        dataa = JSON.parse(data);
+       // console.log(dataa);
+            table = '';
+        for(i in dataa){
+            table += '<option value="'+dataa[i].dn_no+'">'+dataa[i].dn_no+'</option>';
+        }
+        $('#select_dn_no').append(table);
+    });
+
     var table = $('#receiving_disubcount').DataTable( {
         "ajax": "../json/data_rd.json",
         "searching": false,

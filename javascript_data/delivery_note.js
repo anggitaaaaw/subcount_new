@@ -68,21 +68,10 @@ function format ( d ) {
 }
 
 $(document).ready(function() {
-
-});
-
-function search(){
-    $status_delivery = $('#status_delivery').val();
-    $kategori = $('#kategori').val();
-    $search_by = $('#search_by').val();
-    console.log($status_delivery);
-    console.log($kategori);
-    console.log($search_by);
-    $('#delivery_note').DataTable().destroy();
     var table = $('#delivery_note').DataTable( {
-        "ajax": "../Label/view_search_dn/"+$status_delivery+"/"+$kategori+"/"+$search_by,
-        "searching": false,
-        "paging":   false,
+        "ajax": "../Label/view_deliverynote",
+        "searching": true,
+        "paging":   true,
         "columns": [
             {
                 "className":      'details-control',
@@ -116,4 +105,15 @@ function search(){
             tr.addClass('shown');
         }
     } );
+});
+
+function search(){
+    $status_delivery = $('#status_delivery').val();
+    $kategori = $('#kategori').val();
+    $search_by = $('#search_by').val();
+    console.log($status_delivery);
+    console.log($kategori);
+    console.log($search_by);
+    $('#delivery_note').DataTable().destroy();
+
 }

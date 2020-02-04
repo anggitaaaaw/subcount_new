@@ -36,7 +36,8 @@
                                                             <a href="<?php echo site_url('welcome/delivery_note_input') ?>" class="btn btn-primary mr-2"><i class="ik ik-plus"></i>Create Delivery Note</a>
                                                             <a href="#" class="btn btn-primary mr-2"><i class="ik ik-upload"></i>Export to Excel</a>
                                                         </div>
-                                                        <label class="col-sm-1 col-form-label">Search By</label>
+                                                    </div>
+                                                       <!-- <label class="col-sm-1 col-form-label">Search By</label>
                                                         <div class="col-sm-2">
                                                             <select class="form-control select2" id="status_delivery">
                                                                 <option value="">-Status Delivery-</option>
@@ -58,7 +59,7 @@
                                                         <div class="col-sm-1">
                                                             <button type="submit" class="btn btn-primary mr-2" onclick="search()"><i class="ik ik-search"></i>Find</button>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="dt-responsive">
                                                         <table id="delivery_note" class="table table-striped table-bordered nowrap">
                                                             <thead>

@@ -315,4 +315,21 @@ class Label extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function select_dn_no(){
+        $label = $this->labelmodel->view_dn()->result();
+        echo json_encode($label);
+    }
+
+    public function plat_driver(){
+        $dn_no = $this->input->post('dn_no');
+        $label = $this->labelmodel->view_dn_det($dn_no)->result();
+        echo json_encode($label);
+    }
+
+    public function view_dn_tbl($dn_no){
+        $label = $this->labelmodel->view_dn_det($dn_no)->result();
+        $data['data'] = $label;
+        echo json_encode($data);
+    }
+
 }

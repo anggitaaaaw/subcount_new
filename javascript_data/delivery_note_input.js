@@ -127,7 +127,7 @@ function print_pl(){
         if(dataa == "1"){
             $("#modal_printpackinglist").modal("show");
         }else{
-            swal("data not match");
+            swal("Batch No is not Complete");
         }
     
     });
