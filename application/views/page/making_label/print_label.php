@@ -40,7 +40,7 @@
             </div>
               
             <div class="demo" style="width: 20%; float: left;">
-               <img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=<?php echo $l->serial_number?>&choe=UTF-8',60,55,40,0,'PNG'" width="70" style="margin:2px; float: right; position: relative; top: 0; left: 0;">
+               <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $l->serial_number?>&choe=UTF-8'" width="95" style="margin:0px; float: right; position: relative; top: 0; left: 5px;">
                <!-- <img src="<?php echo base_url('assets/phpqrcode/logo.png')?>" style="position: absolute;"  width="15"/> -->
                 <center style="font-size: 8px;"><?php echo $l->serial_number?></center>
             </div>
