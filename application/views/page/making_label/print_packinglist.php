@@ -43,7 +43,7 @@
                 <span style="font-size: 12px; margin: 0px;">Plat No : <?php echo $label[0]->plat_no?><span>
                 <div style="width: 100%; padding: 8px; border: 1px solid black;">
                     <span style="font-size: 12px; margin: 0px;">Deliver to :</span><br>
-                    <span style="font-size: 12px; margin: 0px;">Attention Mr. XXXX</span><br>
+                    <span style="font-size: 12px; margin: 0px;">Attention Mr. </span><br>
                     <span style="font-size: 12px; margin: 0px;">PT INDOSEIKI METAL UTAMA</span><br>
                     <span style="font-size: 12px; margin: 0px;"></span><br>
                 </div>
@@ -79,13 +79,13 @@
                     <?php $no = 1;
                 foreach($label as $l){ ?>
                     <tr>
-                        <td style="height: 20px;"><?php echo $no?></td>
-                        <td style="height: 20px;"><?php echo $l->spk_no?></td>
-                        <td style="height: 20px;"><?php echo $l->batch_qty?></td>
-                        <td style="height: 20px;"><?php echo $l->item_code?></td>
-                        <td style="height: 20px;"><?php echo $l->item_name?></td>
-                        <td style="height: 20px;"><?php echo $l->heatno_a?></td>
-                        <td style="height: 20px;"><?php echo $l->lpp_qty?></td>
+                        <td style="height: 20px; font-size: 11px; text-align: center;"><?php echo $no?></td>
+                        <td style="height: 20px; font-size: 11px;"><?php echo $l->spk_no?></td>
+                        <td style="height: 20px; font-size: 11px;"><?php echo $l->batch_qty?></td>
+                        <td style="height: 20px; font-size: 11px;"><?php echo $l->item_code?></td>
+                        <td style="height: 20px; font-size: 11px;"><?php echo $l->item_name?></td>
+                        <td style="height: 20px; font-size: 11px;"><?php echo $l->heatno_a?></td>
+                        <td style="height: 20px; font-size: 11px; text-align: center;"><?php echo $l->lpp_qty?></td>
                         <td style="height: 20px;"></td>
                     </tr>
                 <?php $no++; } ?>
