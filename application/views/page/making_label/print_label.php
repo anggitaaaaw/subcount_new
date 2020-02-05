@@ -32,17 +32,18 @@
 
     <body>
         <?php foreach($label as $l){?>
-        <div style="width: 340px; height: 500px; border: 1px solid black; float: left; padding: 5px; margin: 10px;">
-            <div style="width: 80%; float: left;">
+        <div style="width: 340px; height: auto; border: 1px solid black; float: left; padding: 0px; margin: 5px;">
+            <div style="width: 74%; float: left; margin: 2px;">
                 <img src="<?php echo base_url() ?>assets/ismu-logo.png" width="80" class="header-brand-img" alt="lavalite">
                 <p style="font-weight: bold; font-size: 17px;"><u>PT. INDOSEIKI METALUTAMA</u></p>
                 <p style="font-size: 14px;">Partner in Forging and Fasteners</p>
             </div>
               
-            <div class="demo" style="width: 20%; float: left;">
-               <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $l->serial_number?>&choe=UTF-8'" width="90" style="margin:0px; float: right; position: relative; top: 0; left: 5px;">
+            <div class="demo" style="width: auto; float: left;">
+               <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $l->serial_number?>&choe=UTF-8'" width="80" style="margin:0px; float: right; position: relative; top: 0;">
                <!-- <img src="<?php echo base_url('assets/phpqrcode/logo.png')?>" style="position: absolute;"  width="15"/> -->
-                <center style="font-size: 8px;"><?php echo $l->serial_number?></center>
+               <br><br><br><br>
+                <center style="font-size: 8px; position: absolute;"><?php echo $l->serial_number?></center>
             </div>
             <div style="width: 100%; float: left;">
                 <table style="border-collapse: collapse;">

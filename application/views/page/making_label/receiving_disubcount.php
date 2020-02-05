@@ -63,11 +63,16 @@
                                                                     <tr>
                                                                         <th width="5">No</th>
                                                                         <th>SPK No</th>
-                                                                        <th>LPP No</th>
+                                                                        <th>Batch No</th>
                                                                         <th>Item Code</th>
                                                                         <th>Description</th>
                                                                         <th>Heat No</th>
-                                                                        <th>Quantity</th>
+                                                                        <th>Quantity (Pcs)</th>
+                                                                        <th>Quantity (Kg)</th>
+                                                                        <th>Actual (Pcs)</th>
+                                                                        <th>Actual (Kg)</th>
+                                                                        <th>Balance (Pcs)</th>
+                                                                        <th>Balance (Kg)</th>
                                                                         <!--<th>Actual</th>
                                                                         <th>Balance</th>-->
                                                                     </tr>
@@ -79,8 +84,13 @@
                                                                         <td>239800102930</td>
                                                                         <td>ASKDK298198</td>
                                                                         <td>Produk A</td>
-                                                                        <td>10</td>
-                                                                        <td>23</td>
+                                                                        <td>29399</td>
+                                                                        <td><input style="width: 60px;" type="text"></td>
+                                                                        <td><input style="width: 60px;" type="text"></td>
+                                                                        <td><input style="width: 60px;" type="text"></td>
+                                                                        <td><input style="width: 60px;" type="text"></td>
+                                                                        <td><input readonly style="width: 60px;" type="text"></td>
+                                                                        <td><input readonly style="width: 60px;" type="text"></td>
                                                                         
                                                                     </tr>
                                                                 </tbody>
