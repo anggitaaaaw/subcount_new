@@ -103,7 +103,7 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">LPP Qty</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="lpp_qty">
+                                                                <input type="text" readonly class="form-control" id="lpp_qty">
                                                             </div>
                                                             <div class="col-sm-3">
                                                                 <div class="input-group">
