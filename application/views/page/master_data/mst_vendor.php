@@ -190,4 +190,4 @@
                         </div>
                     </div>
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="<?php echo base_url() ?>javascript_data/mst_vendor.js?"></script>
+            <script src="<?php echo base_url() ?>javascript_data/mst_vendor.js?<?php echo time() ?>"></script>

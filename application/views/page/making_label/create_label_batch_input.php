@@ -52,44 +52,44 @@
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Item Code</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="item_code">
+                                                                <input type="text" class="form-control" id="item_code" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Description</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="deskripsi">
+                                                                <input type="text" class="form-control" id="deskripsi" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Vendor</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="vendor_name">
+                                                                <input type="text" class="form-control" id="vendor_name" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Qty Batch</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="qty_batch">
+                                                                <input type="text" class="form-control" id="qty_batch" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Capacity</label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="qty_container">
+                                                                <input type="text" class="form-control" id="qty_container" readonly>
                                                             </div>
                                                         </div>
                                                         <input type="hidden" id="vendor_code">
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Heat No A</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="heatno_a">
+                                                                <input type="text" class="form-control" id="heatno_a" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
                                                             <label class="col-sm-3 col-form-label">Heat No B</label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="heatno_b">
+                                                                <input type="text" class="form-control" id="heatno_b" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row" style="margin: 1px;">
@@ -236,9 +236,8 @@
                                             <table id="simpletable" class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
-                                                        <th>Serial ID</th>
+                                                        <th>LPP no</th>
                                                         <th>SPK No</th>
-                                                        <th>LPP No</th>
                                                         <th>Item Code</th>
                                                         <th>Description</th>
                                                         <th>Heat No</th>

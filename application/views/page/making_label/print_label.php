@@ -40,7 +40,7 @@
             </div>
               
             <div class="demo" style="width: 20%; float: left;">
-               <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $l->serial_number?>&choe=UTF-8'" width="95" style="margin:0px; float: right; position: relative; top: 0; left: 5px;">
+               <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $l->serial_number?>&choe=UTF-8'" width="90" style="margin:0px; float: right; position: relative; top: 0; left: 5px;">
                <!-- <img src="<?php echo base_url('assets/phpqrcode/logo.png')?>" style="position: absolute;"  width="15"/> -->
                 <center style="font-size: 8px;"><?php echo $l->serial_number?></center>
             </div>
@@ -87,8 +87,8 @@
                         <td colspan="2" style="width: 60px;"><center style="font-size: 12px;">PIC SUBCONT Stamp here</center></td></td>
                     </tr>
                     <tr>
-                        <td style="height: 100px; width: 60px;"></td>
-                        <td colspan="2" style="height: 100px; width: 60px;"></td></td>
+                        <td style="height: 70px; width: 60px;"></td>
+                        <td colspan="2" style="height: 70px; width: 60px;"></td></td>
                     </tr>
                 </table>
             </div>
