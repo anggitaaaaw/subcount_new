@@ -341,8 +341,9 @@ function edit_label(id){
                 text: '-SELECT LPP NO-'
               }
             });
-          });
+        
+        
         }
 
-    
+      });
 }

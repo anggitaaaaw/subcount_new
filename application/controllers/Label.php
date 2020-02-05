@@ -182,7 +182,7 @@ class Label extends CI_Controller {
 
       
        }
-      // echo $qty_batch = $label->qty_batch;
+       $qty_batch = $label->qty_batch;
        //echo "<br>";
        //echo $lpp_qty;
        if($label->qty_container > $lpp_qty){
