@@ -40,7 +40,7 @@ class Label extends CI_Controller {
 
     public function get_serial_id($vendor_code){
         $date = date('ym');
-        $n = $vendor_code.$date;
+        $n = "BA".$vendor_code.$date;
         $ser = $this->labelmodel->getSerial($n)->row();
         if($ser == null){
             $serial_number = $n."00001";
@@ -157,9 +157,9 @@ class Label extends CI_Controller {
        public function get_lpp_no($vendor_code){
         $date = date('ym');
         $n = "BA".$vendor_code."-".$date;
-        $ser = $this->labelmodel->getLppNo      ($n)->row();
+        $ser = $this->labelmodel->getLppNo($n)->row();  
         if($ser == null){
-            $serial_number = $n."-001";
+            $serial_number = $n."-1";
         }else{
             $str = explode("-", $ser->lpp_no);
             $num = $str[2] + 1;

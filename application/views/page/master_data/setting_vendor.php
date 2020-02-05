@@ -71,13 +71,13 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="batch_qty" name="batch_qty">
+                                                                <input type="text" class="form-control" id="batch_qty" name="batch_qty" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Capacity</label>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="container_qty" name="container_qty">
+                                                                <input type="text" class="form-control" id="container_qty" name="container_qty" readonly>
                                                             </div>
                                                         </div>
                                                     
@@ -135,13 +135,13 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="edit_batch_qty" name="batch_qty">
+                                                                <input type="text" class="form-control" id="edit_batch_qty" name="batch_qty" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Capacity</label>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control" id="edit_container_qty" name="container_qty">
+                                                                <input type="text" class="form-control" id="edit_container_qty" name="container_qty" readonly>
                                                             </div>
                                                         </div>
                                                     
@@ -185,5 +185,5 @@
                         </div>
                     </div>
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="<?php echo base_url() ?>javascript_data/mst_setting_vendor.js?"></script>
+            <script src="<?php echo base_url() ?>javascript_data/mst_setting_vendor.js?<?php echo time() ?>"></script>
             

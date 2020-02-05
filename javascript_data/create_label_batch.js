@@ -21,9 +21,8 @@ function format ( d ) {
            table +='<table class="table table-striped table-bordered nowrap" id="det_batch'+d.spk_no+'">';
                table += '<thead>';
                    table += '<tr>';
-                       table += '<th>Serial Number</th>';
                        table += '<th>LPP NO</th>';
-                       table += '<th>LPP Qty</th>';
+                       table += '<th>Batch Qty</th>';
                        table += '<th>Weight</th>';
                        table += '<th>Date Created</th>';
                    table += '</tr>';
@@ -38,7 +37,6 @@ function format ( d ) {
                 for(i in dataa){
                     table += '<tr>';
                     table += '<th>'+dataa[i].serial_number+'</th>';
-                    table += '<th>'+dataa[i].lpp_no+'</th>';
                     table += '<th>'+dataa[i].lpp_qty+'</th>';
                     table += '<th>'+dataa[i].weight+' KG</th>';
                     table += '<th>'+dataa[i].date_created+'</th>';
@@ -73,8 +71,8 @@ $(document).ready(function() {
             { "data": "spk_no" },
             { "data": "item_id" },
             { "data": "item_name" },
-            { "data": "container_qty" },
-            { "data": "batch_qty" },
+            { "data": "qty_container" },
+            { "data": "qty_batch" },
             { "data": "user_created" },
             {
                 "targets": -1,
