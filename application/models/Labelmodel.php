@@ -110,6 +110,15 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function getlppNo($sn){
+        $this->db->select('*');
+        $this->db->from('m_batch');
+        $this->db->like('lpp_no', $sn);
+        $this->db->order_by('lpp_no', 'desc');
+        $this->db->limit(1);
+        return $this->db->get();
+    }
+
     function getBatch($sn){
        $this->db->select('m_vendor_set.*, m_vendor.vendor_name');
        $this->db->from('m_vendor_set');

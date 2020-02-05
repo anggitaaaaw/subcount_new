@@ -316,32 +316,33 @@ function edit_label(id){
     $.post('../Label/move_data',{ },function(data){ 
         console.log(data);
         
-        
-        $("#iframe2").attr("src","print_label/"+data);
-        $("#modal_printlabelinput").modal("show");
-       
-        swal("Label save in m_batch!", {
-            icon: "success",
+        if(data == "lebih"){
+          swal("jumlah lpp_qty lebih besar dari jumlah capacity");
+        }else{
+          $("#iframe2").attr("src","print_label/"+data);
+          $("#modal_printlabelinput").modal("show");
+         
+          swal("Label save in m_batch!", {
+              icon: "success",
+            });
+            $('#simpletable').DataTable().ajax.reload();
+            document.getElementById("myForm").reset();
+  
+            $('#lpp_no').select2({
+              placeholder: {
+                id: '-1', // the value of the option
+                text: '-SELECT LPP NO-'
+              }
+            });
+          
+            $('#spk_no').select2({
+              placeholder: {
+                id: '-1', // the value of the option
+                text: '-SELECT LPP NO-'
+              }
+            });
           });
-          $('#simpletable').DataTable().ajax.reload();
-          document.getElementById("myForm").reset();
+        }
 
-          $('#lpp_no').select2({
-            placeholder: {
-              id: '-1', // the value of the option
-              text: '-SELECT LPP NO-'
-            }
-          });
-        
-          $('#spk_no').select2({
-            placeholder: {
-              id: '-1', // the value of the option
-              text: '-SELECT LPP NO-'
-            }
-          });
-        });
-        
-        
-       
     
 }

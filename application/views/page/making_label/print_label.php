@@ -79,7 +79,7 @@
                     </tr>
                     <tr>
                         <td style="height: 30px; width: 60px;">Process Name <br><center style="font-size: 20px;"><?php echo $l->process_name?></center></td>
-                        <td style="height: 30px; width: 60px;">Qty <br><center style="font-size: 20px;"><?php echo $l->qty_batch?></center></td>
+                        <td style="height: 30px; width: 60px;">Qty <br><center style="font-size: 20px;"><?php echo $l->lpp_qty?></center></td>
                         <td style="height: 30px; width: 60px;">Weight <br><center style="font-size: 20px;"><?php echo $l->weight?></center></td>
                     </tr>
                     <tr>

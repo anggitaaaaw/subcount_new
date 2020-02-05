@@ -154,27 +154,76 @@ class Label extends CI_Controller {
         echo json_encode($label);
        }
 
-    public function move_data(){
-       $temp = $this->labelmodel->viewLabel()->result();
-       foreach($temp as $t){
-           $vendor_code = $t->vendor_code;
-        $data['serial_number'] = $this->get_serial_id($vendor_code);
-        $data['id_spk'] = $t->id_spk;
-        $data['spk_no'] = $t->spk_no;
-        $data['item_id'] = $t->item_id;
-        $data['item_name'] = $t->item_name;
-        $data['heatno_a'] = $t->heatno_a;
-        $data['heatno_b'] = $t->heatno_b;
-        $data['weight'] = $t->weight;
-        $data['lpp_qty'] = $t->lpp_qty;
-        $data['lpp_no'] = $t->lpp_no;
-        $data['user_created'] = $t->user_created;
-        $data['date_created'] = $t->date_created;
+       public function get_lpp_no($vendor_code){
+        $date = date('ym');
+        $n = "BA".$vendor_code."-".$date;
+        $ser = $this->labelmodel->getLppNo      ($n)->row();
+        if($ser == null){
+            $serial_number = $n."-001";
+        }else{
+            $str = explode("-", $ser->lpp_no);
+            $num = $str[2] + 1;
+            $serial_number = $str[0]."-".$str[1]."-".$num;
+        }
 
-        $this->db->insert('m_batch', $data);
+         return $serial_number;
+    }
+
+    public function move_data(){
+
+       $temp = $this->labelmodel->viewLabel()->result();
+       $label = $this->labelmodel->getBatch($temp[0]->item_id)->row();
+        
+       $lpp_qty = 0;
+       $weight = 0;
+       foreach($temp as $t){
+        $lpp_qty = $lpp_qty + $t->lpp_qty;
+        $weight = $weight + $t->weight;
+
+      
        }
-       echo  $data['spk_no'];
-        $this->labelmodel->delete_m_batch();
+      // echo $qty_batch = $label->qty_batch;
+       //echo "<br>";
+       //echo $lpp_qty;
+       if($label->qty_container > $lpp_qty){
+        $jml = $lpp_qty / $label->qty_batch;
+        $f = floor($jml) + 1;
+         //       echo "<br>";
+
+        //echo $f;
+            $sisa = $lpp_qty;
+            for($i = 0; $i < $f; $i++){
+                
+           // echo $i;
+           // if( $label->qty_batch >= $lpp_qty ){
+
+                $data['serial_number'] = $this->get_serial_id($temp[0]->vendor_code);
+                $data['id_spk'] = $temp[0]->id_spk;
+                $data['spk_no'] = $temp[0]->spk_no;
+                $data['item_id'] = $temp[0]->item_id;
+                $data['item_name'] = $temp[0]->item_name;
+                $data['heatno_a'] = $temp[0]->heatno_a;
+                $data['heatno_b'] = $temp[0]->heatno_b;
+                $data['weight'] = $weight;
+                if($sisa >= $qty_batch){
+                   // echo $sisa."<br>";
+                    $data['lpp_qty'] = $qty_batch;
+                }else{
+                    $data['lpp_qty'] = $sisa;
+
+                }
+                $data['lpp_no'] = $this->get_lpp_no($temp[0]->vendor_code);
+                $data['user_created'] = $t->user_created;
+                $data['date_created'] = $t->date_created;
+                $sisa = $sisa - $qty_batch;
+                $this->db->insert('m_batch', $data);
+            }
+            echo  $data['spk_no'];
+            $this->labelmodel->delete_m_batch();
+        }else{
+            echo "lebih";
+        }
+       
     }
 
     public function delete_data(){
