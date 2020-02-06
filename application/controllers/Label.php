@@ -257,7 +257,7 @@ class Label extends CI_Controller {
             $str = strlen($ser->serial_id);
             $sub = substr($ser->serial_id,$str-6,6);
             $num = $sub + 1;
-            $depan = substr($ser->serial_id,0,8);
+           echo $depan = substr($ser->serial_id,2,6);
             $serial_number = 'DN'.$depan.$num;
         }
 
