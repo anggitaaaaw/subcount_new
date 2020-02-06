@@ -49,7 +49,7 @@ function format ( d ) {
                  for(i in dataa){
                      table += '<tr>';
                      table += '<th>'+dataa[i].spk_no+'</th>';
-                     table += '<th>'+dataa[i].batch_qty+'</th>';
+                     table += '<th>'+dataa[i].serial_id+'</th>';
                      table += '<th>'+dataa[i].item_code+'</th>';
                      table += '<th>'+dataa[i].item_name+' KG</th>';
                      table += '<th>'+dataa[i].heatno_a+'</th>';

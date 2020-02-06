@@ -39,21 +39,35 @@ function tes(dn_no){
     
         $('#plat_no').val(dataa[0].plat_no);
         $('#driver_name').val(dataa[0].driver_name);
+
+        table = '';
+        no = 1;
+        for(i in dataa){
+            table += '<tr>'+
+                    '<td width="10">'+no+'</td>'+
+                    '<td width="100">'+dataa[i].spk_no+'</td>'+
+                    '<td width="100">'+dataa[i].serial_id+'</td>'+
+                    '<td width="200">'+dataa[i].item_code+'</td>'+
+                    '<td width="200">'+dataa[i].item_name+'</td>'+
+                    '<td width="50">'+dataa[i].heatno_a+'</td>'+
+                    '<td style="width: 60px;"><input id="qty_pcs" value="'+dataa[i].lpp_qty+'"  style="width: 100%;" type="text"></td>'+
+                    '<td style="width: 60px;"><input id="qty_kg" value="'+dataa[i].weight+'" style="width: 100%;" type="text"></td>'+
+                    '<td style="width: 60px;"><input id="actual_pcs" style="width: 100%;" type="text" onchange="count_pcs(#qty_pcs)"></td>'+
+                    '<td style="width: 60px;"><input id="actual_kg" style="width: 100%;" type="text"></td>'+
+                    '<td style="width: 60px;"><input id="balance_pcs" readonly style="width: 100%;" type="text"></td>'+
+                    '<td style="width: 60px;"><input id="balance_kg" readonly style="width: 100%;" type="text"></td>'+
+                    '</tr>';
+                    no++;
+        }
+      //   console.log(table);
+        $('#body_dn_no').html(table);
     });
 
-    var table = $('#tbl_dn_no').DataTable( {
-        "ajax": "../Label/view_dn_tbl/"+dn_no,
-        "columns": [
-            { "data": "vspk_no" },
-            { "data": "lpp_no" },
-            { "data": "item_code" },
-            { "data": "item_name" },
-            { "data": "heatno_a" },
-            { "data": "lpp_qty" }
-        ]   
-    });
 }
 
+function count_pcs(sr){
+    console.log(sr);
+}
 $(document).ready(function() {
     $('#select_dn_no').select2({
         dropdownParent: $('#modal_dn_no')

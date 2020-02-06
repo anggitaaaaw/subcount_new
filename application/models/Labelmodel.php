@@ -203,6 +203,7 @@ class Labelmodel extends CI_Model {
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
         $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->join('m_batch', 'trx_deliverynote.serial_id = m_batch.serial_number');
         $this->db->where('trx_deliverynote.dn_no', $dn_no);
         return $this->db->get();
     }
