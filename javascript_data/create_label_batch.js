@@ -21,7 +21,7 @@ function format ( d ) {
            table +='<table class="table table-striped table-bordered nowrap" id="det_batch'+d.spk_no+'">';
                table += '<thead>';
                    table += '<tr>';
-                       table += '<th>LPP NO</th>';
+                       table += '<th>Batch NO</th>';
                        table += '<th>Batch Qty</th>';
                        table += '<th>Weight</th>';
                        table += '<th>Date Created</th>';
