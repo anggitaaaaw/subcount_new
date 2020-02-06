@@ -27,6 +27,16 @@
 
         <!-- Combobox -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/select2/dist/css/select2.min.css">
+        <style>
+            .tabel_dn {
+                border-collapse: collapse;
+            }
+
+            .tabel_dn, th, td {
+                border: 1px solid black;
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
 

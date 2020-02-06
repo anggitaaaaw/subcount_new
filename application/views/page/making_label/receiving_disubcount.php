@@ -58,7 +58,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="dt-responsive" style="padding: 10px;">
-                                                            <table id="tbl_dn_no" class="table table-striped table-bordered nowrap">
+                                                            <table id="tbl_dn_no" class="tabel_dn">
                                                                 <thead>
                                                                     <tr>
                                                                         <th width="5">No</th>
@@ -79,18 +79,18 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td>1</td>
-                                                                        <td>23090123</td>
-                                                                        <td>239800102930</td>
-                                                                        <td>ASKDK298198</td>
-                                                                        <td>Produk A</td>
-                                                                        <td>29399</td>
-                                                                        <td><input style="width: 60px;" type="text"></td>
-                                                                        <td><input style="width: 60px;" type="text"></td>
-                                                                        <td><input style="width: 60px;" type="text"></td>
-                                                                        <td><input style="width: 60px;" type="text"></td>
-                                                                        <td><input readonly style="width: 60px;" type="text"></td>
-                                                                        <td><input readonly style="width: 60px;" type="text"></td>
+                                                                        <td width="10">1</td>
+                                                                        <td width="100">23090123</td>
+                                                                        <td width="100">239800102930</td>
+                                                                        <td width="200">ASKDK298198</td>
+                                                                        <td width="200">Produk A</td>
+                                                                        <td width="50">29399</td>
+                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
+                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
+                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
+                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
+                                                                        <td style="width: 60px;"><input readonly style="width: 100%;" type="text"></td>
+                                                                        <td style="width: 60px;"><input readonly style="width: 100%;" type="text"></td>
                                                                         
                                                                     </tr>
                                                                 </tbody>
