@@ -9,7 +9,7 @@
                                                 <div class="page-header-title">
                                                     <i class="ik ik-edit bg-blue"></i>
                                                     <div class="d-inline">
-                                                        <h5>Vendor Receiving</h5>
+                                                        <h5>Vendor Receiving Input</h5>
                                                         <span>Please Select Delivery Note to show data</span>
                                                     </div>
                                                 </div>
@@ -20,24 +20,17 @@
                                                         <li class="breadcrumb-item">
                                                             <a href="#"><i class="ik ik-home"></i></a>
                                                         </li>
-                                                        <li class="breadcrumb-item active" aria-current="page">Vendor Receiving</li>
+                                                        <li class="breadcrumb-item active" aria-current="page">Vendor Receiving Input</li>
                                                     </ol>
                                                 </nav>
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <!-- Vendor Receipt -->
-                                    <div class="modal fade" id="modal_dn_no" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" style="max-width: 1100px;">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="demoModalLabel">Vendor Receive</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                </div>
-                                                <form class="forms-sample">
-                                                    <div class="modal-body" style="overflow: scroll;">
+                                    <div class="card col-md-10" style="min-height: 484px;">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <form class="forms-sample">
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Delivery Note No</label>
                                                             <div class="col-sm-4">
@@ -58,8 +51,9 @@
                                                                 <input type="text" class="form-control" id="driver_name" readonly>
                                                             </div>
                                                         </div>
-                                                        <div class="dt-responsive" style="padding: 10px;">
-                                                            <table id="tbl_dn_no" class="tabel_dn">
+                                                        <div class="dt-responsive">
+                                                            <table id="tbl_dn_no" class="table table-striped table-bordered nowrap">
+                                                            <!-- <table id="tbl_dn_no" class="tabel_dn"> -->
                                                                 <thead>
                                                                     <tr>
                                                                         <th width="5">No</th>
@@ -78,7 +72,7 @@
                                                                         <th>Balance</th>-->
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody id="body_dn_no">
+                                                                <tbody>
                                                                     <tr>
                                                                         <td width="10">1</td>
                                                                         <td width="100">23090123</td>
@@ -96,50 +90,11 @@
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
+                                                            <button type="button" id="aggree" class="btn btn-primary">Aggree To Receive item and Qty</button>
+                                                            <button type="button" class="btn btn-secondary">Refresh</button>
                                                         </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" id="aggree" class="btn btn-primary">Aggree To Receive item and Qty</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="card" style="min-height: 484px;">
-                                                <div class="card-body form-group row">
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group row">
-                                                            <div class="col-sm-8">
-                                                                <a class="btn btn-primary mr-2" href="<?php echo site_url('welcome/receiving_disubcount_input') ?>"><i class="ik ik-plus"></i>Vendor Receive</a>
-                                                            </div>
-                                                            <label class="col-sm-1 col-form-label">Delivery Note</label>
-                                                            <div class="col-sm-3">
-                                                                <select class="form-control select2">
-                                                                    <option value="cheese">Delivery Note</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="dt-responsive">
-                                                            <table id="receiving_disubcount" class="table table-striped table-bordered nowrap">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th width="5"></th>
-                                                                        <th>Delivery Date</th>
-                                                                        <th>Delivery No</th>
-                                                                        <th>Plat No</th>
-                                                                        <th>Driver Name</th>
-                                                                        <th>Receive Date</th>
-                                                                        <th>Receive User</th>
-                                                                    </tr>
-                                                                </thead>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
