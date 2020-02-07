@@ -1,6 +1,7 @@
 function format ( d ) {
-    return  'Detail of : '+d.name+
-            '<table class="table">'+
+    table = ''+
+      'Detail of : '+d.dn_no+
+            '<table class="table table-striped table-bordered nowrap" id="det_batch'+d.dn_no+'">'+
                 '<thead>'+
                     '<tr>'+
                         '<th>SPK No</th>'+
@@ -9,82 +10,54 @@ function format ( d ) {
                         '<th>Item Code</th>'+
                         '<th>Description</th>'+
                         '<th>Heat No</th>'+
-                        '<th>Quantity</th>'+
-                        '<th>Actual</th>'+
-                        '<th>Balance</th>'+
+                        '<th>Qty (Pcs)y</th>'+
+                        '<th>Qty (Kg)</th>'+
+                        '<th>Actual (Pcs)</th>'+
+                        '<th>Actual (Kg)</th>'+
+                        '<th>Balance (Pcs)</th>'+
+                        '<th>Balance (Kg)</th>'+
                     '</tr>'+
                 '</thead>'+
                 '<tbody>'+
-                    '<tr>'+
-                        '<td>99823991</td>'+
-                        '<td>Product Name</td>'+
-                        '<td>2198391</td>'+
-                        '<td>1233</td>'+
-                        '<td>123</td>'+
-                        '<td>123333</td>'+
-                        '<td>123333</td>'+
-                        '<td>123333</td>'+
-                        '<td>123333</td>'+
-                    '</tr>'+
                 '</tbody>'+
-            '</table>';
-}
+                '</table>';
 
-function tes(dn_no){
-   console.log(dn_no);
-    $.post('../Label/plat_driver',{'dn_no' : dn_no},function(data){ 
-        dataa = JSON.parse(data);
-        console.log(dataa);
-            //table = '';
+                $.post('../Label/trx_ven_receive_det',{'dn_no' : d.dn_no},function(data){ 
+                    dataa = JSON.parse(data);
+                    console.log(dataa);
+                    for(i in dataa){
+                       table += '<tr>'+
+                                    '<th>'+dataa[i].spk_no+'</th>'+
+                                    '<th>'+dataa[i].batch_no+'</th>'+
+                                    '<th>'+dataa[i].lpp_no+'</th>'+
+                                    '<th>'+dataa[i].item_code+'</th>'+
+                                    '<th>'+dataa[i].item_name+'</th>'+
+                                    '<th>'+dataa[i].heatno_a+'</th>'+
+                                    '<th>'+dataa[i].qty_real+'</th>'+
+                                    '<th>'+dataa[i].weight_real+'</th>'+
+                                    '<th>'+dataa[i].qty_actual+'</th>'+
+                                    '<th>'+dataa[i].weight_actual+'</th>'+
+                                    '<th>'+dataa[i].qty_balance+'</th>'+
+                                    '<th>'+dataa[i].weight_balance+'</th>'+
+                                '</tr>';
+                       
+                    }
     
-        $('#plat_no').val(dataa[0].plat_no);
-        $('#driver_name').val(dataa[0].driver_name);
+                    $('#det_batch'+d.dn_no).html(table);
+        
+                });
+                
+                  
+               
 
-        table = '';
-        no = 1;
-        for(i in dataa){
-            table += '<tr>'+
-                    '<td width="10">'+no+'</td>'+
-                    '<td width="100">'+dataa[i].spk_no+'</td>'+
-                    '<td width="100">'+dataa[i].serial_id+'</td>'+
-                    '<td width="200">'+dataa[i].item_code+'</td>'+
-                    '<td width="200">'+dataa[i].item_name+'</td>'+
-                    '<td width="50">'+dataa[i].heatno_a+'</td>'+
-                    '<td style="width: 60px;"><input id="qty_pcs" value="'+dataa[i].lpp_qty+'"  style="width: 100%;" type="text"></td>'+
-                    '<td style="width: 60px;"><input id="qty_kg" value="'+dataa[i].weight+'" style="width: 100%;" type="text"></td>'+
-                    '<td style="width: 60px;"><input id="actual_pcs" style="width: 100%;" type="text" onchange="count_pcs(#qty_pcs)"></td>'+
-                    '<td style="width: 60px;"><input id="actual_kg" style="width: 100%;" type="text"></td>'+
-                    '<td style="width: 60px;"><input id="balance_pcs" readonly style="width: 100%;" type="text"></td>'+
-                    '<td style="width: 60px;"><input id="balance_kg" readonly style="width: 100%;" type="text"></td>'+
-                    '</tr>';
-                    no++;
-        }
-      //   console.log(table);
-        $('#body_dn_no').html(table);
-    });
-
+            return table;
 }
 
-function count_pcs(sr){
-    console.log(sr);
-}
+
 $(document).ready(function() {
-    $('#select_dn_no').select2({
-        dropdownParent: $('#modal_dn_no')
-    });
-
-    $.post('../Label/select_dn_no',{},function(data){ 
-        dataa = JSON.parse(data);
-       // console.log(dataa);
-            table = '';
-        for(i in dataa){
-            table += '<option value="'+dataa[i].dn_no+'">'+dataa[i].dn_no+'</option>';
-        }
-        $('#select_dn_no').append(table);
-    });
 
     var table = $('#receiving_disubcount').DataTable( {
-        "ajax": "../json/data_rd.json",
+        "ajax": "../Label/trx_ven_receive",
         "searching": false,
         "paging":   false,
         "columns": [
@@ -94,12 +67,12 @@ $(document).ready(function() {
                 "data":           null,
                 "defaultContent": '<i class="ik ik-plus-circle"></i>'
             },
-            { "data": "name" },
-            { "data": "position" },
-            { "data": "office" },
-            { "data": "salary" },
-            { "data": "office2" },
-            { "data": "office3" }
+            { "data": "dn_date" },
+            { "data": "dn_no" },
+            { "data": "plat_no" },
+            { "data": "driver_name" },
+            { "data": "receive_date" },
+            { "data": "receive_user" }
         ],
         "order": [[1, 'asc']]
     } );

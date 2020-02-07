@@ -372,13 +372,73 @@ class Label extends CI_Controller {
     public function plat_driver(){
         $dn_no = $this->input->post('dn_no');
         $label = $this->labelmodel->view_dn_det($dn_no)->result();
-        echo json_encode($label);
+        
+        $this->labelmodel->delete_trx_ven_receive_temp();
+
+        foreach($label as $l){
+            $data['dn_date'] = $l->created_date;
+            $data['dn_no'] = $l->dn_no;
+            $data['batch_no'] = $l->serial_id;
+            $data['qty_real'] = $l->lpp_qty;
+            $data['weight_real'] = $l->weight;
+
+            $this->db->insert('trx_ven_receive_temp', $data);
+        }
+
+        $dn = $this->labelmodel->view_ven_receive_temp($dn_no)->result();
+        echo json_encode($dn);
     }
 
     public function view_dn_tbl($dn_no){
-        $label = $this->labelmodel->view_dn_det($dn_no)->result();
+        $label = $this->labelmodel->view_ven_receive_temp($dn_no)->result();
         $data['data'] = $label;
         echo json_encode($data);
+    }
+
+    public function proses_edit_qty(){
+        $batch_no = $this->input->post('batch_no');
+        $data['qty_real'] = $this->input->post('qty_real');
+        $data['weight_real'] = $this->input->post('weight_real');
+        $data['qty_actual'] = $this->input->post('qty_actual');
+        $data['weight_actual'] = $this->input->post('weight_actual');
+        $data['qty_balance'] = $this->input->post('qty_balance');
+        $data['weight_balance'] = $this->input->post('weight_balance');
+        $data['receive_user'] = $this->session->userdata('username');
+        $data['receive_date'] = date('Y-m-d H:m:s');
+
+        //echo json_encode($data);
+        $edit = $this->labelmodel->editQty($data, $batch_no);
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo json_encode($batch_no);
+
+       }
+
+    }
+
+    public function move_trx_ven(){
+        $cek = $this->labelmodel->cek_trx_ven()->result();
+        if($cek == null){
+          
+            $this->labelmodel->move_trx_ven_receive();
+            $this->labelmodel->delete_trx_ven_receive_temp();
+            echo "1";
+        }else{
+            echo "0";
+        }
+    }
+
+    public function trx_ven_receive(){
+        $label = $this->labelmodel->trx_ven_receive()->result();
+        $data['data'] = $label;
+        echo json_encode($data);
+    }
+
+    public function trx_ven_receive_det(){
+        $dn_no = $this->input->post('dn_no');
+        $label = $this->labelmodel->trx_ven_receive_det($dn_no)->result();
+        echo json_encode($label);
     }
 
 }

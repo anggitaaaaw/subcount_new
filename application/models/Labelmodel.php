@@ -43,6 +43,12 @@ class Labelmodel extends CI_Model {
         return $result;
     }
 
+    function delete_trx_ven_receive_temp(){
+        $sql = "TRUNCATE trx_ven_receive_temp";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
     function lpp_qty($lot_number){
         $this->db->select('qty_lot');
 		$this->db->from('trx_lot');
@@ -208,6 +214,15 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function view_ven_receive_temp($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive_temp', 'trx_ven_receive_temp.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_deliverynote.dn_no', $dn_no);
+        return $this->db->get();
+    }
+
+    
     function find_spk(){
         $this->db->select('spk_no');
         $this->db->from('trx_deliverynote_temp'); 
@@ -243,6 +258,40 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function editQty($data, $id) {
+		//return $this->mongo_db->where(array('id_menu' => $id_menu))->set($data)->update('adm_m_menu');
+		$this->db->where('batch_no', $id);
+        $this->db->update('trx_ven_receive_temp', $data);
+    } 
+
+    function move_trx_ven_receive(){
+      
+        $sql = "INSERT INTO `trx_ven_receive`(`dn_date`, `dn_no`, `batch_no`, `qty_real`, `weight_real`, `qty_actual`, `weight_actual`, `qty_balance`, `weight_balance`, `receive_date`, `receive_user`) SELECT `dn_date`, `dn_no`, `batch_no`, `qty_real`, `weight_real`, `qty_actual`, `weight_actual`, `qty_balance`, `weight_balance`, `receive_date`, `receive_user` FROM `trx_ven_receive_temp`";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    function cek_trx_ven(){
+        $sql = "SELECT * FROM trx_ven_receive_temp WHERE qty_actual IS NULL ";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    function trx_ven_receive(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->group_by('trx_ven_receive.dn_no');
+        return $this->db->get();
+    }
+
+    function trx_ven_receive_det($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_ven_receive.dn_no', $dn_no);
+        return $this->db->get();
+    }
 
 }
 /* End of file usersmodel.php */
