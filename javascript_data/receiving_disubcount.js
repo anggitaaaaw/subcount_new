@@ -4,18 +4,18 @@ function format ( d ) {
             '<table class="table table-striped table-bordered nowrap" id="det_batch'+d.dn_no+'">'+
                 '<thead>'+
                     '<tr>'+
-                        '<th>SPK No</th>'+
+                        '<th style="width: 50px;">SPK No</th>'+
                         '<th>Batch No</th>'+
                         '<th>LPP No</th>'+
                         '<th>Item Code</th>'+
                         '<th>Description</th>'+
                         '<th>Heat No</th>'+
-                        '<th>Qty (Pcs)y</th>'+
-                        '<th>Qty (Kg)</th>'+
-                        '<th>Actual (Pcs)</th>'+
-                        '<th>Actual (Kg)</th>'+
-                        '<th>Balance (Pcs)</th>'+
-                        '<th>Balance (Kg)</th>'+
+                        '<th>Qty <br> (Pcs)</th>'+
+                        '<th>Qty <br>(Kg)</th>'+
+                        '<th>Actual <br>(Pcs)</th>'+
+                        '<th>Actual <br>(Kg)</th>'+
+                        '<th>Balance <br>(Pcs)</th>'+
+                        '<th>Balance <br>(Kg)</th>'+
                     '</tr>'+
                 '</thead>'+
                 '<tbody>'+

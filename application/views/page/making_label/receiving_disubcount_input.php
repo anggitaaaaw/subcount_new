@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card col-md-10" style="min-height: 484px;">
+                                    <div class="card col-md-12" style="min-height: 484px;">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-8">
@@ -124,12 +124,12 @@
                                                                         <th>Item Code</th>
                                                                         <th>Description</th>
                                                                         <th>Heat No</th>
-                                                                        <th style="width: 60px;" >Quantity (Pcs)</th>
-                                                                        <th style="width: 60px;" >Quantity (Kg)</th>
-                                                                        <th style="width: 60px;">Actual (Pcs)</th>
-                                                                        <th style="width: 60px;">Actual (Kg)</th>
-                                                                        <th style="width: 60px;">Balance (Pcs)</th>
-                                                                        <th style="width: 60px;">Balance (Kg)</th>
+                                                                        <th style="width: 60px;" >Quantity <br>(Pcs)</th>
+                                                                        <th style="width: 60px;" >Quantity <br>(Kg)</th>
+                                                                        <th style="width: 60px;">Actual <br>(Pcs)</th>
+                                                                        <th style="width: 60px;">Actual <br>(Kg)</th>
+                                                                        <th style="width: 60px;">Balance <br>(Pcs)</th>
+                                                                        <th style="width: 60px;">Balance <br>(Kg)</th>
                                                                         <!--<th>Actual</th>
                                                                         <th>Balance</th>-->
                                                                     </tr>
