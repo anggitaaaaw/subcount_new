@@ -293,6 +293,12 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function view_dn_no(){
+        $sql = "SELECT dn_no FROM `trx_deliverynote` WHERE dn_no NOT IN (SELECT distinct dn_no from trx_ven_receive) GROUP BY dn_no";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */

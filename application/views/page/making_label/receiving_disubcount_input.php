@@ -154,7 +154,7 @@
                                                             </table>
                                                             <br>
                                                             <button type="button" id="aggree" class="btn btn-primary" onclick="move_trx_ven()">Aggree To Receive item and Qty</button>
-                                                            <button type="button" class="btn btn-secondary">Refresh</button>
+                                                            <button type="button" class="btn btn-secondary" onclick="location.reload()">Refresh</button>
                                                         </div>
                                                     </div>
                                                 </form>

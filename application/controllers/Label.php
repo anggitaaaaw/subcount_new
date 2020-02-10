@@ -365,7 +365,7 @@ class Label extends CI_Controller {
     }
 
     public function select_dn_no(){
-        $label = $this->labelmodel->view_dn()->result();
+        $label = $this->labelmodel->view_dn_no()->result();
         echo json_encode($label);
     }
 
@@ -442,3 +442,4 @@ class Label extends CI_Controller {
     }
 
 }
+     
