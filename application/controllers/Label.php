@@ -285,28 +285,28 @@ class Label extends CI_Controller {
         $data['created_date'] = date('Y-m-d H:m:s');
 
         $cek_spk = $this->labelmodel->cek_spk($label[0]->spk_no)->row();
+        $cek_spk_temp = $this->labelmodel->cek_spk_temp($label[0]->spk_no)->row();
         $cek_sn = $this->labelmodel->cek_sn($label[0]->serial_number)->row();
+        $cek_dn_temp= $this->labelmodel->cek_dn_temp()->result();
         if($cek_spk == null){
-            if($cek_sn == null){
-                $this->db->insert('trx_deliverynote_temp', $data);
-                if ($this->db->affected_rows() == 1) {
-                    echo "1";
+                if($cek_sn == null ){
+                    if($cek_spk_temp != null || $cek_dn_temp == null){
+                        $this->db->insert('trx_deliverynote_temp', $data);
+                        if ($this->db->affected_rows() == 1) {
+                            echo "1";
+                        }else{
+                            echo "Scan label failed added";
+                        }
+                    }else{
+                        echo " SPK no cannot different";
+                    }
+                   
                 }else{
-                    echo "0";
+                    echo "Serial ID already exists";
                 }
-            }else{
-                echo "Serial ID already exists";
-            }
         }else{
-           /* if($cek_spk == null){
-                $this->db->insert('trx_deliverynote_temp', $data);
-                if ($this->db->affected_rows() == 1) {
-                    echo "1";
-                }else{
-                    echo "0";
-                }
-            }*/
-            echo "SPK no must not be the same";
+           
+            echo "SPK no already exists";
         }
 
     }

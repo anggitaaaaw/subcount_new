@@ -45,11 +45,16 @@ function scan_label(scan){
         swal("Please Choose plat no and driver name!", {
             icon: "failed",
           });
+          document.getElementById("scan_label").value = '';
+        
     }else{
         $.post('../Label/save_dn_temp',{'serial_id' : scan, 'plat_no' : plat_no, 'driver_name' : driver_name},function(data){ 
             //dataa = JSON.parse(data);
             console.log(data);
-            swal(data);
+            if(data != "1"){
+                swal(data);
+            }
+           
             document.getElementById("print_dn").disabled = false;
             document.getElementById("print_packing").disabled = false;
             document.getElementById("scan_label").value = '';

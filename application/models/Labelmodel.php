@@ -170,6 +170,20 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function cek_spk_temp($spk_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote_temp');
+        $this->db->where('spk_no', $spk_no);
+       
+        return $this->db->get();
+    }
+
+    function cek_dn_temp(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote_temp');
+       
+        return $this->db->get();
+    }
     function cek_sn($spk_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote_temp');
