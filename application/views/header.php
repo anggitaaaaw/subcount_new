@@ -59,7 +59,7 @@
                             <div class="dropdown">
                                 <a class="dropdown-toggle" href="<?php echo base_url() ?>assets/#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo base_url() ?>assets/img/user.jpg" alt=""></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="<?php echo base_url() ?>assets/#"><i class="ik ik-settings dropdown-icon"></i> Change Password</a>
+                                    <a class="dropdown-item" data-toggle="modal" data-target="#change_pass"><i class="ik ik-settings dropdown-icon"></i> Change Password</a>
                                     <a class="dropdown-item" href="<?php echo site_url('User/logout') ?>"><i class="ik ik-power dropdown-icon"></i> Logout</a>
                                 </div>
                             </div>
@@ -67,6 +67,38 @@
                     </div>
                 </div>
             </header>
+
+            <!-- Change Password -->
+            <div class="modal fade" id="change_pass" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="demoModalLabel">Change Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <form class="forms-sample">
+                            <div class="modal-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Username</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" readonly name="username" id="username">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">New Password</label>
+                                    <div class="col-sm-8">
+                                        <input class="form-control" name="password" id="password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="aggree" class="btn btn-primary">Change Password</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <div class="page-wrap">
                 <div class="app-sidebar colored">
