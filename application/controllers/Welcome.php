@@ -68,6 +68,8 @@ class Welcome extends CI_Controller {
 	public function receiving_disubcount(){
 		$this->load->helper('url');
 		$this->load->view('header');
+		$this->load->model('labelmodel');
+		$this->labelmodel->delete_trx_ven_receive_temp();
 		$this->load->view('page/making_label/receiving_disubcount');
 		$this->load->view('footer');
 	}
@@ -75,6 +77,8 @@ class Welcome extends CI_Controller {
 	public function receiving_disubcount_input(){
 		$this->load->helper('url');
 		$this->load->view('header');
+		$this->load->model('labelmodel');
+		$this->labelmodel->delete_trx_ven_receive_temp();
 		$this->load->view('page/making_label/receiving_disubcount_input');
 		$this->load->view('footer');
 	}

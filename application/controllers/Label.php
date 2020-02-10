@@ -254,10 +254,11 @@ class Label extends CI_Controller {
         if($ser == null){
             $serial_number = $n."00001";
         }else{
-            $str = strlen($ser->serial_id);
-            $sub = substr($ser->serial_id,$str-6,6);
+       //     echo $ser->serial_id."<br>";
+             $str = strlen($ser->serial_id);
+            $sub = substr($ser->serial_id,8,9);
             $num = $sub + 1;
-           echo $depan = substr($ser->serial_id,2,6);
+            $depan = substr($ser->serial_id,2,6);
             $serial_number = 'DN'.$depan.$num;
         }
 
@@ -285,7 +286,7 @@ class Label extends CI_Controller {
 
         $cek_spk = $this->labelmodel->cek_spk($label[0]->spk_no)->row();
         $cek_sn = $this->labelmodel->cek_sn($label[0]->serial_number)->row();
-        if($cek_spk != null){
+        if($cek_spk == null){
             if($cek_sn == null){
                 $this->db->insert('trx_deliverynote_temp', $data);
                 if ($this->db->affected_rows() == 1) {
@@ -294,18 +295,18 @@ class Label extends CI_Controller {
                     echo "0";
                 }
             }else{
-                echo "Serial ID sudah ada";
+                echo "Serial ID already exists";
             }
         }else{
-            if($cek_spk == null){
+           /* if($cek_spk == null){
                 $this->db->insert('trx_deliverynote_temp', $data);
                 if ($this->db->affected_rows() == 1) {
                     echo "1";
                 }else{
                     echo "0";
                 }
-            }
-            echo "SPK no tidak boleh berbeda";
+            }*/
+            echo "SPK no must not be the same";
         }
 
     }

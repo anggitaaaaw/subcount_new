@@ -258,4 +258,18 @@ public function new_user(){
     $menu = $this->usersmodel->get_tree_menu($nik)->result();
     echo json_encode($menu);
   }
+
+  public function change_password(){
+    $nik = $this->input->post('nik');
+    $password = md5($this->input->post('password'));
+
+    $this->db->set('password', $password);
+    $this->db->where('nik', $nik);
+    $this->db->update('adm_m_user');
+    if ($this->db->affected_rows() != 1) {
+      echo "0";
+    }else{
+      echo "1";
+    }
+  }
 }

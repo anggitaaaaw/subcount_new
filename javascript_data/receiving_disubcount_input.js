@@ -24,7 +24,7 @@ function tes(dn_no){
  
         
      });
-
+     $('#tbl_dn_no').DataTable().destroy();
     view_tbl_dn_no(dn_no);
     document.getElementById("edit_qty").disabled = false;
    // $('#tbl_dn_no').DataTable().destroy();

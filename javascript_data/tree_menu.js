@@ -34,35 +34,25 @@ $(document).ready(function() {
       $('#tree_menu').html(table);
    
     });
-    /*<div class="nav-item">
-    <a href="<?php echo site_url('welcome/link_dashboard') ?>"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
-</div>
-<div class="nav-item has-sub">
-    <a><i class="ik ik-settings"></i><span>Administrator</span></a>
-    <div class="submenu-content">
-        <a href="<?php echo site_url('welcome/adm_setting_menu') ?>" class="menu-item"><i class="ik ik-file-text"></i>Setting menu</a>
-        <a href="<?php echo site_url('welcome/adm_setting_user') ?>" class="menu-item"><i class="ik ik-users"></i>Setting User</a>
-        <a href="<?php echo site_url('welcome/adm_master_user') ?>" class="menu-item"><i class="ik ik-user"></i>Master User</a>
-        <a href="<?php echo site_url('welcome/adm_historical_akses') ?>" class="menu-item"><i class="ik ik-users"></i>Historical Access</a>
-    </div>
-</div>
-<div class="nav-item">
-    <a href="<?php echo site_url('welcome/create_label_batch') ?>" class="menu-item"><i class="ik ik-file-text"></i>Create Label Batch</a>
-    <a href="<?php echo site_url('welcome/delivery_note') ?>" class="menu-item"><i class="ik ik-file-text"></i>Delivery Note</a>
-    <a href="<?php echo site_url('welcome/receiving_disubcount') ?>" class="menu-item"><i class="ik ik-file-text"></i>Vendor Receiving</a>
-</div>
-<div class="nav-item has-sub">
-    <a><i class="ik ik-file-text"></i>Vendor Delivery</a>
-    <div class="submenu-content">
-        <a href="#" class="menu-item"><i class="ik ik-printer"></i>Print Label Batch</a>
-        <a href="#" class="menu-item"><i class="ik ik-list"></i>Packing List</a>
-    </div>
-</div>
-<div class="nav-item has-sub">
-    <a><i class="ik ik-file-text"></i>Incoming WIP</a>
-    <div class="submenu-content">
-        <a href="#" class="menu-item"><i class="ik ik-printer"></i>Print Label Packing</a>
-        <a href="#" class="menu-item"><i class="ik ik-printer"></i>Print BST</a>
-    </div>
-</div>*/
+   
     });
+
+    function change_password(){
+        id_user = $('#id_user').val();
+        password = $('#password').val();
+        $.post('../User/change_password',{ 'nik' : id_user, 'password' :password }, function(data){ 
+            console.log(data);
+            if(data == "1"){
+                swal("password change successfully!");
+              
+            }else{
+                swal("The password failed to change!");
+               
+            }
+            $("#change_pass").modal("hide");
+            $('#password').val("");
+
+            
+
+        });
+    }

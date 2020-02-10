@@ -49,6 +49,7 @@ function scan_label(scan){
         $.post('../Label/save_dn_temp',{'serial_id' : scan, 'plat_no' : plat_no, 'driver_name' : driver_name},function(data){ 
             //dataa = JSON.parse(data);
             console.log(data);
+            swal(data);
             document.getElementById("print_dn").disabled = false;
             document.getElementById("print_packing").disabled = false;
             document.getElementById("scan_label").value = '';

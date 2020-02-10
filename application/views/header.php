@@ -81,7 +81,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label">Username</label>
                                     <div class="col-sm-8">
-                                        <input class="form-control" readonly name="username" id="username">
+                                        <input class="form-control" readonly name="username" id="username" value="<?php echo $this->session->userdata('username');?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" id="aggree" class="btn btn-primary">Change Password</button>
+                                <button type="button" id="aggree" class="btn btn-primary" onclick="change_password()">Change Password</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </form>
@@ -122,7 +122,7 @@
                 </div>
 
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="<?php echo base_url() ?>javascript_data/tree_menu.js"></script>
+            <script src="<?php echo base_url() ?>javascript_data/tree_menu.js?<?php echo time() ?>"></script>
                 
                 
             <?php }else{

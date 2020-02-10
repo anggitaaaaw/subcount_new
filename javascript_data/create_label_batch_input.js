@@ -83,17 +83,18 @@ function save_data(){
     lppp = lpp.split('.');
     lpp_qty = lppp[0];
     lpp_number = lppp[1];
-        $.post('../Label/select_lpp_no',{'id_spk' : id_spk},function(data){ 
-          dataa = JSON.parse(data);
-          //console.log(dataa);
-              table = '<option>-SELECT LPP NO-</option>';
-          for(i in dataa){
-              table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
-          }
-          $('#lpp_no').html(table);
-      });
+       
       if(weight != ''){
-      //  $("#spk_no").select2("readonly", true);
+        $.post('../Label/select_lpp_no',{'id_spk' : id_spk},function(data){ 
+            dataa = JSON.parse(data);
+            //console.log(dataa);
+                table = '<option>-SELECT LPP NO-</option>';
+            for(i in dataa){
+                table += '<option value="'+dataa[i].qty_lot+'.'+dataa[i].lot_number+'">'+dataa[i].lot_number+'</option>';
+            }
+            $('#lpp_no').html(table);
+        });
+    
         $.post('../Label/save_data',{'vendor_code': vendor_code ,'id_spk' : id_spk, 'no_spk' : no_spk, 'item_code' : item_code, 'deskripsi' : deskripsi, 'heatno_a' : heatno_a, 'heatno_b' : heatno_b, 'lpp_qty' : lpp_qty, 'lpp_number' : lpp_number, 'weight' : weight},function(data){ 
             dataa = JSON.parse(data);
             $('#lpp_qty').val('');
@@ -139,6 +140,7 @@ function view_label(serial_id){
         "columns": [
             { "data": "serial_number" },
             { "data": "spk_no" },
+            { "data": "lpp_no" },
             { "data": "item_id" },
             { "data": "item_name" },
             { "data": "heatno_a" },

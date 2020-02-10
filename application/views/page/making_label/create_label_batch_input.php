@@ -236,8 +236,9 @@
                                             <table id="simpletable" class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                     <tr>
-                                                        <th>LPP no</th>
+                                                        <th>No</th>
                                                         <th>SPK No</th>
+                                                        <th>LPP No</th>
                                                         <th>Item Code</th>
                                                         <th>Description</th>
                                                         <th>Heat No</th>
