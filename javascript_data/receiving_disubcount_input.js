@@ -81,6 +81,10 @@ function tes(dn_no){
  function edit_qty(lpp_qty, weight, serial_id, dn_no){
      $('#qty_pcs').val(lpp_qty);
      $('#qty_kg').val(weight);
+     $('#actual_pcs').val(lpp_qty);
+     $('#actual_kg').val(weight);
+     $('#balance_pcs').val("0");
+     $('#balance_kg').val("0");
      $('#serial_id').val(serial_id);
      $('#dn_no').val(dn_no);
 

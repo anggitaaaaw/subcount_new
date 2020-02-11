@@ -313,6 +313,15 @@ class Labelmodel extends CI_Model {
         return $result;
     }
 
+    function view_vendor_delivery(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->group_by('trx_ven_receive.dn_no');
+
+        return $this->db->get();
+    }
+
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */

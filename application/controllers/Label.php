@@ -268,7 +268,9 @@ class Label extends CI_Controller {
     public function save_dn_temp(){
         $scan = $this->input->post('serial_id');
         $label = $this->labelmodel->view_del_note($scan);
-        $data['dn_no'] = $this->get_dn_no($label[0]->vendor_code);
+        $dn = $this->get_dn_no($label[0]->vendor_code);
+        $data['dn_no'] = $dn;
+        $data['pl_no'] = str_replace("DN","PL", $dn); 
         $data['serial_id'] = $label[0]->serial_number;
         $data['vendor_code'] = $label[0]->vendor_code;
         $data['plat_no'] = $this->input->post('plat_no');
@@ -315,6 +317,7 @@ class Label extends CI_Controller {
         $dn = $this->labelmodel->move_dn()->result();
         foreach($dn as $d){
             $data['dn_no'] = $d->dn_no;
+            $data['pl_no'] = $d->pl_no;
             $data['serial_id'] = $d->serial_id;
             $data['vendor_code'] = $d->vendor_code;
             $data['plat_no'] = $d->plat_no;
@@ -440,6 +443,12 @@ class Label extends CI_Controller {
         $dn_no = $this->input->post('dn_no');
         $label = $this->labelmodel->trx_ven_receive_det($dn_no)->result();
         echo json_encode($label);
+    }
+
+    public function vendor_delivery(){
+        $label = $this->labelmodel->view_vendor_delivery()->result();
+        $data['data'] = $label;
+        echo json_encode($data);
     }
 
 }

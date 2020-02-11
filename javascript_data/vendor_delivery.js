@@ -38,7 +38,7 @@ function format ( d ) {
 
 $(document).ready(function() {
     var table = $('#vendor_delivery').DataTable( {
-        "ajax": "../json/data_vd.json",
+        "ajax": "../Label/vendor_delivery",
         "searching": false,
         "paging":   false,
         "columns": [
@@ -48,16 +48,16 @@ $(document).ready(function() {
                 "data":           null,
                 "defaultContent": '<i class="ik ik-plus-circle"></i>'
             },
-            { "data": "spk_no" },
-            { "data": "batch_no" },
-            { "data": "item_code" },
-            { "data": "desc" },
-            { "data": "heatno" },
-            { "data": "cuser" },
-            { "data": "cdate" },
-            { "data": "cdate2" },
-            { "data": "cdate3" },
-            { "data": "cdate4" }
+            { "data": "dn_no" },
+            { "data": "created_date" },
+            { "data": "plat_no" },
+            { "data": "driver_name" },
+            { "data": "receive_date" },
+            { "data": "receive_user" },
+            { "data": "created_date" },
+            { "data": "created_by" },
+            { "data": "pl_no" },
+            { "data": "status_dn" }
         ],
         buttons: [
             'copy', 'excel', 'pdf'

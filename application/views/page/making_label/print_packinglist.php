@@ -38,7 +38,7 @@
                 <center style="font-weight: bold; font-size: 24px;">PACKING LIST</center>
             </div>
             <div style="width: 200px; padding: 10px; float: left;">
-                <span style="font-size: 12px; margin: 0px;">Packing List No : PL-VEN0011219-0001</span><br>
+                <span style="font-size: 12px; margin: 0px;">Packing List No : <?php echo $label[0]->pl_no?></span><br>
                 <span style="font-size: 12px; margin: 0px;">Driver Name : <?php echo $label[0]->driver_name?> </span><br>
                 <span style="font-size: 12px; margin: 0px;">Plat No : <?php echo $label[0]->plat_no?><span>
                 <div style="width: 100%; padding: 8px; border: 1px solid black;">
@@ -50,7 +50,7 @@
             </div>
             <div style="width: 150px; padding: 10px; float: right;">
                 <span style="font-size: 12px; margin: 0px;">PL Date : <?php echo date("Y-m-d") ?></span><br>
-                <span style="font-size: 12px; margin: 0px;">PL No : <?php echo $label[0]->dn_no?></span><br>
+                <span style="font-size: 12px; margin: 0px;">PL No : <?php echo $label[0]->pl_no?></span><br>
                 <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=<?php echo $label[0]->dn_no?>&choe=UTF-8',60,55,40,0,'PNG'" width="100%" style="margin:0px;">
             </div>
             
