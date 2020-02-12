@@ -81,13 +81,14 @@ function new_set_vendor(){
     item_name = $('#item_name').val();
     vendor_code = $('#subcount_vendor').val();
     process_code = $('#process_code').val();
+    leadtime = $('#leadtime').val();
     batch_qty = $('#batch_qty').val();
     container_qty = $('#container_qty').val();
   
     if(item_no == '' || item_name == '' || subcount_vendor == '' || process_code == '' || batch_qty == '' || container_qty == '' ){
         alert('mohon lengkapi data anda');
     }else{
-        $.post('../Vendor/new_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'batch_qty' : batch_qty, 'container_qty' : container_qty},
+        $.post('../Vendor/new_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'leadtime' : leadtime, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
         function(data){ 
         console.log(data);
 
@@ -116,6 +117,7 @@ function view_setting_vendor(){
             { "data": "item_name" },
             { "data": "vendor_code" },
             { "data": "process_name" },
+            { "data": "leadtime" },
             { "data": "qty_batch" },
             { "data": "qty_container" }
         ]   
@@ -189,6 +191,7 @@ function edit_set_vendor(nik){
         });
         $('#edit_process').val(dataa.process_code);
         $('#edit_batch_qty').val(dataa.qty_batch);
+        $('#edit_leadtime').val(dataa.leadtime);
         $('#edit_container_qty').val(dataa.qty_container);
 
        
@@ -244,11 +247,12 @@ function proses_edit_set_vendor(){
         process_code = $('#edit_process').val();
         
     }
+    leadtime = $('#edit_leadtime').val();
     batch_qty = $('#edit_batch_qty').val();
     container_qty = $('#edit_container_qty').val();
   
     
-    $.post('../Vendor/proses_edit_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'batch_qty' : batch_qty, 'container_qty' : container_qty},
+    $.post('../Vendor/proses_edit_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'leadtime' : leadtime, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
     function(data){ 
       console.log(data);
 

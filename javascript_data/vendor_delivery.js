@@ -56,6 +56,7 @@ $(document).ready(function() {
             { "data": "receive_user" },
             { "data": "created_date" },
             { "data": "created_by" },
+            { "data": "leadtime" },
             { "data": "pl_no" },
             { "data": "status_dn" }
         ],

@@ -69,8 +69,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Leadtime (BYTE) </label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="leadtime" name="leadtime">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Batch QTY </label>
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="batch_qty" name="batch_qty" readonly>
                                                             </div>
                                                         </div>
@@ -133,6 +139,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Leadtime (BYTE) </label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" id="edit_leadtime" name="edit_leadtime">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="edit_batch_qty" name="batch_qty" readonly>
@@ -171,6 +183,7 @@
                                                                     <th>Description</th>
                                                                     <th>Subcont</th>
                                                                     <th>Process Name</th>
+                                                                    <th>Leadtime (BYTE)</th>
                                                                     <th>Batch No</th>
                                                                     <th>Container QTY</th>
                                                                 </tr>

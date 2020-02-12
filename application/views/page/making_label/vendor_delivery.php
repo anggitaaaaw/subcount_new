@@ -104,6 +104,7 @@
                                                                     <th>Receiving By</th>
                                                                     <th>Delivery Date</th>
                                                                     <th>Delivery By</th>
+                                                                    <th>Leadtime (BYTE)</th>
                                                                     <th>Packing List</th>
                                                                     <th>Status</th>
                                                                 </tr>
