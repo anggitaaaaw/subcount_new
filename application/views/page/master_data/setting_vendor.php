@@ -69,7 +69,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Leadtime (BYTE) </label>
+                                                            <label class="col-sm-3 col-form-label">Leadtime</label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="leadtime" name="leadtime">
                                                             </div>
@@ -139,7 +139,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Leadtime (BYTE) </label>
+                                                            <label class="col-sm-3 col-form-label">Leadtime</label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="edit_leadtime" name="edit_leadtime">
                                                             </div>
@@ -183,7 +183,7 @@
                                                                     <th>Description</th>
                                                                     <th>Subcont</th>
                                                                     <th>Process Name</th>
-                                                                    <th>Leadtime (BYTE)</th>
+                                                                    <th>Leadtime</th>
                                                                     <th>Batch No</th>
                                                                     <th>Container QTY</th>
                                                                 </tr>
