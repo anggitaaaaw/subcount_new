@@ -77,18 +77,8 @@
                                             <div class="card" style="min-height: 484px;">
                                                 <div class="card-body">
                                                     <div class="form-group row">
-                                                        <label class="col-sm-1 col-form-label">Search By</label>
-                                                        <div class="col-sm-2">
-                                                            <select class="form-control select2">
-                                                                <option value="">-Delivery Note-</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-sm-2">
-                                                            <input type="text" class="form-control" placeholder="Search Data" id="search_by">
-                                                        </div>
-                                                        <div class="col-sm-2">
-                                                            <a href="#" class="btn btn-primary mr-2"><i class="ik ik-search"></i>Search</a>
-                                                        </div>
+                                                       
+                                                       
                                                     </div>
                                                     <div class="dt-responsive">
                                                         <table id="vendor_delivery" class="table table-striped table-bordered nowrap">

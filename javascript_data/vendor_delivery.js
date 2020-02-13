@@ -55,8 +55,8 @@ function print_packinglist(spk_no){
 $(document).ready(function() {
     var table = $('#vendor_delivery').DataTable( {
         "ajax": "../Label/vendor_delivery",
-        "searching": false,
-        "paging":   false,
+        "searching": true,
+        "paging":   true,
         "columns": [
             {
                 "className":      'details-control',
