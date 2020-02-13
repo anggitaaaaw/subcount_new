@@ -29,20 +29,19 @@
 
                                     <!-- Print Label -->
                                     <div class="modal fade" id="modal_printlabel" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content" style="width: 400px;">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content" style="width: 900px; height: 720px">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="demoModalLabel">Print Label</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <form class="forms-sample">
-                                                    <div class="modal-body" style="height: 410px;">
-                                                        <iframe src="<?php echo site_url('welcome/print_label2') ?>" id="iframe2" style="border:none;" height="100%" width="100%;">
-
-                                                        </iframe>
+                                                <div class="modal-body" style="height: 100%; width: 100%">
+                                                         <iframe  id="iframe4" style="border:1px solid gray;" height="500px" width="800px;">
+                                                         </iframe>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" id="print_label" class="btn btn-primary">Print</button>
+                                                        <button type="button" id="print_label_vendor" class="btn btn-primary">Print</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -52,20 +51,20 @@
 
                                     <!-- Print Packing List -->
                                     <div class="modal fade" id="modal_packinglist" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content" style="width: 800px;">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                            <div class="modal-content" style="width: 900px; height: 720px">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="demoModalLabel">Print Packing List</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <form class="forms-sample">
-                                                    <div class="modal-body" style="height: 600px;">
-                                                        <iframe src="<?php echo site_url('welcome/print_packinglist') ?>" id="iframe" style="border:none;" height="100%" width="100%;">
-
-                                                        </iframe>
+                                                <div class="modal-body" style="height: 100%; width: 100%">
+                                                         <iframe  id="iframe5" style="border:1px solid gray;" height="500px" width="800px;">
+                                                         </iframe>
                                                     </div>
+                                        
                                                     <div class="modal-footer">
-                                                        <button type="button" id="print_sj" class="btn btn-primary">Print</button>
+                                                        <button type="button" id="print_packing_list" class="btn btn-primary">Print</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>

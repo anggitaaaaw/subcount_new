@@ -451,5 +451,12 @@ class Label extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function trx_ven_delivery_det(){
+        $dn_no = $this->input->post('dn_no');
+        $label = $this->labelmodel->trx_ven_delivery_det($dn_no)->result();
+        echo json_encode($label);
+    }
+
+
 }
      

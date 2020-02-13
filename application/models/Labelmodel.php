@@ -199,6 +199,14 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function view_dn_det(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote_temp.vendor_code');
+        $this->db->where('trx_deliverynote.dn_no');
+        return $this->db->get();
+    }
+
     function move_dn(){
         $this->db->select('*');
         $this->db->from('trx_deliverynote_temp'); 
@@ -219,7 +227,7 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
-    function view_dn_det($dn_no){
+    function view_dnno_det($dn_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
         $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
@@ -320,6 +328,14 @@ class Labelmodel extends CI_Model {
         $this->db->join('m_vendor_set', 'm_vendor_set.item_no = trx_deliverynote.item_code');
         $this->db->group_by('trx_ven_receive.dn_no');
 
+        return $this->db->get();
+    }
+
+    function trx_ven_delivery_det($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_ven_receive.dn_no', $dn_no);
         return $this->db->get();
     }
 

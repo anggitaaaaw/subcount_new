@@ -1,6 +1,6 @@
 function format ( d ) {
-    return  'Detail of : '+d.spk_no+
-            '<table class="table">'+
+    table = 'Detail of : '+d.spk_no+
+            '<table class="table" id="det_batch'+d.dn_no+'">'+
                 '<thead>'+
                     '<tr>'+
                         '<th>SPK No</th>'+
@@ -12,28 +12,44 @@ function format ( d ) {
                         '<th>Quantity</th>'+
                         '<th>Actual</th>'+
                         '<th>Balance</th>'+
-                        '<th>Create</th>'+
                         '<th>Print Label</th>'+
                         '<th>Status</th>'+
                     '</tr>'+
                 '</thead>'+
                 '<tbody>'+
-                    '<tr>'+
-                        '<td>1233</td>'+
-                        '<td>123333</td>'+
-                        '<td>1233</td>'+
-                        '<td>123333</td>'+
-                        '<td>1233</td>'+
-                        '<td>123333</td>'+
-                        '<td>1233</td>'+
-                        '<td>123333</td>'+
-                        '<td>1233</td>'+
-                        '<td><input type="checkbox"></td>'+
-                        '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2"><i class="ik ik-printer"></i>Print</button></td>'+
-                        '<td>Open</td>'+
-                    '</tr>'+
                 '</tbody>'+
-            '</table>';
+                '</table>';
+                $.post('../Label/trx_ven_delivery_det',{'dn_no' : d.dn_no},function(data){ 
+                    dataa = JSON.parse(data);
+                    console.log(dataa);
+                    for(i in dataa){
+                         table +='<tr>'+
+                                '<td>'+dataa[i].spk_no+'</td>'+
+                                '<td>'+dataa[i].batch_no+'</td>'+
+                                '<td>'+dataa[i].lpp_no+'</td>'+
+                                '<td>'+dataa[i].item_code+'</td>'+
+                                '<td>'+dataa[i].item_name+'</td>'+
+                                '<td>'+dataa[i].heatno_a+'</td>'+
+                                '<td>'+dataa[i].qty_real+'</td>'+
+                                '<td>'+dataa[i].qty_actual+'</td>'+
+                                '<td>'+dataa[i].qty_balance+'</td>'+
+                                '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button><button data-toggle="modal" data-target="#modal_packinglist" class="btn btn-info mr-2" value='+d.dn_no+' onclick="print_packinglist(this.value)"><i class="ik ik-printer"></i>Print Packinglist</button></td>'+
+                                '<td>Open</td>'+
+                            '</tr>';
+                    }
+                    $('#det_batch'+d.dn_no).html(table);
+                });
+
+                return table;
+              
+}
+
+function print_label(spk_no){
+    $("#iframe4").attr("src","print_label/"+spk_no);
+}
+
+function print_packinglist(spk_no){
+    $("#iframe5").attr("src","print_packing_list/"+spk_no);
 }
 
 $(document).ready(function() {
@@ -66,6 +82,7 @@ $(document).ready(function() {
         "order": [[1, 'asc']]
     } );
     
+
     // Add event listener for opening and closing details
     $('#vendor_delivery tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
@@ -82,4 +99,11 @@ $(document).ready(function() {
             tr.addClass('shown');
         }
     } );
+
+    $('#print_label_vendor').click(function() {
+        $("#iframe4").get(0).contentWindow.print();
+    });
+    $('#print_packing_list').click(function() {
+        $("#iframe5").get(0).contentWindow.print();
+    });
 });

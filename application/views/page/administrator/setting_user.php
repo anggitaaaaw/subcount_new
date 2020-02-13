@@ -35,9 +35,8 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-2 col-form-label">Find User</label>
                                                         <div class="col-sm-6">
-                                                            <select class="form-control select2" id="username" name="parent_menu">
-                                                                <option value="hilmanf11">HILMAN FADILLAH | hilmanf11</option>
-                                                                <option value="anggita123">Anggita Febriani | anggita123</option>
+                                                            <select class="form-control select2" id="list_username" name="parent_menu">
+                                                             
                                                             </select>
                                                         </div>
                                                         <div class="col-sm-2">

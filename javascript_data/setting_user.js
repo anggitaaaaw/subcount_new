@@ -6,7 +6,9 @@ $(document).ready(function() {
         for(i in dataa.data){
             table += '<option value="'+dataa.data[i].nik+'">'+dataa.data[i].fullname+'</option>';
         }
-    $('#username').html(table);
+
+     //   console.log(table);
+    $('#list_username').html(table);
 
     });
 
@@ -28,7 +30,7 @@ $(document).ready(function() {
 
 function checkbox(str){
     console.log(str);
-    nik = $('#username').val();
+    nik = $('#list_username').val();
         if($('#check_user'+str).prop("checked") == true){
             alert("Checkbox is checked.");
             $.post('../User/checked_menu_user',{'id_menu' : str, 'nik' : nik},function(data){ 
@@ -45,7 +47,7 @@ function checkbox(str){
 }
 
 function generate_menu(){
-    nik = $('#username').val();
+    nik = $('#list_username').val();
     console.log(nik);
     $.post('../User/insert_menu_user',{'nik' : nik},function(data){ 
         
