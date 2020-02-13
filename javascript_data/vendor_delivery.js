@@ -33,7 +33,7 @@ function format ( d ) {
                                 '<td>'+dataa[i].qty_real+'</td>'+
                                 '<td>'+dataa[i].qty_actual+'</td>'+
                                 '<td>'+dataa[i].qty_balance+'</td>'+
-                                '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button><button data-toggle="modal" data-target="#modal_packinglist" class="btn btn-info mr-2" value='+d.dn_no+' onclick="print_packinglist(this.value)"><i class="ik ik-printer"></i>Print Packinglist</button></td>'+
+                                '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button></td>'+
                                 '<td>Open</td>'+
                             '</tr>';
                     }
@@ -73,7 +73,11 @@ $(document).ready(function() {
             { "data": "created_date" },
             { "data": "created_by" },
             { "data": "leadtime" },
-            { "data": "pl_no" },
+            {
+                "targets": -1,
+                "data": null,
+                "defaultContent": "<button class='btn btn-info mr-2'><i class='ik ik-printer'></i>Print</button>"
+            },
             { "data": "status_dn" }
         ],
         buttons: [
@@ -82,6 +86,15 @@ $(document).ready(function() {
         "order": [[1, 'asc']]
     } );
     
+    $('#vendor_delivery tbody').on( 'click', 'button', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        console.log(data.vendor_name);
+      //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
+        
+     
+      $("#iframe5").attr("src","print_packing_list/"+data.dn_no);
+        $("#modal_packinglist").modal("show");
+    } );
 
     // Add event listener for opening and closing details
     $('#vendor_delivery tbody').on('click', 'td.details-control', function () {
