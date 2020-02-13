@@ -97,7 +97,12 @@ function tes(dn_no){
     actual_pcs =  $('#actual_pcs').val();
 
     balance = qty_pcs - actual_pcs;
-    $('#balance_pcs').val(balance);
+    
+    if(balance < 0){
+        swal('balance cannot be negative');
+    }else{
+        $('#balance_pcs').val(balance);
+    }
 }
 
 function hitung_kg(){
@@ -105,7 +110,11 @@ function hitung_kg(){
     actual_pcs =  $('#actual_kg').val();
 
     balance = qty_pcs - actual_pcs;
-    $('#balance_kg').val(balance);
+    if(balance < 0){
+        swal('balance cannot be negative');
+    }else{
+        $('#balance_kg').val(balance);
+    }
 }
 
 function simpan_qty(){

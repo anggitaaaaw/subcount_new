@@ -244,6 +244,13 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function edit_qty($batch_no){
+        $this->db->select('*');
+        $this->db->from('trx_ven_receive');
+        $this->db->where('batch_no', $batch_no);
+        return $this->db->get();
+    }
+
     
     function find_spk(){
         $this->db->select('spk_no');

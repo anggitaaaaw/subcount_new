@@ -1,17 +1,21 @@
 function format ( d ) {
-    table = 'Detail of : '+d.spk_no+
+    table = 'Detail of : '+d.dn_no+
             '<table class="table" id="det_batch'+d.dn_no+'">'+
                 '<thead>'+
                     '<tr>'+
-                        '<th>SPK No</th>'+
+                       
                         '<th>Batch No</th>'+
                         '<th>LPP No</th>'+
                         '<th>Item Code</th>'+
                         '<th>Description</th>'+
                         '<th>Heat No</th>'+
-                        '<th>Quantity</th>'+
-                        '<th>Actual</th>'+
-                        '<th>Balance</th>'+
+                        '<th>Qty (Pcs)</th>'+
+                        '<th>Qty (Kg)</th>'+
+                        '<th>Actual (Pcs)</th>'+
+                        '<th>Actual (Kg)</th>'+
+                        '<th>Balance (Pcs)</th>'+
+                        '<th>Balance (Kg)</th>'+
+                        '<th>Action</th>'+
                         '<th>Print Label</th>'+
                         '<th>Status</th>'+
                     '</tr>'+
@@ -24,15 +28,19 @@ function format ( d ) {
                     console.log(dataa);
                     for(i in dataa){
                          table +='<tr>'+
-                                '<td>'+dataa[i].spk_no+'</td>'+
+                               
                                 '<td>'+dataa[i].batch_no+'</td>'+
                                 '<td>'+dataa[i].lpp_no+'</td>'+
                                 '<td>'+dataa[i].item_code+'</td>'+
                                 '<td>'+dataa[i].item_name+'</td>'+
                                 '<td>'+dataa[i].heatno_a+'</td>'+
                                 '<td>'+dataa[i].qty_real+'</td>'+
+                                '<td>'+dataa[i].weight_real+'</td>'+
                                 '<td>'+dataa[i].qty_actual+'</td>'+
+                                '<td>'+dataa[i].weight_actual+'</td>'+
                                 '<td>'+dataa[i].qty_balance+'</td>'+
+                                '<td>'+dataa[i].weight_balance+'</td>'+
+                                '<td><button data-toggle="modal" data-target="#editQty" class="btn btn-danger mr-2" value='+dataa[i].batch_no+' onclick="edit_qty(this.value)"><i class="ik ik-edit"></i>Edit Qty</button></td>'+
                                 '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button></td>'+
                                 '<td>Open</td>'+
                             '</tr>';
@@ -48,8 +56,79 @@ function print_label(spk_no){
     $("#iframe4").attr("src","print_label/"+spk_no);
 }
 
-function print_packinglist(spk_no){
-    $("#iframe5").attr("src","print_packing_list/"+spk_no);
+function edit_qty(batch_no){
+    $.post('../Label/edit_qty',{'batch_no' : batch_no},function(data){ 
+        dataa = JSON.parse(data);
+        $('#qty_pcs').val(dataa.qty_real);
+        $('#qty_kg').val(dataa.weight_real);
+        $('#actual_pcs').val(dataa.qty_actual);
+        $('#actual_kg').val(dataa.weight_actual);
+        $('#balance_pcs').val(dataa.qty_balance);
+        $('#balance_kg').val(dataa.weight_balance);
+        $('#serial_id').val(dataa.batch_no);
+        $('#dn_no').val(dataa.dn_no);
+    });
+}
+
+function hitung_pcs(){
+    qty_pcs =  $('#qty_pcs').val();
+    actual_pcs =  $('#actual_pcs').val();
+
+    balance = qty_pcs - actual_pcs;
+    if(balance < 0){
+        swal('balance cannot be negative');
+    }else{
+        $('#balance_pcs').val(balance);
+    }
+   
+}
+
+function hitung_kg(){
+    qty_pcs =  $('#qty_kg').val();
+    actual_pcs =  $('#actual_kg').val();
+
+    balance = qty_pcs - actual_pcs;
+    if(balance < 0){
+        swal('balance cannot be negative');
+    }else{
+        $('#balance_kg').val(balance);
+    }
+ 
+}
+
+
+function simpan_qty(){
+    serial_id = $('#serial_id').val();
+    dn_no = $('#dn_no').val();
+    qty_pcs = $('#qty_pcs').val();
+    qty_kg = $('#qty_kg').val();
+    actual_pcs = $('#actual_pcs').val();
+    actual_kg = $('#actual_kg').val();
+    balance_pcs = $('#balance_pcs').val();
+    balance_kg = $('#balance_kg').val();
+   
+    $.post('../Label/proses_edit_qty2',{'batch_no' : serial_id, 'qty_real' : qty_pcs, 'weight_real' : qty_kg, 'qty_actual' : actual_pcs, 'weight_actual' : actual_kg, 'qty_balance' : balance_pcs, 'weight_balance' : balance_kg},function(data){ 
+        dataa = JSON.parse(data);
+        console.log(dataa);
+        
+
+        if(dataa == 1){
+            swal("Qty Success Edited!", {
+                icon: "success",
+              });
+              
+          }else{
+            swal("Qty edit failed!", {
+                icon: "failed",
+              });
+              
+          }
+          $('#vendor_delivery').DataTable().ajax.reload();
+         //view_tbl_dn_no(dn_no);
+          $("#editQty").modal("hide");
+
+    });
+    
 }
 
 $(document).ready(function() {
@@ -66,6 +145,7 @@ $(document).ready(function() {
             },
             { "data": "dn_no" },
             { "data": "created_date" },
+            { "data": "spk_no" },
             { "data": "plat_no" },
             { "data": "driver_name" },
             { "data": "receive_date" },
@@ -88,7 +168,7 @@ $(document).ready(function() {
     
     $('#vendor_delivery tbody').on( 'click', 'button', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        console.log(data.vendor_name);
+    //    console.log(data.vendor_name);
       //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
         
      

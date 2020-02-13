@@ -71,6 +71,64 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Edit QTY -->
+                                    <div class="modal fade" id="editQty" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="demoModalLabel">Edit Qty</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form class="forms-sample" id="myForm">
+                                                    <div class="modal-body">
+                                                    <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label">Quantity (pcs) </label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label"> Quantity (Kg)</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="qty_kg" readonly>
+                                                                <input type="hidden"  id="serial_id" >
+                                                                <input type="hidden"  id="dn_no" >
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label"> Actual (pcs)</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="actual_pcs" onchange="hitung_pcs()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label"> Actual (Kg)</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="actual_kg" onchange="hitung_kg()">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label"> Balance (pcs)</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="balance_pcs" readonly>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-3 col-form-label"> Balance (Kg)</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="balance_kg" readonly>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary" onclick="simpan_qty()">Simpan</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     
                                     <div class="row">
                                         <div class="col-md-12">
@@ -87,6 +145,7 @@
                                                                     <th width="5"></th>
                                                                     <th>DN No</th>
                                                                     <th>DN Date</th>
+                                                                    <th>SPK No</th>
                                                                     <th>Plat No</th>
                                                                     <th>Driver</th>
                                                                     <th>Receiving Date</th>
