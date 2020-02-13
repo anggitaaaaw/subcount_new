@@ -32,7 +32,7 @@
 
     <body>
         <?php foreach($label as $l){?>
-        <div style="width: 340px; height: auto; border: 1px solid black; float: left; padding: 0px; margin: 5px;">
+        <div style="width: 370px; height: auto; border: 1px solid black; float: left; padding: 0px; margin: 5px;">
             <div style="width: 74%; float: left; margin: 2px;">
                 <img src="<?php echo base_url() ?>assets/ismu-logo.png" width="80" class="header-brand-img" alt="lavalite">
                 <p style="font-weight: bold; font-size: 17px;"><u>PT. INDOSEIKI METALUTAMA</u></p>
@@ -49,7 +49,7 @@
                 <table style="border-collapse: collapse;">
                     <tr>
                         <td colspan="3" style="height: 30px; width: 60px;">
-                            <p><center style="font-weight: bold; font-size: 20px;">SUBCONT PROCESS</center></p>
+                            <p><center style="font-weight: bold; font-size: 24px;">SUBCONT PROCESS</center></p>
                             <center style="font-size: 20px;"><?php echo $l->vendor_code?> - <?php echo $l->vendor_name?></center>
                         </td>
                     </tr>
@@ -88,11 +88,16 @@
                         <td colspan="2" style="width: 60px;"><center style="font-size: 12px;">PIC SUBCONT Stamp here</center></td></td>
                     </tr>
                     <tr>
-                        <td style="height: 70px; width: 60px;"></td>
-                        <td colspan="2" style="height: 70px; width: 60px;"></td></td>
+                        <td style="height: 100px; width: 60px;"></td>
+                        <td colspan="2" style="height: 100px; width: 60px;"></td></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 20px; width: 60px;"></td>
+                        <td colspan="2" style="height: 20px; width: 60px;"></td></td>
                     </tr>
                 </table>
             </div>
+            <br>
         </div>
         <?php } ?>
     </body>
