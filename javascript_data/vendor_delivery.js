@@ -156,7 +156,7 @@ $(document).ready(function() {
             {
                 "targets": -1,
                 "data": null,
-                "defaultContent": "<button class='btn btn-info mr-2'><i class='ik ik-printer'></i>Print</button>"
+                "defaultContent": "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
             },
             { "data": "status_dn" }
         ],
@@ -174,7 +174,7 @@ $(document).ready(function() {
      
       $("#iframe5").attr("src","print_packing_list/"+data.dn_no);
         $("#modal_packinglist").modal("show");
-    } );
+    });
 
     // Add event listener for opening and closing details
     $('#vendor_delivery tbody').on('click', 'td.details-control', function () {

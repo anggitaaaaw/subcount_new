@@ -9,8 +9,8 @@
                                                 <div class="page-header-title">
                                                     <i class="ik ik-edit bg-blue"></i>
                                                     <div class="d-inline">
-                                                        <h5>Vendor Receiving Input</h5>
-                                                        <span>Please Select Delivery Note to show data</span>
+                                                        <h5>Vendor Delivery Input</h5>
+                                                        <span>Please Scan Batch label to show data</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -20,7 +20,7 @@
                                                         <li class="breadcrumb-item">
                                                             <a href="#"><i class="ik ik-home"></i></a>
                                                         </li>
-                                                        <li class="breadcrumb-item active" aria-current="page">Vendor Receiving Input</li>
+                                                        <li class="breadcrumb-item active" aria-current="page">Vendor Delivery Input</li>
                                                     </ol>
                                                 </nav>
                                             </div>
@@ -88,31 +88,44 @@
                                     <div class="card col-md-12" style="min-height: 484px; overflow: auto;">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-8">
+                                                <div class="col-md-12">
                                                     <form class="forms-sample">
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Delivery Note No</label>
-                                                            <div class="col-sm-8">
-                                                                <select class="form-control select2" id="select_dn_no" onchange="tes(this.value)" >
-                                                                    <option value="">-SELECT DELIVERY NOTE NO-</option>
-                                                                </select>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">DN No</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="dn_no" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">SPK No</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="spk_no" readonly>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">Item No</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="item_no" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">Description</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="description" readonly>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Plat No</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="plat_no" readonly>
+                                                            <label class="col-sm-2 col-form-label" style="font-size: 34px;">SCAN Label</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label class="col-sm-2 col-form-label">Driver Name</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="driver_name" readonly>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="btn btn-success" id="edit_qty" data-toggle="modal" disabled><i class="ik ik-edit"></i>Update Qty</button>
-                                                        <br>
-                                                        <br>
                                                         <div class="dt-responsive">
                                                             <table id="tbl_dn_no" class="table table-striped table-bordered nowrap">
                                                             <!-- <table id="tbl_dn_no" class="tabel_dn"> -->
@@ -153,8 +166,9 @@
                                                                 </tbody>
                                                             </table>
                                                             <br>
-                                                            <button type="button" id="aggree" class="btn btn-primary" onclick="move_trx_ven()">Aggree To Receive item and Qty</button>
-                                                            <button type="button" class="btn btn-secondary" onclick="location.reload()">Refresh</button>
+                                                            <button type="button" id="aggree" class="btn btn-primary" onclick="move_trx_ven()">Save Data</button>
+                                                            <button type="button" class="btn btn-secondary" onclick="location.reload()">Clear</button>
+                                                            <button type="button" class="btn btn-info" onclick="location.reload()">Print Packint List</button>
                                                         </div>
                                                     </div>
                                                 </form>

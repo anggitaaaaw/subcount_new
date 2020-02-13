@@ -169,7 +169,7 @@
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="card" style="min-height: 484px;">
+                                            <div class="card" style="min-height: 484px; overflow: auto;">
                                                 <div class="card-body">
                                                     <a class="btn btn-primary mr-2" href="<?php echo site_url('welcome/create_label_batch_input') ?>"><i class="ik ik-plus"></i>Label Batch</a>
                                                     <!--

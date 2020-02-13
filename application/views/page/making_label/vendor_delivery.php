@@ -132,11 +132,10 @@
                                     
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="card" style="min-height: 484px;">
+                                            <div class="card" style="min-height: 484px; overflow: auto;">
                                                 <div class="card-body">
                                                     <div class="form-group row">
-                                                       
-                                                       
+                                                    
                                                     </div>
                                                     <div class="dt-responsive">
                                                         <table id="vendor_delivery" class="table table-striped table-bordered nowrap">

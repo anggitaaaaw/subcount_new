@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card col-md-10" style="min-height: 484px;">
+                                    <div class="card col-md-10" style="min-height: 484px; overflow: auto;">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-8">

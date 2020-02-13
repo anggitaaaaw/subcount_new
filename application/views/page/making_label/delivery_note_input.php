@@ -74,7 +74,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card col-md-12" style="min-height: 700px;">
+                                    <div class="card col-md-12" style="min-height: 700px; overflow: auto;">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12">

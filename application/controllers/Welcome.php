@@ -106,6 +106,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function vendor_delivery_input(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/making_label/vendor_delivery_input');
+		$this->load->view('footer');
+	}
+
 	public function print_sj(){
 		$this->load->helper('url');
 		$this->load->view('page/making_label/print_sj');
