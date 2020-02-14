@@ -39,7 +39,54 @@ $(document).ready(function() {
     document.getElementById("print_pl").disabled = false;
     document.getElementById("save_vd").disabled = true;
     document.getElementById("edit_qty_vd").disabled = true;
-   
+    
+    var table = $('#tbl_vd_no').DataTable( {
+        "ajax": "../../Label/view_vd_temp",
+        "columns": [
+            { "data": "spk_no" },
+            { "data": "batch_no" },
+            { "data": "item_code" },
+            { "data": "item_name" },
+            { "data": "heatno_a" },
+            { "data": "qty_real" },
+            { "data": "weight_real" },
+            { "data": "qty_actual" },
+            { "data": "weight_actual" },
+            { "data": "qty_balance" },
+            { "data": "weight_balance" },
+            {
+                "targets": -1,
+                "data": null,
+                "defaultContent": "<button class='btn btn-primary mr-2'><i class='ik ik-edit'></i>Edit</button>"
+            }
+        ],
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ],
+        "order": [[1, 'asc']]   
+    });
+    
+    $('#tbl_vd_no tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('selected');
+     
+    });
+    
+    $('#edit_qty_vd').click( function () {
+        select_row = table.rows('.selected').data().length;
+        if(select_row == 1 ){
+            lpp_qty = table.rows('.selected').data()[0].lpp_qty;
+            weight = table.rows('.selected').data()[0].weight_real;
+            serial_id = table.rows('.selected').data()[0].batch_no;
+            dn_no = table.rows('.selected').data()[0].dn_no;
+            document.getElementById("myForm").reset();
+            $("#editQty").modal("show");
+            edit_qty(lpp_qty, weight, serial_id, dn_no);
+        }else{
+            swal("Your can edit only 1 row!");
+        }
+        $('#tbl_vd_no').DataTable().ajax.reload();
+    });
+
 });
 
     function change_password(){
@@ -77,49 +124,13 @@ $(document).ready(function() {
                 
             });
         
-        $('#tbl_vd_no').DataTable().destroy();
-        view_dn();
+        $('#tbl_vd_no').DataTable().ajax.reload();
+     //   view_dn();
+
     }
     
     function view_dn(){
-        var table = $('#tbl_vd_no').DataTable( {
-            "ajax": "../../Label/view_vd_temp",
-            "columns": [
-                { "data": "spk_no" },
-                { "data": "batch_no" },
-                { "data": "item_code" },
-                { "data": "item_name" },
-                { "data": "heatno_a" },
-                { "data": "qty_real" },
-                { "data": "weight_real" },
-                { "data": "qty_actual" },
-                { "data": "weight_actual" },
-                { "data": "qty_balance" },
-                { "data": "weight_balance" },
-            ],
-            "order": [[1, 'asc']]   
-        });
-        
-        $('#tbl_vd_no tbody').on( 'click', 'tr', function () {
-            $(this).toggleClass('selected');
-         
-        });
-        
-        $('#edit_qty_vd').click( function () {
-            select_row = table.rows('.selected').data().length;
-            if(select_row == 1 ){
-                lpp_qty = table.rows('.selected').data()[0].lpp_qty;
-                weight = table.rows('.selected').data()[0].weight_real;
-                serial_id = table.rows('.selected').data()[0].batch_no;
-                dn_no = table.rows('.selected').data()[0].dn_no;
-                document.getElementById("myForm").reset();
-                $("#editQty").modal("show");
-                edit_qty(lpp_qty, weight, serial_id, dn_no);
-            }else{
-                swal("Your can edit only 1 row!");
-            }
-            $('#tbl_vd_no').DataTable().ajax.reload();
-        });
+
     }
  
  

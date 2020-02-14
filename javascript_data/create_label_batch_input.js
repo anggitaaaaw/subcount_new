@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    
+        $('#spk_no').select2();
+    
     $.post('../Label/select_spk',{},function(data){ 
         dataa = JSON.parse(data);
        // console.log(dataa);

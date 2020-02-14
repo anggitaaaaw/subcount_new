@@ -568,6 +568,27 @@ class Label extends CI_Controller {
         $this->labelmodel->delete_vd_temp();
     }
 
+    public function proses_edit_qty_vd(){
+        $batch_no = $this->input->post('batch_no');
+        $data['qty_real'] = $this->input->post('qty_real');
+        $data['weight_real'] = $this->input->post('weight_real');
+        $data['qty_actual'] = $this->input->post('qty_actual');
+        $data['weight_actual'] = $this->input->post('weight_actual');
+        $data['qty_balance'] = $this->input->post('qty_balance');
+        $data['weight_balance'] = $this->input->post('weight_balance');
+        $data['receive_user'] = $this->session->userdata('username');
+        $data['receive_date'] = date('Y-m-d H:m:s');
 
+        //echo json_encode($data);
+        $this->db->where('batch_no', $batch_no);
+        $this->db->update('trx_ven_delivery_temp', $data);
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo json_encode($batch_no);
+
+       }
+
+    }
 }
      

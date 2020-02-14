@@ -126,11 +126,11 @@
                                                                 <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label"  onchange="tes(this.value)">
                                                             </div>
                                                         </div>
-                                                        <button type="button" class="btn btn-success" id="edit_qty_vd" data-toggle="modal"><i class="ik ik-edit"></i>Update Qty</button>
+                                                        <button type="button" class="btn btn-success" id="edit_qty_vd" ><i class="ik ik-edit"></i>Update Qty</button>
                                                         <br>
                                                         <br>
                                                         <div class="dt-responsive">
-                                                            <table id="tbl_vd_no" class="table table-striped table-bordered nowrap">
+                                                            <table id="tbl_vd" class="table table-striped table-bordered nowrap">
                                                             <!-- <table id="tbl_dn_no" class="tabel_dn"> -->
                                                                 <thead>
                                                                     <tr>
@@ -146,6 +146,7 @@
                                                                         <th style="width: 60px;">Actual <br>(Kg)</th>
                                                                         <th style="width: 60px;">Balance <br>(Pcs)</th>
                                                                         <th style="width: 60px;">Balance <br>(Kg)</th>
+                                                                        <th style="width: 60px;">Edit</th>
                                                                         <!--<th>Actual</th>
                                                                         <th>Balance</th>-->
                                                                     </tr>
@@ -183,4 +184,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-                    <script src="<?php echo base_url() ?>javascript_data/vendor_delivery_input.js?<?php echo time() ?>"></script>
+                    <script src="<?php echo base_url() ?>javascript_data/vendor_delivery_input2.js?<?php echo time() ?>"></script>

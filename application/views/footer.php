@@ -55,9 +55,7 @@
                 });
             });
 
-            $(document).ready(function() {
-                $('#spk_no').select2();
-            });
+           
 
             $(document).ready(function() {
                 $('#lpp_no').select2();
