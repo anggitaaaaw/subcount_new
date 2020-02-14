@@ -40,7 +40,7 @@ $(document).ready(function() {
     document.getElementById("save_vd").disabled = true;
     document.getElementById("edit_qty_vd").disabled = true;
    
-    });
+});
 
     function change_password(){
         id_user = $('#id_user').val();
@@ -81,7 +81,7 @@ $(document).ready(function() {
         
         
         view_dn();
-        $('#tbl_vd_no').DataTable().destroy();
+        //$('#tbl_vd_no').DataTable().destroy();
     }
     
     function view_dn(){
