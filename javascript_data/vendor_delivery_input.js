@@ -98,7 +98,8 @@ $(document).ready(function() {
                 { "data": "weight_actual" },
                 { "data": "qty_balance" },
                 { "data": "weight_balance" },
-            ]   
+            ],
+            "order": [[1, 'asc']]   
         });
         
         $('#tbl_vd_no tbody').on( 'click', 'tr', function () {
