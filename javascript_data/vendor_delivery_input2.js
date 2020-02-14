@@ -182,8 +182,8 @@ function create_vd(){
 function print_vd(){
     dn_no = $('#dn_noo').val();
     console.log(dn_no);
-   // $("#iframe1").attr("src","print_dn");
-    //$("#iframe1").get(0).contentWindow.print();
+  //  $("#iframe6").attr("src","print_pl_vd");
+    //$("#iframe6").get(0).contentWindow.print();
     document.getElementById("save_vd").disabled = false;
         $.post('../../Label/cek_jml_vd',{'dn_no' : dn_no },function(data){ 
             dataa = JSON.parse(data);

@@ -550,6 +550,7 @@ class Label extends CI_Controller {
     }
 
    public function create_vd(){
+
         $dn = $this->labelmodel->move_vd()->result();
         echo json_encode($dn);
         foreach($dn as $label){
@@ -564,6 +565,10 @@ class Label extends CI_Controller {
             $data['weight_balance'] = $label->weight_balance;
 
             $this->db->insert('trx_ven_delivery', $data);
+          
+            $this->db->set('status_dn', 'closed');
+            $this->db->where('serial_id', $label->batch_no);
+            $this->db->update('trx_deliverynote');
         }
         $this->labelmodel->delete_vd_temp();
     }

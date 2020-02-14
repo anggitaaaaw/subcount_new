@@ -168,10 +168,13 @@ $(document).ready(function() {
     
     $('#vendor_delivery tbody').on( 'click', 'button', function () {
         var data = table.row( $(this).parents('tr') ).data();
-    //    console.log(data.vendor_name);
+            console.log(data.status_dn);
       //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
-        
-     window.location.href = 'vendor_delivery_input/'+data.dn_no;
+        if(data.status_dn == 'open'){
+            window.location.href = 'vendor_delivery_input/'+data.dn_no;
+        }else{
+            swal('Status is Closed !!');
+        }
    //   $("#iframe5").attr("src","print_packing_list/"+data.dn_no);
      //   $("#modal_packinglist").modal("show");
     });
