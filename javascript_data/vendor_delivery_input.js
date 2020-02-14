@@ -63,11 +63,9 @@ $(document).ready(function() {
     }
 
     //scan label
-   
     function tes(scan){
         console.log(scan);
         spk_no = $('#spk_no').val();
-      
             $.post('../../Label/save_vd_temp',{'batch_no' : scan, 'spk_no' : spk_no},function(data){ 
                 //dataa = JSON.parse(data);
                 console.log(data);
@@ -105,7 +103,7 @@ $(document).ready(function() {
         $('#tbl_vd_no tbody').on( 'click', 'tr', function () {
             $(this).toggleClass('selected');
          
-        } );
+        });
         
         $('#edit_qty_vd').click( function () {
             select_row = table.rows('.selected').data().length;

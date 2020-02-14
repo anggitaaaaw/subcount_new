@@ -126,7 +126,7 @@
                                                                 <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label"  onchange="tes(this.value)">
                                                             </div>
                                                         </div>
-                                                        <button type="button" class="btn btn-success" id="edit_qty_vd" data-toggle="modal" disabled><i class="ik ik-edit"></i>Update Qty</button>
+                                                        <button type="button" class="btn btn-success" id="edit_qty_vd" data-toggle="modal"><i class="ik ik-edit"></i>Update Qty</button>
                                                         <br>
                                                         <br>
                                                         <div class="dt-responsive">
