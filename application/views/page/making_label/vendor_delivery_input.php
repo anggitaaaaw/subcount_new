@@ -146,7 +146,6 @@
                                                                         <th style="width: 60px;">Actual <br>(Kg)</th>
                                                                         <th style="width: 60px;">Balance <br>(Pcs)</th>
                                                                         <th style="width: 60px;">Balance <br>(Kg)</th>
-                                                                        <th style="width: 60px;">Edit</th>
                                                                         <!--<th>Actual</th>
                                                                         <th>Balance</th>-->
                                                                     </tr>

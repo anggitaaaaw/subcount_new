@@ -53,12 +53,7 @@ $(document).ready(function() {
             { "data": "qty_actual" },
             { "data": "weight_actual" },
             { "data": "qty_balance" },
-            { "data": "weight_balance" },
-            {
-                "targets": -1,
-                "data": null,
-                "defaultContent": "<button class='btn btn-primary mr-2'><i class='ik ik-edit'></i>Edit</button>"
-            }
+            { "data": "weight_balance" }
         ],
     buttons: [
         'copy', 'excel', 'pdf'
