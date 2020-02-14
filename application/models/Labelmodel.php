@@ -162,6 +162,39 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function cek_spk_vd_temp($spk_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('trx_ven_delivery_temp','trx_ven_delivery_temp.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_deliverynote.spk_no', $spk_no);
+       
+        return $this->db->get();
+    }
+
+    function cek_spk_vd($spk_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('trx_ven_delivery','trx_ven_delivery.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_deliverynote.spk_no', $spk_no);
+       
+        return $this->db->get();
+    }
+
+    function cek_batch_no($batch_no){
+        $this->db->select('*');
+        $this->db->from('trx_ven_delivery_temp');
+        $this->db->where('batch_no', $batch_no);
+       
+        return $this->db->get();
+    }
+
+    function cek_vd_temp(){
+        $this->db->select('*');
+        $this->db->from('trx_ven_delivery_temp');
+       
+        return $this->db->get();
+    }
+
     function cek_spk($spk_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote');
@@ -178,12 +211,14 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+
     function cek_dn_temp(){
         $this->db->select('*');
         $this->db->from('trx_deliverynote_temp');
        
         return $this->db->get();
     }
+
     function cek_sn($spk_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote_temp');
@@ -199,11 +234,12 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
-    function view_dn_det(){
+    function view_dn_det($dn_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
-        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote_temp.vendor_code');
-        $this->db->where('trx_deliverynote.dn_no');
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->join('m_batch', 'm_batch.serial_number = trx_deliverynote.serial_id');
+        $this->db->where('trx_deliverynote.dn_no', $dn_no);
         return $this->db->get();
     }
 
@@ -343,6 +379,48 @@ class Labelmodel extends CI_Model {
         $this->db->from('trx_deliverynote'); 
         $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
         $this->db->where('trx_ven_receive.dn_no', $dn_no);
+        return $this->db->get();
+    }
+
+    function view_vd_det($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_ven_receive'); 
+        $this->db->join('trx_deliverynote', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('batch_no', $dn_no);
+        return $this->db->get();
+    }
+
+    function view_vd_temp(){
+        $this->db->select('*');
+        $this->db->from('trx_ven_delivery_temp'); 
+        $this->db->join('trx_deliverynote', 'trx_ven_delivery_temp.batch_no = trx_deliverynote.serial_id');
+        return $this->db->get();
+    }
+
+    function delete_vd_temp(){
+        $sql = "TRUNCATE trx_ven_delivery_temp";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+
+    function jml_batch($spk_no){
+        $sql = "SELECT COUNT(dn_no) AS jml_batch FROM trx_ven_receive where dn_no = '$spk_no'";
+        $result = $this->db->query($sql);
+        return $result;
+        
+    }
+
+    function jml_row_vd(){
+        $sql = "SELECT COUNT(batch_no) AS jml_spk FROM trx_ven_delivery_temp";
+        $result = $this->db->query($sql);
+        return $result;
+        
+    }
+
+    function move_vd(){
+        $this->db->select('*');
+        $this->db->from('trx_ven_delivery_temp');
         return $this->db->get();
     }
 

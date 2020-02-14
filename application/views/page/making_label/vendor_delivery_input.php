@@ -95,13 +95,13 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">DN No</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" id="dn_no" readonly>
+                                                                        <input type="text" class="form-control" id="dn_noo" value="<?php echo $label[0]->dn_no?>" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">SPK No</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" id="spk_no" readonly>
+                                                                        <input type="text" class="form-control" id="spk_no" value="<?php echo $label[0]->spk_no?>" readonly>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -109,13 +109,13 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Item No</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" id="item_no" readonly>
+                                                                        <input type="text" class="form-control" id="item_no" value="<?php echo $label[0]->item_code?>" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Description</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" id="description" readonly>
+                                                                        <input type="text" class="form-control" id="description" value="<?php echo $label[0]->item_name?>" readonly>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -123,11 +123,14 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label" style="font-size: 34px;">SCAN Label</label>
                                                             <div class="col-sm-6">
-                                                                <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label">
+                                                                <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label"  onchange="tes(this.value)">
                                                             </div>
                                                         </div>
+                                                        <button type="button" class="btn btn-success" id="edit_qty_vd" data-toggle="modal" disabled><i class="ik ik-edit"></i>Update Qty</button>
+                                                        <br>
+                                                        <br>
                                                         <div class="dt-responsive">
-                                                            <table id="tbl_dn_no" class="table table-striped table-bordered nowrap">
+                                                            <table id="tbl_vd_no" class="table table-striped table-bordered nowrap">
                                                             <!-- <table id="tbl_dn_no" class="tabel_dn"> -->
                                                                 <thead>
                                                                     <tr>
@@ -166,9 +169,9 @@
                                                                 </tbody>
                                                             </table>
                                                             <br>
-                                                            <button type="button" id="aggree" class="btn btn-primary" onclick="move_trx_ven()">Save Data</button>
-                                                            <button type="button" class="btn btn-secondary" onclick="location.reload()">Clear</button>
-                                                            <button type="button" class="btn btn-info" onclick="location.reload()">Print Packint List</button>
+                                                            <button type="button" id="save_vd" class="btn btn-primary" onclick="create_vd()">Save Data</button>
+                                                            <button type="button" class="btn btn-secondary" onclick="delete_vd_temp()">Clear</button>
+                                                            <button type="button" class="btn btn-info" id="print_pl" onclick="print_vd()">Print Packing List</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -180,4 +183,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-                    <script src="<?php echo base_url() ?>javascript_data/receiving_disubcount_input.js?<?php echo time() ?>"></script>
+                    <script src="<?php echo base_url() ?>javascript_data/vendor_delivery_input.js?<?php echo time() ?>"></script>

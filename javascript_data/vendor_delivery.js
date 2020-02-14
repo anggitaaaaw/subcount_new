@@ -40,7 +40,7 @@ function format ( d ) {
                                 '<td>'+dataa[i].weight_actual+'</td>'+
                                 '<td>'+dataa[i].qty_balance+'</td>'+
                                 '<td>'+dataa[i].weight_balance+'</td>'+
-                                '<td><button data-toggle="modal" data-target="#editQty" class="btn btn-danger mr-2" value='+dataa[i].batch_no+' onclick="edit_qty(this.value)"><i class="ik ik-edit"></i>Edit Qty</button></td>'+
+                                '<td><button data-toggle="modal" data-target="#editQty" class="btn btn-danger    mr-2" value='+dataa[i].batch_no+' onclick="edit_qty(this.value)"><i class="ik ik-edit"></i>Edit Qty</button></td>'+
                                 '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button></td>'+
                                 '<td>Open</td>'+
                             '</tr>';
@@ -171,9 +171,9 @@ $(document).ready(function() {
     //    console.log(data.vendor_name);
       //  alert( data.vendor_name +"'s salary is: "+ data.item_id );
         
-     
-      $("#iframe5").attr("src","print_packing_list/"+data.dn_no);
-        $("#modal_packinglist").modal("show");
+     window.location.href = 'vendor_delivery_input/'+data.dn_no;
+   //   $("#iframe5").attr("src","print_packing_list/"+data.dn_no);
+     //   $("#modal_packinglist").modal("show");
     });
 
     // Add event listener for opening and closing details

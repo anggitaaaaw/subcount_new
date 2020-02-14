@@ -106,10 +106,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	public function vendor_delivery_input(){
+	public function vendor_delivery_input($dn_no){
 		$this->load->helper('url');
 		$this->load->view('header');
-		$this->load->view('page/making_label/vendor_delivery_input');
+		$this->load->model('labelmodel');
+		$data['label'] = $this->labelmodel->trx_ven_receive_det($dn_no)->result();
+		$this->load->view('page/making_label/vendor_delivery_input', $data);
 		$this->load->view('footer');
 	}
 

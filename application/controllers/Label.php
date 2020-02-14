@@ -484,6 +484,90 @@ class Label extends CI_Controller {
         echo json_encode($label);
     }
 
+    public function save_vd_temp(){
+        $scan = $this->input->post('batch_no');
+        $spk_no = $this->input->post('spk_no');
+        $label = $this->labelmodel->view_vd_det($scan)->row();
+       //echo $scan;
+        //echo json_encode($label);
+        $data['dn_date'] = $label->dn_date;
+        $data['dn_no'] = $label->dn_no;
+        $data['batch_no'] = $label->batch_no;
+        $data['qty_real'] = $label->qty_real;
+        $data['weight_real'] = $label->weight_real;
+        $data['qty_actual'] = $label->qty_actual;
+        $data['weight_actual'] = $label->weight_actual;
+        $data['qty_balance'] = $label->qty_balance;
+        $data['weight_balance'] = $label->weight_balance;
+
+        $cek_spk = $this->labelmodel->cek_spk_vd($spk_no)->row();
+        $cek_spk_temp = $this->labelmodel->cek_spk_vd_temp($spk_no)->row();
+        $cek_sn = $this->labelmodel->cek_batch_no($scan)->row();
+        $cek_dn_temp= $this->labelmodel->cek_vd_temp()->result();
+        if($cek_spk == null){
+                if($cek_sn == null ){
+                    if($cek_spk_temp != null || $cek_dn_temp == null){
+                        $this->db->insert('trx_ven_delivery_temp', $data);
+                        if ($this->db->affected_rows() == 1) {
+                            echo "1";
+                        }else{
+                            echo "Scan label failed added";
+                        }
+                    }else{
+                        echo " SPK no cannot different";
+                    }
+                   
+                }else{
+                    echo "Serial ID already exists";
+                }
+        }else{
+           
+            echo "SPK no already exists";
+        }
+        
+    }
+
+    public function view_vd_temp(){
+        $label = $this->labelmodel->view_vd_temp()->result();
+        $data['data'] = $label;
+        echo json_encode($data);
+    }
+
+    public function delete_vd_temp(){
+        $this->labelmodel->delete_vd_temp();
+    }
+
+    public function cek_jml_vd(){
+        $dn_no = $this->input->post('dn_no');
+        $jml_lpp = $this->labelmodel->jml_batch($dn_no)->row();
+        $jml_row = $this->labelmodel->jml_row_vd()->row();
+
+        if($jml_lpp->jml_batch == $jml_row->jml_spk){
+            echo "1";
+        }else{
+            echo json_encode($dn_no);
+        }
+    }
+
+   public function create_vd(){
+        $dn = $this->labelmodel->move_vd()->result();
+        echo json_encode($dn);
+        foreach($dn as $label){
+            $data['dn_date'] = $label->dn_date;
+            $data['dn_no'] = $label->dn_no;
+            $data['batch_no'] = $label->batch_no;
+            $data['qty_real'] = $label->qty_real;
+            $data['weight_real'] = $label->weight_real;
+            $data['qty_actual'] = $label->qty_actual;
+            $data['weight_actual'] = $label->weight_actual;
+            $data['qty_balance'] = $label->qty_balance;
+            $data['weight_balance'] = $label->weight_balance;
+
+            $this->db->insert('trx_ven_delivery', $data);
+        }
+        $this->labelmodel->delete_vd_temp();
+    }
+
 
 }
      
