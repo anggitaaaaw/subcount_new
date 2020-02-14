@@ -84,7 +84,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Print Packing List -->
+                                    <div class="modal fade" id="modal_pl_vd" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width: 800px;">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="demoModalLabel">Print Packinglist</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form class="forms-sample">
+                                                    <div class="modal-body" style="height: 600px;">
+                                                        <iframe  id="iframe6" style="border:none;" height="100%" width="100%;">
 
+                                                        </iframe>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="print_pl" class="btn btn-primary">Print</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="card col-md-12" style="min-height: 484px; overflow: auto;">
                                         <div class="card-body">
                                             <div class="row">
@@ -146,7 +167,7 @@
                                                                         <th style="width: 60px;">Actual <br>(Kg)</th>
                                                                         <th style="width: 60px;">Balance <br>(Pcs)</th>
                                                                         <th style="width: 60px;">Balance <br>(Kg)</th>
-                                                                        <th style="width: 60px;">Edit</th>
+                                                               
                                                                         <!--<th>Actual</th>
                                                                         <th>Balance</th>-->
                                                                     </tr>
