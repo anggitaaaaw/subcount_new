@@ -79,9 +79,8 @@ $(document).ready(function() {
                 
             });
         
-        
+        $('#tbl_vd_no').DataTable().destroy();
         view_dn();
-        //$('#tbl_vd_no').DataTable().destroy();
     }
     
     function view_dn(){
