@@ -99,7 +99,29 @@
                                                         </iframe>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" id="print_pl" class="btn btn-primary">Print</button>
+                                                        <button type="button" id="print_pl_vd" class="btn btn-primary">Print</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                        <!-- Print Label -->
+                                    <div class="modal fade" id="modal_label_vd" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content" style="width: 800px;">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="demoModalLabel">Print Packinglist</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form class="forms-sample">
+                                                    <div class="modal-body" style="height: 600px;">
+                                                        <iframe  id="iframe7" style="border:none;" height="100%" width="100%;">
+
+                                                        </iframe>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" id="print_label_vd" class="btn btn-primary">Print</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -194,6 +216,7 @@
                                                             <button type="button" id="save_vd" class="btn btn-primary" onclick="create_vd()">Save Data</button>
                                                             <button type="button" class="btn btn-secondary" onclick="delete_vd_temp()">Clear</button>
                                                             <button type="button" class="btn btn-info" id="print_pl" onclick="print_vd()">Print Packing List</button>
+                                                            <button type="button" class="btn btn-info" id="print_lbl" onclick="print_lb()">Print Label</button>
                                                         </div>
                                                     </div>
                                                 </form>

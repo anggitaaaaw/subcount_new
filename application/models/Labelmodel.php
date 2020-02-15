@@ -280,6 +280,15 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function view_pl_vd(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->join('m_batch', 'trx_deliverynote.serial_id = m_batch.serial_number');
+        $this->db->join('trx_ven_delivery_temp', 'trx_deliverynote.serial_id = trx_ven_delivery_temp.batch_no');
+        return $this->db->get();
+    }
+
     function view_ven_receive_temp($dn_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 

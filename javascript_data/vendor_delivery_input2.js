@@ -38,6 +38,8 @@ $(document).ready(function() {
 
     document.getElementById("edit_qty_vd").disabled = true;
     document.getElementById("save_vd").disabled = true;
+    document.getElementById("print_lbl").disabled = true;
+
     var tbl= $('#tbl_vd').DataTable( {
         "ajax": "../../Label/view_vd_temp",
         "columns": [
@@ -157,6 +159,9 @@ function delete_vd_temp(){
         $('#scan_label').val("");
 
         $('#tbl_vd').DataTable().ajax.reload();
+        document.getElementById("edit_qty_vd").disabled = true;
+        document.getElementById("save_vd").disabled = true;
+        document.getElementById("print_lbl").disabled = true;
      
         
     });
@@ -182,21 +187,35 @@ function create_vd(){
 function print_vd(){
     dn_no = $('#dn_noo').val();
     console.log(dn_no);
-  //  $("#iframe6").attr("src","print_pl_vd");
-    //$("#iframe6").get(0).contentWindow.print();
+    $("#iframe6").attr("src","../../Welcome/print_pl_vd");
+    
     document.getElementById("save_vd").disabled = false;
+    document.getElementById("print_lbl").disabled = false;
         $.post('../../Label/cek_jml_vd',{'dn_no' : dn_no },function(data){ 
             dataa = JSON.parse(data);
             console.log(dataa);
             if(dataa == "1"){
-                $("#modal_printdn").modal("show");
+                $("#modal_pl_vd").modal("show");
             }else{
                 swal("data not match");
             }
         
         });
     }
+    $('#print_pl_vd').click( function () {
+        $("#iframe6").get(0).contentWindow.print();
+    });
 
+    function print_lb(){
+        spk_no = $('#spk_no').val();
+        $("#iframe7").attr("src","../../Welcome/print_label/"+spk_no);
+        $("#modal_label_vd").modal("show");
+
+    }
+
+    $('#print_label_vd').click( function () {
+        $("#iframe7").get(0).contentWindow.print();
+    });
     function hitung_pcs(){
         qty_pcs =  $('#qty_pcs').val();
         actual_pcs =  $('#actual_pcs').val();
