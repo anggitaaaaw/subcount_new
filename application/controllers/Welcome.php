@@ -130,7 +130,7 @@ class Welcome extends CI_Controller {
 	public function print_pl_vd(){
 		$this->load->helper('url');
 		$this->load->model('labelmodel');
-		$data['label'] = $this->labelmodel->view_vd_temp()->result();
+		$data['label'] = $this->labelmodel->view_pl_vd()->result();
 		$this->load->view('page/making_label/print_packinglist', $data);
 	}
 
