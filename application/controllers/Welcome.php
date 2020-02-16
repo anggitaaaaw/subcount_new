@@ -165,11 +165,25 @@ class Welcome extends CI_Controller {
 		$this->load->view('page/making_label/print_dn', $data);
 	}
 
+	public function incoming_wip(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/making_label/incoming_wip');
+		$this->load->view('footer');
+	}
+
 	//MODUL MASTER DATA
 	public function mst_vendor(){
 		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('page/master_data/mst_vendor');
+		$this->load->view('footer');
+	}
+
+	public function master_remarks(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/master_data/mst_remarks');
 		$this->load->view('footer');
 	}
 
