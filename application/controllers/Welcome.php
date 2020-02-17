@@ -153,6 +153,16 @@ class Welcome extends CI_Controller {
 		}
 	}
 
+	public function print_label_ven_del($spk ){
+	
+		$this->load->helper('url');
+		$this->load->model('labelmodel');
+		$data['label'] = $this->labelmodel->viewLabelSpkVen($spk);
+		//print_r($data);
+		$this->load->view('page/making_label/print_label_ven', $data);
+	
+	}
+
 	public function print_label2(){
 		$this->load->helper('url');
 		$this->load->view('page/making_label/print_label2');

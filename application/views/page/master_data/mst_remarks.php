@@ -41,12 +41,12 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Remarks Name </label>
                                                             <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="contact_person" name="contact_person">
+                                                                <input type="text" class="form-control" id="remarks_name" name="contact_person">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button class="btn btn-primary" type="button" name="masuk" onclick="new_vendor()">Simpan</button>
+                                                        <button class="btn btn-primary" type="button" name="masuk" onclick="new_remarks()">Simpan</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -67,13 +67,14 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Remarks Name </label>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="edit_vendor_code" name="vendor_code" minlength="6" maxlength="6">
+                                                                <input type="text" class="form-control" id="edit_remarks_name" name="vendor_code">
+                                                                <input type="hidden" id="edit_id_remarks">
                                                             </div>
                                                         </div>
                                                     
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary" onclick="proses_edit_vendor()">Simpan</button>
+                                                        <button type="button" class="btn btn-primary" onclick="proses_edit_remarks()">Simpan</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -82,17 +83,18 @@
                                     </div>
                                 
                                 <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-8">
                                             <div class="card" style="min-height: 484px;">
                                                 <div class="card-body">
                                                     <button class="btn btn-primary mr-2" data-toggle="modal" data-target="#demoModal"><i class="ik ik-plus"></i>New Data</button>
-                                                    <button class="btn btn-info mr-2" id="edit_vendor" data-toggle="modal" ><i class="ik ik-edit"></i>Edit Data</button>
-                                                    <button class="btn btn-danger mr-2" id="delete_vendor"><i class="ik ik-trash"></i>Delete</button>
+                                                    <button class="btn btn-info mr-2" id="edit_remarks" data-toggle="modal" ><i class="ik ik-edit"></i>Edit Data</button>
+                                                    <button class="btn btn-danger mr-2" id="delete_remarks"><i class="ik ik-trash"></i>Delete</button>
                                                     <br><br><br>
                                                     <div class="dt-responsive">
                                                         <table id="example" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
+                                                                    <th>No</th>
                                                                     <th>Remarks</th>
                                                                 </tr>
                                                             </thead>
@@ -106,4 +108,4 @@
                         </div>
                     </div>
             <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="<?php echo base_url() ?>javascript_data/mst_vendor.js?<?php echo time() ?>"></script>
+            <script src="<?php echo base_url() ?>javascript_data/mst_remarks.js?<?php echo time() ?>"></script>

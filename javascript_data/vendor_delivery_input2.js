@@ -36,7 +36,7 @@ $(document).ready(function() {
    
     });
 
-    document.getElementById("edit_qty_vd").disabled = true;
+    //document.getElementById("edit_qty_vd").disabled = true;
     document.getElementById("save_vd").disabled = true;
     document.getElementById("print_lbl").disabled = true;
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
  function tes(scan){
     console.log(scan);
     spk_no = $('#spk_no').val();
-    document.getElementById("edit_qty_vd").disabled = false;
+    //document.getElementById("edit_qty_vd").disabled = false;
         $.post('../../Label/save_vd_temp',{'batch_no' : scan, 'spk_no' : spk_no},function(data){ 
             //dataa = JSON.parse(data);
             console.log(data);
@@ -159,7 +159,7 @@ function delete_vd_temp(){
         $('#scan_label').val("");
 
         $('#tbl_vd').DataTable().ajax.reload();
-        document.getElementById("edit_qty_vd").disabled = true;
+      //  document.getElementById("edit_qty_vd").disabled = true;
         document.getElementById("save_vd").disabled = true;
         document.getElementById("print_lbl").disabled = true;
      
@@ -169,7 +169,7 @@ function delete_vd_temp(){
 
 function create_vd(){
     $.post('../../Label/create_vd',{},function(data){ 
-        console.log(data);
+   //     console.log(data);
    
     document.getElementById("scan_label").value = '';
 

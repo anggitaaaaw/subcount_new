@@ -404,6 +404,12 @@ class Label extends CI_Controller {
         $dn = $this->labelmodel->edit_qty($batch_no)->row();
         echo json_encode($dn);
     }
+
+    public function edit_qty_vd(){
+        $batch_no = $this->input->post('batch_no');
+        $dn = $this->labelmodel->edit_qty_vd($batch_no)->row();
+        echo json_encode($dn);
+    }
     public function proses_edit_qty2(){
         $batch_no = $this->input->post('batch_no');
         $data['qty_real'] = $this->input->post('qty_real');
@@ -417,7 +423,7 @@ class Label extends CI_Controller {
 
         //echo json_encode($data);
         $this->db->where('batch_no', $batch_no);
-        $this->db->update('trx_ven_receive', $data);
+        $this->db->update('trx_ven_delivery', $data);
         if ($this->db->affected_rows() == 1) {
             echo "1";
         }else{
@@ -499,6 +505,8 @@ class Label extends CI_Controller {
         $data['weight_actual'] = $label->weight_actual;
         $data['qty_balance'] = $label->qty_balance;
         $data['weight_balance'] = $label->weight_balance;
+        $data['receive_user'] = $this->session->userdata('username');
+        $data['receive_date'] = date('Y-m-d H:m:s');
 
         $cek_spk = $this->labelmodel->cek_spk_vd($spk_no)->row();
         $cek_spk_temp = $this->labelmodel->cek_spk_vd_temp($spk_no)->row();
@@ -563,6 +571,8 @@ class Label extends CI_Controller {
             $data['weight_actual'] = $label->weight_actual;
             $data['qty_balance'] = $label->qty_balance;
             $data['weight_balance'] = $label->weight_balance;
+            $data['receive_user'] = $label->receive_user;
+            $data['receive_date'] = $label->receive_date;
 
             $this->db->insert('trx_ven_delivery', $data);
           
@@ -595,5 +605,163 @@ class Label extends CI_Controller {
        }
 
     }
+
+    public function view_incoming_wip(){
+        $dn_no = $this->input->post('dn_no');
+        $incoming_wip = $this->labelmodel->view_incoming_wip($dn_no)->result();
+        $this->labelmodel->delete_incoming_wip_temp();
+        foreach($incoming_wip as $a){
+            $data['dn_no'] = $a->dn_no;
+            $data['batch_no'] = $a->batch_no;
+            $data['sendqty_pcs'] = $a->qty_real;
+            $data['sendqty_kg'] = $a->weight_real;
+            $data['receipt_pcs'] = $a->qty_actual;
+            $data['receipt_kg'] = $a->weight_actual;
+            $data['quantity'] = $a->lpp_qty;
+            $data['qc_judge'] = 'OK';
+            $data['remarks'] = '';
+            $data['bal_pcs'] = $a->qty_balance;
+            $data['bal_kg'] = $a->weight_balance;
+            $data['created_by'] = $this->session->userdata('username');
+            $data['created_date'] = date('Y-m-d H:m:s');
+
+            $this->db->insert('trx_incoming_wip_temp', $data);
+        }
+        $incoming_wip_temp = $this->labelmodel->view_incoming_wip_temp($dn_no)->result();
+        echo json_encode($incoming_wip_temp);
+
+    }
+
+ 
+    public function new_remarks(){
+        $data['remarks_name'] = $this->input->post('remarks_name');
+        $this->db->insert('m_remarks', $data);
+        if ($this->db->affected_rows() == 1) {
+            echo "berhasil";
+        }else{
+            echo "gagal";
+
+       }
+    }
+
+    public function view_remarks(){
+        $label = $this->labelmodel->viewRemarks()->result();
+        $data["data"] = $label;
+        echo json_encode($data);
+    }
+
+    public function view_remarks_iw(){
+        $id_inc = $this->input->post('id_inc');
+        $label = $this->labelmodel->viewRemarks()->result();
+       // $data["data"] = $label;
+        $data = array('data' => $label,
+                       'id_inc' => $id_inc);
+        echo json_encode($data);
+       
+    }
+
+
+    public function delete_remarks(){
+        $id = $this->input->post('id_remarks');
+        $this->labelmodel->deleteRemarks($id);
+    }
+
+    public function edit_remarks(){
+        $id = $this->input->post('id_remarks');
+        $label = $this->labelmodel->getRemarks($id)->row();
+        echo json_encode($label);
+    }
+
+    public function proses_edit_remarks(){
+        $id = $this->input->post('id_remarks');
+        $remarks_name = $this->input->post('remarks_name');
+            
+            $this->db->set('remarks_name', $remarks_name);
+            $this->db->where('id_remarks', $id);
+            $this->db->update('m_remarks');
+
+            if ($this->db->affected_rows() == 1) {
+                echo "berhasil";
+            }else{
+                echo "gagal";
+    
+           }
+
+    }
+
+    public function edit_qty_pcs(){
+        $id_inc = $this->input->post('id_inc');
+        $receipt_qty = $this->input->post('receipt_pcs');
+        $bal_qty = $this->input->post('bal_pcs');
+
+        $this->db->set('receipt_pcs', $receipt_qty);
+        $this->db->set('bal_pcs', $bal_qty);
+        $this->db->where('id_inc', $id_inc);
+        $this->db->update('trx_incoming_wip_temp');
+
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo "gagal";
+
+       }
+    }
+
+    public function edit_qty_kg(){
+        $id_inc = $this->input->post('id_inc');
+        $receipt_kg = $this->input->post('receipt_kg');
+        $bal_kg = $this->input->post('bal_kg');
+
+        $this->db->set('receipt_kg', $receipt_kg);
+        $this->db->set('bal_kg', $bal_kg);
+        $this->db->where('id_inc', $id_inc);
+        $this->db->update('trx_incoming_wip_temp');
+
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo "gagal";
+
+       }
+    }
+
+    public function edit_select_remarks(){
+        $id_inc = $this->input->post('id_inc');
+        $remarks = $this->input->post('remarks');
+
+        $this->db->set('remarks', $remarks);
+        $this->db->where('id_inc', $id_inc);
+        $this->db->update('trx_incoming_wip_temp');
+
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo "gagal";
+
+       }
+    }
+
+    public function edit_radio(){
+        $id_inc = $this->input->post('id_inc');
+        $remarks = $this->input->post('qc_judge');
+
+        $this->db->set('qc_judge', $remarks);
+        $this->db->where('id_inc', $id_inc);
+        $this->db->update('trx_incoming_wip_temp');
+
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo "gagal";
+
+       }
+    }
+
+    public function receive_incoming(){
+        $this->labelmodel->receive_incoming();
+        $this->labelmodel->delete_incoming_wip_temp();
+        echo "1";
+    }
+
 }
      

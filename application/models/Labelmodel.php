@@ -69,6 +69,13 @@ class Labelmodel extends CI_Model {
       return $result;
     }
 
+    function viewLabelSpkVen($spk){
+        $sql = "SELECT DISTINCT a.*, b.spk_start, b.spk_end, c.vendor_name, c.vendor_code, d.qty_batch, e.process_name, f.qty_real, f.weight_real, f.qty_actual, f.weight_actual, f.qty_balance, f.weight_balance from m_batch a join trx_spk b on a.spk_no = b.spk_number join m_vendor c on SUBSTR(a.serial_number, 3, 6) = c.vendor_code JOIN m_vendor_set d on d.vendor_code = c.vendor_code and a.item_id = d.item_no LEFT JOIN m_prosesproduksi e on e.process_code = d.process_code JOIN trx_ven_delivery f on a.serial_number = f.batch_no  where a.spk_no = '$spk' ";
+  
+        $result = $this->db->query($sql)->result();
+        return $result;
+      }
+
     function viewLabelSn(){
      $sql ='select distinct c.vendor_name, b.qty_batch, b.qty_container, a.* from m_batch a join m_vendor_set b on a.item_id = b.item_no join m_vendor c on b.vendor_code = c.vendor_code group by a.spk_no asc';
         
@@ -304,6 +311,13 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function edit_qty_vd($batch_no){
+        $this->db->select('*');
+        $this->db->from('trx_ven_delivery');
+        $this->db->where('batch_no', $batch_no);
+        return $this->db->get();
+    }
+
     
     function find_spk(){
         $this->db->select('spk_no');
@@ -384,9 +398,9 @@ class Labelmodel extends CI_Model {
     function view_vendor_delivery(){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
-        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->join('trx_ven_delivery', 'trx_ven_delivery.batch_no = trx_deliverynote.serial_id');
         $this->db->join('m_vendor_set', 'm_vendor_set.item_no = trx_deliverynote.item_code');
-        $this->db->group_by('trx_ven_receive.dn_no');
+        $this->db->group_by('trx_ven_delivery.dn_no');
 
         return $this->db->get();
     }
@@ -394,8 +408,8 @@ class Labelmodel extends CI_Model {
     function trx_ven_delivery_det($dn_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
-        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
-        $this->db->where('trx_ven_receive.dn_no', $dn_no);
+        $this->db->join('trx_ven_delivery', 'trx_ven_delivery.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_ven_delivery.dn_no', $dn_no);
         return $this->db->get();
     }
 
@@ -439,6 +453,62 @@ class Labelmodel extends CI_Model {
         $this->db->select('*');
         $this->db->from('trx_ven_delivery_temp');
         return $this->db->get();
+    }
+
+    function view_incoming_wip($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->where('trx_deliverynote.dn_no', $dn_no);
+        return $this->db->get();
+    }
+
+    function view_incoming_wip_temp(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_incoming_wip_temp', 'trx_incoming_wip_temp.batch_no = trx_deliverynote.serial_id');
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+       // $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+       
+        
+        return $this->db->get();
+    }
+
+    function delete_incoming_wip_temp(){
+        $sql = "TRUNCATE trx_incoming_wip_temp";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    function viewRemarks(){
+        $this->db->select('*');
+        $this->db->from('m_remarks');
+        return $this->db->get();
+    }
+
+    function deleteRemarks($id) {
+		$this->db->where('id_remarks', $id);
+		$this->db->delete('m_remarks');
+			if($this->db->affected_rows()==1){
+				return TRUE;
+			}
+			return FALSE;
+			
+    }
+
+    function getRemarks($id){
+        $this->db->select('*');
+        $this->db->from('m_remarks');
+        $this->db->where('id_remarks', $id);
+        return $this->db->get();
+    }
+
+    function receive_incoming(){
+      
+        $sql = "INSERT INTO `trx_incoming_wip`( `dn_no`, `batch_no`, `sendqty_pcs`, `sendqty_kg`, `receipt_pcs`, `receipt_kg`, `quantity`, `qc_judge`, `remarks`, `bal_pcs`, `bal_kg`, `created_by`, `created_date`) SELECT `dn_no`, `batch_no`, `sendqty_pcs`, `sendqty_kg`, `receipt_pcs`, `receipt_kg`, `quantity`, `qc_judge`, `remarks`, `bal_pcs`, `bal_kg`, `created_by`, `created_date` FROM `trx_incoming_wip_temp`";
+        $result = $this->db->query($sql);
+        return $result;
     }
 
 }

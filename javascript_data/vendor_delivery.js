@@ -53,11 +53,11 @@ function format ( d ) {
 }
 
 function print_label(spk_no){
-    $("#iframe4").attr("src","print_label/"+spk_no);
+    $("#iframe4").attr("src","print_label_ven_del/"+spk_no);
 }
 
 function edit_qty(batch_no){
-    $.post('../Label/edit_qty',{'batch_no' : batch_no},function(data){ 
+    $.post('../Label/edit_qty_vd',{'batch_no' : batch_no},function(data){ 
         dataa = JSON.parse(data);
         $('#qty_pcs').val(dataa.qty_real);
         $('#qty_kg').val(dataa.weight_real);
@@ -155,7 +155,16 @@ $(document).ready(function() {
             { "data": "leadtime" },
             {
                 "targets": -1,
-                "data": null,
+                "data": "status_dn", 
+                render: function(data,type,row) { 
+                  if(data === 'closed') {
+                    return  row.pl_no
+                  }
+                  else {
+                    return "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
+                  }
+  
+                },
                 "defaultContent": "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
             },
             { "data": "status_dn" }

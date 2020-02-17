@@ -31,12 +31,12 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="forms-sample">
+                                                   
                                                         <div class="row">
                                                             <div class="col-md-10">
                                                                 <div class="form-group row">
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label" placeholder="SCAN PACKING LIST"  onchange="tes(this.value)">
+                                                                        <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label_iw" placeholder="SCAN PACKING LIST"  onchange="tesss(this.value)">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -44,19 +44,19 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-4 col-form-label">SUBCONT</label>
-                                                                        <div class="col-sm-6">
+                                                                        <div id="vendor_name" class="col-sm-6">
                                                                             <b>PT. JAKARTA MARTIN</b>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-4 col-form-label">DN No Reference</label>
-                                                                        <div class="col-sm-6">
+                                                                        <div id="dn_no" class="col-sm-6">
                                                                             <b>VEN001XXX</b>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-4 col-form-label">DN Date</label>
-                                                                        <div class="col-sm-6">
+                                                                        <div id="created_date" class="col-sm-6">
                                                                             <b>2020-02-15</b>
                                                                         </div>
                                                                     </div>
@@ -66,19 +66,19 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Packing List No</label>
-                                                                        <div class="col-sm-8">
+                                                                        <div id="pl_no" class="col-sm-8">
                                                                             <b>2020-02-15</b>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">SPK No</label>
-                                                                        <div class="col-sm-8">
+                                                                        <div id="spk_no" class="col-sm-8">
                                                                             <b>2020-02-15</b>    
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Item Code</label>
-                                                                        <div class="col-sm-8">
+                                                                        <div id="item_code" class="col-sm-8">
                                                                             <b>2020-02-15</b>    
                                                                         </div>
                                                                     </div>
@@ -112,31 +112,17 @@
                                                                         <th>In Kg</th>         
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td width="10">1</td>
-                                                                        <td>22-4800-293</td>
-                                                                        <td>1289</td>
-                                                                        <td>-</td>
-                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
-                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
-                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
-                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
-                                                                        <td style="width: 200px;"><input style="width: 20%;" checked type="radio">OK <input style="width: 20%;" type="radio">NG</td>
-                                                                        <td style="width: 60px;"><input style="width: 100%;" type="text"></td>
-                                                                        <td style="width: 200px;"><select readonly style="width: 100%;" type="text"></select></td>
-                                                                        <td style="width: 60px;"><input readonly style="width: 100%;" type="text"></td>
-                                                                        <td style="width: 60px;"><input readonly style="width: 100%;" type="text"></td>
-                                                                    </tr>
+                                                                <tbody id="body_tbl_iw">
+                                                                   
                                                                 </tbody>
                                                             </table>
                                                             <br>
-                                                            <button type="button" id="save_vd" class="btn btn-primary" onclick="create_vd()">Receive</button>
-                                                            <button type="button" class="btn btn-secondary" onclick="delete_vd_temp()">Print</button>
-                                                            <button type="button" class="btn btn-info" id="print_pl" onclick="print_vd()">Clear</button>
+                                                            <button type="button" id="save_vd" class="btn btn-primary" onclick="receive_incoming()">Receive</button>
+                                                            <button type="button" class="btn btn-secondary" onclick="delete_incoming()">Print</button>
+                                                            <button type="button" class="btn btn-info" id="print_pl" onclick="location.reload()">Clear</button>
                                                         </div>
                                                     </div>
-                                                </form>
+                                 
                                             </div>
                                         </div>
                                     </div>

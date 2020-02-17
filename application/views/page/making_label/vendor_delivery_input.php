@@ -169,8 +169,8 @@
                                                                 <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label"  onchange="tes(this.value)">
                                                             </div>
                                                         </div>
-                                                        <button type="button" class="btn btn-success" id="edit_qty_vd" ><i class="ik ik-edit"></i>Update Qty</button>
-                                                        <br>
+                                                       <!-- <button type="button" class="btn btn-success" id="edit_qty_vd" ><i class="ik ik-edit"></i>Update Qty</button>
+                                                        <br>-->
                                                         <br>
                                                         <div class="dt-responsive">
                                                             <table id="tbl_vd" class="table table-striped table-bordered nowrap">
