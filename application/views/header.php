@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/c3/c3.min.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/hilman.css">
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/jquery-toast-plugin/dist/jquery.toast.min.css">
+        <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datedropper/datedropper.min.css">
 
         <!-- Datatables -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/dataTables/css/jquery.dataTables.css">

@@ -30,14 +30,14 @@
                                     <!-- Print Label -->
                                     <div class="modal fade" id="modal_printlabel" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
-                                            <div class="modal-content" style="width: 900px; height: 720px">
+                                            <div class="modal-content" style="width: 900px;">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="demoModalLabel">Print Label</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 </div>
                                                 <form class="forms-sample">
-                                                <div class="modal-body" style="height: 100%; width: 100%">
-                                                         <iframe  id="iframe4" style="border:1px solid gray;" height="500px" width="800px;">
+                                                <div class="modal-body" style="width: 100%">
+                                                         <iframe  id="iframe4" style="border:1px solid gray;" height="400px" width="850px;">
                                                          </iframe>
                                                     </div>
                                                     <div class="modal-footer">

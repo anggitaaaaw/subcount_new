@@ -32,6 +32,7 @@
 
     <body>
         <?php foreach($label as $l){?>
+        <div style=" border-left: 2px dashed #00f; padding: 2px; float: left;">
         <div style="width: 370px; height: auto; border: 1px solid black; float: left; padding: 0px; margin: 5px;">
             <div style="width: 74%; float: left; margin: 2px;">
                 <img src="<?php echo base_url() ?>assets/ismu-logo.png" width="80" class="header-brand-img" alt="lavalite">
@@ -93,11 +94,12 @@
                     </tr>
                     <tr>
                         <td style="height: 20px; width: 60px;"></td>
-                        <td colspan="2" style="height: 20px; width: 60px;"></td></td>
+                        <td colspan="2" style="height: 30px; width: 60px;"></td></td>
                     </tr>
                 </table>
             </div>
             <br>
+        </div>
         </div>
         <?php } ?>
     </body>

@@ -45,19 +45,19 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-4 col-form-label">SUBCONT</label>
                                                                         <div id="vendor_name" class="col-sm-6">
-                                                                            <b>PT. JAKARTA MARTIN</b>
+                                                                            <b></b>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-4 col-form-label">DN No Reference</label>
                                                                         <div id="dn_no" class="col-sm-6">
-                                                                            <b>VEN001XXX</b>
+                                                                            <b></b>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-4 col-form-label">DN Date</label>
                                                                         <div id="created_date" class="col-sm-6">
-                                                                            <b>2020-02-15</b>
+                                                                            <b></b>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -67,19 +67,19 @@
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Packing List No</label>
                                                                         <div id="pl_no" class="col-sm-8">
-                                                                            <b>2020-02-15</b>
+                                                                            <b></b>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">SPK No</label>
                                                                         <div id="spk_no" class="col-sm-8">
-                                                                            <b>2020-02-15</b>    
+                                                                            <b></b>    
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Item Code</label>
                                                                         <div id="item_code" class="col-sm-8">
-                                                                            <b>2020-02-15</b>    
+                                                                            <b></b>    
                                                                         </div>
                                                                     </div>
                                                                 </div>
