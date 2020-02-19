@@ -511,6 +511,97 @@ class Labelmodel extends CI_Model {
         return $result;
     }
 
+    function subcount_name_report(){
+        $this->db->select('*');
+        $this->db->from('m_vendor');
+        $this->db->join('m_vendor_set','m_vendor.vendor_code = m_vendor_set.vendor_code');
+        $this->db->group_by('m_vendor.vendor_code');
+        return $this->db->get();
+    }
+
+    function spk_no_report($code){
+     
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('m_vendor_set','trx_deliverynote.item_code = m_vendor_set.item_no');
+            if($code != ''){
+                $this->db->where('trx_deliverynote.vendor_code', $code);
+            }
+        return $this->db->get();
+    }
+
+    function item_code_report($code, $spk){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('m_vendor_set','trx_deliverynote.item_code = m_vendor_set.item_no');
+        $this->db->where('trx_deliverynote.vendor_code', $code);
+        $this->db->where('trx_deliverynote.spk_no', $spk);
+        return $this->db->get();
+    }
+
+    function item_name_report($code, $spk, $item){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('m_vendor_set','trx_deliverynote.item_code = m_vendor_set.item_no');
+        $this->db->where('trx_deliverynote.vendor_code', $code);
+        $this->db->where('trx_deliverynote.spk_no', $spk);
+        $this->db->where('trx_deliverynote.item_code', $item);
+        return $this->db->get();
+    }
+
+    function view_report($date_to, $date_from, $subcount, $spk_no, $item_code){
+        $this->db->select('m_vendor.vendor_name ,SUM(trx_incoming_wip.sendqty_pcs) AS jml_sendqty_pcs, SUM(trx_incoming_wip.sendqty_kg) AS jml_sendqty_kg, SUM(trx_incoming_wip.receipt_pcs) AS jml_receipt_pcs, SUM(trx_incoming_wip.receipt_kg) AS jml_receipt_kg, SUM(trx_incoming_wip.bal_pcs) AS jml_bal_pcs, SUM(trx_incoming_wip.bal_kg) AS jml_bal_kg');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('m_vendor_set','trx_deliverynote.item_code = m_vendor_set.item_no');  
+        $this->db->join('trx_incoming_wip',' trx_incoming_wip.batch_no = trx_deliverynote.serial_id ','right');
+        $this->db->join('m_vendor','m_vendor.vendor_code = m_vendor_set.vendor_code');
+        if($date_to != 'null'){
+            $this->db->where('created_date >=', $date_to);
+        }
+        if($date_from != 'null'){
+            $this->db->where('created_date <=', $date_from);
+        }
+        if($subcount != 'null'){
+            $this->db->where('trx_deliverynote.vendor_code', $subcount);
+        }
+        if($spk_no != 'null'){
+            $this->db->where('trx_deliverynote.spk_no', $spk_no);
+        }
+        if($item_code != 'null'){
+            $this->db->where('trx_deliverynote.item_code', $item_code);
+        }
+        
+      
+        return $this->db->get();
+    }
+
+    function view_report_det($date_to, $date_from, $subcount, $spk_no, $item_code){
+      
+       $this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('m_vendor_set','trx_deliverynote.item_code = m_vendor_set.item_no');  
+        $this->db->join('trx_incoming_wip',' trx_incoming_wip.batch_no = trx_deliverynote.serial_id ','right');
+        $this->db->join('m_vendor','m_vendor.vendor_code = m_vendor_set.vendor_code');
+        if($date_to != 'null'){
+            $this->db->where('created_date >=', $date_to);
+        }
+        if($date_from != 'null'){
+            $this->db->where('created_date <=', $date_from);
+        }
+        if($subcount != 'null'){
+            $this->db->where('trx_deliverynote.vendor_code', $subcount);
+        }
+        if($spk_no != 'null'){
+            $this->db->where('trx_deliverynote.spk_no', $spk_no);
+        }
+        if($item_code != 'null'){
+            $this->db->where('trx_deliverynote.item_code', $item_code);
+        }
+      
+        return $this->db->get();
+    }
+
+
 }
 /* End of file usersmodel.php */
 /* Location: ./application/models/usersmodel.php */

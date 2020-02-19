@@ -763,5 +763,51 @@ class Label extends CI_Controller {
         echo "1";
     }
 
+    public function subcount_name_report(){
+        $select = $this->labelmodel->subcount_name_report()->result();
+        echo json_encode($select);
+    }
+
+    public function spk_no_report(){
+        $vendor_code = $this->input->post('vendor_code');
+        $select = $this->labelmodel->spk_no_report($vendor_code)->result();
+        echo json_encode($select);
+    }
+
+    public function item_code_report(){
+        $vendor_code = $this->input->post('vendor_code');
+        $spk_no = $this->input->post('spk_no');
+        $select = $this->labelmodel->item_code_report($vendor_code, $spk_no)->result();
+        echo json_encode($select);
+    }
+
+    public function item_name_report(){
+        $vendor_code = $this->input->post('vendor_code');
+        $spk_no = $this->input->post('spk_no');
+        $item_code = $this->input->post('item_code');
+        $select = $this->labelmodel->item_name_report($vendor_code, $spk_no, $item_code)->row();
+        echo json_encode($select);
+    }
+
+    public function view_report($date_to, $date_from, $subcount, $spk_no, $item_code){
+      //  $item = $this->labelmodel->item_name_report($subcount, $spk_no, $item_code)->row();
+        $label = $this->labelmodel->view_report($date_to, $date_from, $subcount, $spk_no, $item_code)->result();
+        $data['data'] = $label;
+      
+        echo json_encode($data);
+    }
+
+    public function view_report_det(){
+        $date_to = $this->input->post('date_to');
+        $date_from = $this->input->post('date_from');
+        $subcount = $this->input->post('subcount');
+        $spk_no = $this->input->post('spk_no');
+        $item_code = $this->input->post('item_code');
+     
+       
+        $label = $this->labelmodel->view_report_det($date_to, $date_from, $subcount, $spk_no, $item_code)->result();
+        echo json_encode($label);
+    }
+
 }
      
