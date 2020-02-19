@@ -115,14 +115,9 @@ function format ( d ) {
     spk_no =  $('#spk_no_report').val();
     item_code =  $('#item_code_report').val();
     item_name =  $('#item_name_report').val();
-    date_to = $('#datepicker').val();   
-    date_from = $('#datepicker2').val();
-    console.log(subcount_name);
-    console.log(spk_no);
-    console.log(item_code);
-    console.log(item_name);
-    console.log(date_to);
-    console.log(date_from);
+    date_from = $('#datepicker').val();   
+    date_to = $('#datepicker2').val();
+
     if(subcount_name == ''){
         subcount_name = 'null';
     }
@@ -136,11 +131,19 @@ function format ( d ) {
         item_name = 'null';
     }
     if(date_to == ''){
-        date_to = 'null';
+        date_too = 'null';
+    }else{
+        date_t = date_to.split("/");
+        date_too = date_t[2]+"-"+date_t[0]+"-"+date_t[1];
     }
     if(date_from == ''){
-        date_from = 'null';
+        date_fromm = 'null';
+    }else{
+        date_f = date_from.split("/");
+        date_fromm = date_f[2]+"-"+date_f[0]+"-"+date_f[1];
     }
+    console.log(date_fromm);
+    console.log(date_too);
     table = ''+
       'Detail of : '+d.vendor_name+
             '<table class="table table-striped table-bordered nowrap" id="det_batch'+d.dn_no+'">'+
@@ -164,7 +167,7 @@ function format ( d ) {
                 '</tbody>'+
                 '</table>';
 
-                $.post('../Label/view_report_det',{'date_to' : date_to, 'date_from' : date_from, 'subcount' : subcount_name, 'spk_no' : spk_no, 'item_code' : item_code},function(data){ 
+                $.post('../Label/view_report_det',{'date_to' : date_too, 'date_from' : date_fromm, 'subcount' : subcount_name, 'spk_no' : spk_no, 'item_code' : item_code},function(data){ 
                     dataa = JSON.parse(data);
                     console.log(dataa);
                     for(i in dataa){
@@ -200,8 +203,8 @@ function filter(){
     spk_no =  $('#spk_no_report').val();
     item_code =  $('#item_code_report').val();
     item_name =  $('#item_name_report').val();
-    date_to = $('#datepicker').val();   
-    date_from = $('#datepicker2').val();
+    date_from = $('#datepicker').val();   
+    date_to = $('#datepicker2').val();
     console.log(subcount_name);
     console.log(spk_no);
     console.log(item_code);
@@ -223,14 +226,21 @@ function filter(){
         item_name = item_name.replace(" ","%20");
     }
     if(date_to == ''){
-        date_to = 'null';
+        date_too = 'null';
+    }else{
+        date_t = date_to.split("/");
+        date_too = date_t[2]+"-"+date_t[0]+"-"+date_t[1];
     }
     if(date_from == ''){
-        date_from = 'null';
+        date_fromm = 'null';
+    }else{
+        date_f = date_from.split("/");
+        date_fromm = date_f[2]+"-"+date_f[0]+"-"+date_f[1];
     }
-    console.log(item_name);
+    console.log(date_fromm);
+    $('#tbl_report').DataTable().destroy();
     var table = $('#tbl_report').DataTable( {
-        "ajax": "../Label/view_report/"+date_to+"/"+date_from+"/"+subcount_name+"/"+spk_no+"/"+item_code,
+        "ajax": "../Label/view_report/"+date_fromm+"/"+date_too+"/"+subcount_name+"/"+spk_no+"/"+item_code,
         "searching": true,
         "paging":   true,
         "columns": [

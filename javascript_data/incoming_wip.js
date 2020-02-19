@@ -157,6 +157,7 @@ function receive_incoming(){
     $.post('../Label/receive_incoming',{},function(data){ 
         if(data == '1'){
             swal('Succesfully Receive !');
+            location.reload();
            
         }else{
             swal('Failed Receive');
