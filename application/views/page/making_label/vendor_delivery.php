@@ -135,8 +135,15 @@
                                             <div class="card" style="min-height: 484px; overflow: auto;">
                                                 <div class="card-body">
                                                     <div class="form-group row">
-                                                    
+                                                        <label class="col-sm-1 col-form-label"> Status</label>
+                                                        <div class="col-sm-2">
+                                                            <select class="form-control" id="status">
+                                                                <option selected value="open">Open</option>
+                                                                <option value="closed">Closed</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
+                                                    <hr>
                                                     <div class="dt-responsive">
                                                         <table id="vendor_delivery" class="table table-striped table-bordered nowrap">
                                                             <thead>
