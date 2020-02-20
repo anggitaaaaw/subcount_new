@@ -137,15 +137,17 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-1 col-form-label"> Status</label>
                                                         <div class="col-sm-2">
-                                                            <select class="form-control" id="status">
+                                                            <select class="form-control" id="col12_filter" onchange="status(this.value)">
                                                                 <option selected value="open">Open</option>
                                                                 <option value="closed">Closed</option>
                                                             </select>
                                                         </div>
                                                     </div>
+                                           
                                                     <hr>
                                                     <div class="dt-responsive">
                                                         <table id="vendor_delivery" class="table table-striped table-bordered nowrap">
+                                                      
                                                             <thead>
                                                                 <tr>
                                                                     <th width="5"></th>
@@ -163,6 +165,23 @@
                                                                     <th>Status</th>
                                                                 </tr>
                                                             </thead>
+                                                            <tfoot>
+                                                                <tr>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                   <th></th>
+                                                                    <th id="status">Status</th>
+                                                                </tr>
+                                                            </tfoot>
                                                         </table>
                                                     </div>
                                                 </div>
