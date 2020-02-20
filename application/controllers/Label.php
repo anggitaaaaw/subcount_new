@@ -799,7 +799,7 @@ class Label extends CI_Controller {
 
     public function view_report_det(){
         $date_from = $this->input->post('date_to');
-        $date_to = $this->input->post('date_from');
+        $date_to  = $this->input->post('date_from');
         $subcount = $this->input->post('subcount');
         $spk_no = $this->input->post('spk_no');
         $item_code = $this->input->post('item_code');

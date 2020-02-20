@@ -1,4 +1,4 @@
-function format ( d ) {
+function format  ( d ) {
     table = 'Detail of : '+d.dn_no+
             '<table class="table" id="det_batch'+d.dn_no+'">'+
                 '<thead>'+
@@ -137,7 +137,14 @@ function simpan_qty(){
     
 }
 
+function filterColumn ( i ) {
+    $('#vendor_delivery').DataTable().column( 12 ).search(
+        $('#col12_filter').val()
+    ).draw();
+}
+
 $(document).ready(function() {
+
     var table = $('#vendor_delivery').DataTable( {
         "ajax": "../Label/vendor_delivery",
         "searching": true,
@@ -162,12 +169,16 @@ $(document).ready(function() {
             {
                 "targets": -1,
                 "data": "status_dn", 
-                render: function(data,type,row) { 
+                render: function(data,type,row,meta) { 
                   if(data === 'closed') {
                     return  row.pl_no
                   }
                   else {
-                    return "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
+                      if(meta.row == '0'){
+                        return "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
+                      }else{
+                        return "<button class='btn btn-primary mr-2' disabled><i class='ik ik-plus'></i>Create</button>"
+                      }
                   }
   
                 },
@@ -175,10 +186,28 @@ $(document).ready(function() {
             },
             { "data": "status_dn" }
         ],
-        buttons: [
-            'copy', 'excel', 'pdf'
-        ],
-        "order": [[3, 'asc']]
+        "order": [[3, 'asc']],
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $('#status').empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    
     } );
     
     $('#vendor_delivery tbody').on( 'click', 'button', function () {
@@ -206,6 +235,8 @@ $(document).ready(function() {
         }
         else {
             // Open this row
+            var data = table.row( $(this).parents('tr') ).data();
+            console.log(data);
             row.child( format(row.data()) ).show();
             tr.addClass('shown');
         }
@@ -217,4 +248,12 @@ $(document).ready(function() {
     $('#print_packing_list').click(function() {
         $("#iframe5").get(0).contentWindow.print();
     });
+ 
+    
+  $('select.form-control').on( 'onchange click', function () {
+      filterColumn( $(this).parents('tr').attr('data-column') );
+  } );
 });
+
+
+
