@@ -396,11 +396,12 @@ class Labelmodel extends CI_Model {
     }
 
     function view_vendor_delivery(){
-        $this->db->select('*');
+        $this->db->select('*, trx_deliverynote.created_date as created_date_dn');
         $this->db->from('trx_deliverynote'); 
         $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
         $this->db->join('m_vendor_set', 'm_vendor_set.item_no = trx_deliverynote.item_code');
         $this->db->group_by('trx_ven_receive.dn_no');
+        $this->db->order_by('trx_deliverynote.created_date','DESC');
 
         return $this->db->get();
     }
