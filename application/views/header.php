@@ -9,7 +9,7 @@
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="icon" href="<?php echo base_url() ?>assets/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="<?php echo base_url() ?>assets/ismu-logo.png" type="image/x-icon" />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
-                            <span style="padding-left: 20px; font-size: 16px;">Welcome <b><?php echo $this->session->userdata('username');?></b> in Application Subcount Process your are login by <b><?php echo $this->session->userdata('group');?> / <?php echo $this->session->userdata('vendor');?></b> on <b><?php echo date('d M Y')?></b> </span>
+                            <span style="padding-left: 20px; font-size: 16px;">Welcome <b><?php echo $this->session->userdata('username');?></b> in Application Subcont Process your are login by <b><?php echo $this->session->userdata('group');?> / <?php echo $this->session->userdata('vendor');?></b> on <b><?php echo date('d M Y')?></b> </span>
                             <input type="hidden" id="id_user" value="<?php echo $this->session->userdata('id');?>">
                         </div>
                         <div class="top-menu d-flex align-items-center">

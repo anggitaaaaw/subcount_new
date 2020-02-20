@@ -10,7 +10,7 @@
                                 <div class="card">
                                     <div class="card-header"><h3>PROGRES DN</h3></div>
                                     <div class="card-body">
-                                        <div id="c3-donut-chart"></div>
+                                        <div id="c3-donut-chart" style="height: 400px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -18,7 +18,7 @@
                                 <div class="card">
                                     <div class="card-header"><h3>DN DELIVERY</h3></div>
                                     <div class="card-body">
-                                        <div id="c3-donut-chart2"></div>
+                                        <div id="c3-donut-chart2" style="height: 400px;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -26,7 +26,7 @@
                                 <div class="card">
                                     <div class="card-header"><h3>INCOMING QC</h3></div>
                                     <div class="card-body">
-                                        <div id="c3-donut-chart3"></div>
+                                        <div id="c3-donut-chart3" style="height: 400px;"></div>
                                     </div>
                                 </div>
                             </div>
