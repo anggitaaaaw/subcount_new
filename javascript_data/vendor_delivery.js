@@ -186,27 +186,7 @@ $(document).ready(function() {
             },
             { "data": "status_dn" }
         ],
-        "order": [[3, 'asc']],
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $('#status').empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
+        "order": [[3, 'asc']]
     
     } );
     
@@ -248,11 +228,16 @@ $(document).ready(function() {
     $('#print_packing_list').click(function() {
         $("#iframe5").get(0).contentWindow.print();
     });
- 
+
+   
+    $('#vendor_delivery').DataTable().column( 12 ).search(
+      $('#col12_filter').val()
+  ).draw();
     
   $('select.form-control').on( 'onchange click', function () {
       filterColumn( $(this).parents('tr').attr('data-column') );
   } );
+ 
 });
 
 
