@@ -34,27 +34,29 @@
                                                    
                                                         <div class="row">
                                                             <div class="col-md-10">
-                                                                <div class="form-group row">
+                                                                <div class="form-group row" style="margin: 1px;">
                                                                     <div class="col-sm-8">
                                                                         <input type="text" class="form-control" style="font-size: 34px; height: 80px;" id="scan_label_iw" placeholder="SCAN PACKING LIST"  onchange="tesss(this.value)">
                                                                     </div>
                                                                 </div>
+                                                                <br>
                                                             </div>
+                                                            
                                                             <div class="col-md-4">
                                                                 <div class="col-md-12">
-                                                                    <div class="form-group row">
+                                                                    <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-4 col-form-label">SUBCONT</label>
                                                                         <div id="vendor_name" class="col-sm-6">
                                                                             <b></b>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group row">
+                                                                    <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-4 col-form-label">DN No Reference</label>
                                                                         <div id="dn_no" class="col-sm-6">
                                                                             <b></b>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group row">
+                                                                    <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-4 col-form-label">DN Date</label>
                                                                         <div id="created_date" class="col-sm-6">
                                                                             <b></b>
@@ -64,19 +66,19 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="col-md-12">
-                                                                    <div class="form-group row">
+                                                                    <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-3 col-form-label">Packing List No</label>
                                                                         <div id="pl_no" class="col-sm-8">
                                                                             <b></b>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group row">
+                                                                    <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-3 col-form-label">SPK No</label>
                                                                         <div id="spk_no" class="col-sm-8">
                                                                             <b></b>    
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group row">
+                                                                    <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-3 col-form-label">Item Code</label>
                                                                         <div id="item_code" class="col-sm-8">
                                                                             <b></b>    
