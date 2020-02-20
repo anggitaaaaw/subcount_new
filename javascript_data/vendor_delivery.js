@@ -178,7 +178,7 @@ $(document).ready(function() {
         buttons: [
             'copy', 'excel', 'pdf'
         ],
-        "order": [[1, 'asc']]
+        "order": [[3, 'asc']]
     } );
     
     $('#vendor_delivery tbody').on( 'click', 'button', function () {
