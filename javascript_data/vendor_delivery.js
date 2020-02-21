@@ -15,8 +15,6 @@ function format  ( d ) {
                         '<th>Actual (Kg)</th>'+
                         '<th>Balance (Pcs)</th>'+
                         '<th>Balance (Kg)</th>'+
-                        '<th>Action</th>'+
-                        '<th>Print Label</th>'+
                         '<th>Status</th>'+
                     '</tr>'+
                 '</thead>'+
@@ -177,7 +175,7 @@ $(document).ready(function() {
                       if(meta.row == '0'){
                         return "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
                       }else{
-                        return "<button class='btn btn-primary mr-2' disabled><i class='ik ik-plus'></i>Create</button>"
+                        return "<button class='btn btn-primary mr-2' ><i class='ik ik-plus'></i>Create</button>"
                       }
                   }
   

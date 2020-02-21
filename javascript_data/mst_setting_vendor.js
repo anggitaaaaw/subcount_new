@@ -96,10 +96,13 @@ function new_set_vendor(){
             swal("Setting Vendor added successfully!");
             $('#example').DataTable().ajax.reload();
             
-        }else{
-           swal("Setting Vendor  not succesfully added !");
+        }else if(data == "ada"){
+           swal("Item No already exist !");
             $('#example').DataTable().ajax.reload();
-        }
+        }else{
+            swal("Setting Vendor  not succesfully added !");
+             $('#example').DataTable().ajax.reload();
+         }
 
         $("#demoModal").modal("hide");
         document.getElementById("myForm").reset();

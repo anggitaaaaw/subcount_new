@@ -93,7 +93,9 @@ class Vendor extends CI_Controller {
         }
 
         public function new_set_vendor(){
-            $data['item_no'] = $this->input->post('item_no');
+         $data['item_no'] = $this->input->post('item_no');
+         $cek_item = $this->vendormodel->cek_item($data['item_no'])->result();
+         if($cek_item == null){
             $data['item_name'] = $this->input->post('item_name');
             $data['vendor_code'] = $this->input->post('vendor_code');
             $data['process_code'] = $this->input->post('process_code');
@@ -109,6 +111,9 @@ class Vendor extends CI_Controller {
               }else{
                 echo "0";
               }
+            }else{
+              echo "ada";
+            }
         }
 
     public function view_set_vendor(){

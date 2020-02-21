@@ -8,6 +8,12 @@ function tesss(scan){
     $.post('../Label/view_incoming_wip',{'dn_no' : scan},function(data){ 
         dataa = JSON.parse(data);
         console.log(dataa);
+        if(dataa == "1"){
+            swal("DN no already exist");
+            document.getElementById('scan_label_iw').value = '';
+            $('#scan_label_iw').focus();
+        }else{
+       
         $('#vendor_name').html('<b>'+dataa[0].vendor_name+'</b>');
         $('#dn_no').html('<b>'+dataa[0].dn_no+'</b>');
         $('#created_date').html('<b>'+dataa[0].created_date+'</b>');
@@ -51,7 +57,7 @@ function tesss(scan){
                 no++;
         }
         $('#body_tbl_iw').html(table);
-
+        }
     });
 }
 

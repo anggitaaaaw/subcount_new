@@ -505,8 +505,9 @@ class Label extends CI_Controller {
         $data['weight_actual'] = $label->weight_actual;
         $data['qty_balance'] = $label->qty_balance;
         $data['weight_balance'] = $label->weight_balance;
+        $leadtime = $label->leadtime;
         $data['receive_user'] = $this->session->userdata('username');
-        $data['receive_date'] = date('Y-m-d H:m:s');
+        $data['receive_date'] = date('Y-m-d H:m:s', strtotime("+".$leadtime." days"));
 
         $cek_spk = $this->labelmodel->cek_spk_vd($spk_no)->row();
         $cek_spk_temp = $this->labelmodel->cek_spk_vd_temp($spk_no)->row();
@@ -608,6 +609,12 @@ class Label extends CI_Controller {
 
     public function view_incoming_wip(){
         $dn_no = $this->input->post('dn_no');
+        $cek = $this->labelmodel->cek_incoming_wip($dn_no)->result();
+        if($cek != null){
+          echo "1";
+        }else{
+
+        
         $incoming_wip = $this->labelmodel->view_incoming_wip($dn_no)->result();
         $this->labelmodel->delete_incoming_wip_temp();
         foreach($incoming_wip as $a){
@@ -629,6 +636,7 @@ class Label extends CI_Controller {
         }
         $incoming_wip_temp = $this->labelmodel->view_incoming_wip_temp($dn_no)->result();
         echo json_encode($incoming_wip_temp);
+    }
 
     }
 
