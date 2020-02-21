@@ -99,8 +99,18 @@ class Vendormodel extends CI_Model {
     } 
 
     function get_process(){
+        $this->db->distinct();
         $this->db->select('process_code, process_name');
         $this->db->from('m_prosesproduksi');
+        $this->db->group_by('process_code');
+        return $this->db->get();
+    }
+    
+    function cek_item($item_no){
+        $this->db->select('*');
+        $this->db->from('m_vendor_set');
+        $this->db->where('item_no', $item_no);
+        
         return $this->db->get();
     }
 

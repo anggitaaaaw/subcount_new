@@ -416,9 +416,10 @@ class Labelmodel extends CI_Model {
     }
 
     function view_vd_det($dn_no){
-        $this->db->select('*');
+        $this->db->select('*, m_vendor_set.leadtime');
         $this->db->from('trx_ven_receive'); 
         $this->db->join('trx_deliverynote', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->join('m_vendor_set', 'm_vendor_set.item_no = trx_deliverynote.item_code');
         $this->db->where('batch_no', $dn_no);
         return $this->db->get();
     }
@@ -457,6 +458,14 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function cek_incoming_wip($dn_no){
+        $this->db->select('*');
+        $this->db->from('trx_incoming_wip');
+        $this->db->where('trx_incoming_wip.dn_no', $dn_no);
+        return $this->db->get();
+
+
+    }
     function view_incoming_wip($dn_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 

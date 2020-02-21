@@ -15,8 +15,6 @@ function format  ( d ) {
                         '<th>Actual (Kg)</th>'+
                         '<th>Balance (Pcs)</th>'+
                         '<th>Balance (Kg)</th>'+
-                        '<th>Action</th>'+
-                        '<th>Print Label</th>'+
                         '<th>Status</th>'+
                     '</tr>'+
                 '</thead>'+
@@ -177,7 +175,7 @@ $(document).ready(function() {
                       if(meta.row == '0'){
                         return "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
                       }else{
-                        return "<button class='btn btn-primary mr-2' disabled><i class='ik ik-plus'></i>Create</button>"
+                        return "<button class='btn btn-primary mr-2' ><i class='ik ik-plus'></i>Create</button>"
                       }
                   }
   
@@ -186,27 +184,7 @@ $(document).ready(function() {
             },
             { "data": "status_dn" }
         ],
-        "order": [[3, 'asc']],
-        initComplete: function () {
-            this.api().columns().every( function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo( $('#status').empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-        }
+        "order": [[3, 'asc']]
     
     } );
     
@@ -248,11 +226,16 @@ $(document).ready(function() {
     $('#print_packing_list').click(function() {
         $("#iframe5").get(0).contentWindow.print();
     });
- 
+
+   
+    $('#vendor_delivery').DataTable().column( 12 ).search(
+      $('#col12_filter').val()
+  ).draw();
     
   $('select.form-control').on( 'onchange click', function () {
       filterColumn( $(this).parents('tr').attr('data-column') );
   } );
+ 
 });
 
 
