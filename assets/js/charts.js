@@ -198,41 +198,7 @@
   });
   */
 
-  var c3DonutChart = c3.generate({
-    bindto: '#c3-donut-chart',
-    //size: { height: 300, width: 600 },
-    data: {
-      columns: [
-        ['Open', 20],
-        ['Close', 80],
-      ],
-      type: 'donut'
-    }
-  });
 
-  var c3DonutChart2 = c3.generate({
-    bindto: '#c3-donut-chart2',
-    data: {
-      columns: [
-        ['Early', 60],
-        ['Late', 30],
-        ['On Time', 10],
-      ],
-      type: 'donut'
-    }
-  });
-
-  var c3DonutChart3 = c3.generate({
-    bindto: '#c3-donut-chart3',
-    data: {
-      columns: [
-        ['NG', 20],
-        ['NC', 60],
-        ['Good', 20],
-      ],
-      type: 'donut'
-    }
-  });
 
 
 })(jQuery);

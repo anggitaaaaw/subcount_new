@@ -37,3 +37,5 @@
         </div>
     </body>
 </html>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="<?php echo base_url() ?>javascript_data/dashboard.js?<?php echo time() ?>"></script>

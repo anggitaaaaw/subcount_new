@@ -816,5 +816,23 @@ class Label extends CI_Controller {
         echo json_encode($label);
     }
 
+    public function chart_progress_dn(){
+        $label = $this->labelmodel->chart_progress_dn_open()->row();
+        $label2 = $this->labelmodel->chart_progress_dn_close()->row();
+        $data = array( $label, $label2);
+        echo json_encode($data);
+    }
+    public function chart_dn_delivery(){
+        $label = $this->labelmodel->chart_dn_delivery()->result();
+        echo json_encode($label);
+    }
+    public function chart_incoming_qc(){
+        $label = $this->labelmodel->chart_incoming_ok()->row();
+        $label2 = $this->labelmodel->chart_incoming_ng()->row();
+        $label3 = $this->labelmodel->chart_incoming_nc()->row();
+        $data = array( $label, $label2, $label3);
+        echo json_encode($data);
+    }
+
 }
      

@@ -620,6 +620,39 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
+    function chart_progress_dn_open(){
+        $sql = "select count(*) as opened from trx_deliverynote where dn_no IN (SELECT dn_no FROM trx_deliverynote where status_dn = 'open' group by dn_no)";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    function chart_progress_dn_close(){
+        $sql = "select count(*) as closed from trx_deliverynote where dn_no IN (SELECT dn_no FROM trx_deliverynote where status_dn = 'closed' group by dn_no)";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
+    function chart_dn_delivery(){
+        $sql = "SELECT COUNT((select distinct a.dn_no from trx_ven_delivery a join trx_incoming_wip b on a.dn_no = b.dn_no where a.receive_date < DATE_FORMAT(b.created_date, '%Y-%m-%d'))) as late, COUNT((select distinct a.dn_no from trx_ven_delivery a join trx_incoming_wip b on a.dn_no = b.dn_no where a.receive_date > DATE_FORMAT(b.created_date, '%Y-%m-%d'))) as early, COUNT((select distinct a.dn_no from trx_ven_delivery a join trx_incoming_wip b on a.dn_no = b.dn_no where a.receive_date = DATE_FORMAT(b.created_date, '%Y-%m-%d'))) as ontime";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+    function chart_incoming_ok(){
+        $sql = "SELECT COUNT((SELECT a.dn_no FROM trx_deliverynote a join trx_incoming_wip b on a.dn_no = b.dn_no where b.qc_judge = 'OK' and DATE_FORMAT(now(), '%M %Y') = DATE_FORMAT(b.created_date, '%M %Y') GROUP by a.dn_no)) as ok";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+    function chart_incoming_ng(){
+        $sql = "SELECT COUNT((SELECT a.dn_no FROM trx_deliverynote a join trx_incoming_wip b on a.dn_no = b.dn_no where b.qc_judge = 'NG' and DATE_FORMAT(now(), '%M %Y') = DATE_FORMAT(b.created_date, '%M %Y') GROUP by a.dn_no)) as ng";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+    function chart_incoming_nc(){
+        $sql = "SELECT COUNT((SELECT dn_no FROM trx_deliverynote WHERE dn_no not in (select dn_no from trx_incoming_wip group by dn_no) and DATE_FORMAT(now(), '%M %Y') = DATE_FORMAT(created_date, '%M %Y') GROUP by dn_no)) as nc";
+        $result = $this->db->query($sql);
+        return $result;
+    }
+
 
 }
 /* End of file usersmodel.php */
