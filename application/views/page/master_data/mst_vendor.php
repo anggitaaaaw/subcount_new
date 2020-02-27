@@ -67,20 +67,20 @@
                                                            
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Email Contact</label>
-                                                            <div class="col-sm-6">
+                                                            <div class="col-sm-8">
                                                                 <input type="email" class="form-control" id="email_contact" name="email_contact">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Phone</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="number" class="form-control" id="phone" name="batch_qty">
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="phone" name="batch_qty">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Website</label>
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="website" name="standard_container">
                                                             </div>
                                                         </div>
@@ -131,20 +131,20 @@
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Email Contact</label>
-                                                            <div class="col-sm-6">
+                                                            <div class="col-sm-8">
                                                                 <input type="email" class="form-control" id="edit_email_contact" name="email_contact">
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Phone</label>
-                                                            <div class="col-sm-4">
-                                                                <input type="number" class="form-control" id="edit_phone" name="batch_qty">
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="edit_phone" name="batch_qty">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-sm-3 col-form-label">Website </label>
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="edit_website" name="standard_container">
                                                             </div>
                                                         </div>
