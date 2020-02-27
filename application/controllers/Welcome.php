@@ -151,7 +151,11 @@ class Welcome extends CI_Controller {
 		$this->load->model('labelmodel');
 		$data['label'] = $this->labelmodel->viewLabelSpk($spk);
 	//	print_r($data);
-		$this->load->view('page/making_label/print_label', $data);
+			if($data['label'] == null){
+				echo "<h1>there was an error with the data</h1>";
+			}else{
+				$this->load->view('page/making_label/print_label', $data);
+			}
 		}
 	}
 
