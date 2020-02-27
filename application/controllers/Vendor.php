@@ -16,8 +16,8 @@ class Vendor extends CI_Controller {
             $data['vendor_address'] = $this->input->post('vendor_address');
             $data['contact_person'] =$this->input->post('contact_person');
             $data['email'] = $this->input->post('email');
-            $data['batch_qty'] = $this->input->post('batch_qty');
-            $data['container_qty'] = $this->input->post('container_qty');
+            $data['phone'] = $this->input->post('phone');
+            $data['website'] = $this->input->post('website');
             $data['created_by'] = $this->session->userdata('username');
             $data['create_date'] = date('Y-m-d H:m:s');
 
@@ -56,8 +56,8 @@ class Vendor extends CI_Controller {
             $data['vendor_address'] = $this->input->post('vendor_address');
             $data['contact_person'] =$this->input->post('contact_person');
             $data['email'] = $this->input->post('email');
-            $data['batch_qty'] = $this->input->post('batch_qty');
-            $data['container_qty'] = $this->input->post('container_qty');
+            $data['phone'] = $this->input->post('phone');
+            $data['website'] = $this->input->post('website');
             $data['created_by'] = $this->session->userdata('username');
             $data['create_date'] = date('Y-m-d H:m:s');
 

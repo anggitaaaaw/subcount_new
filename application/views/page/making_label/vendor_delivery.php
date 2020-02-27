@@ -159,6 +159,7 @@
                                                                     <th>Receiving Date</th>
                                                                     <th>Receiving By</th>
                                                                     <th>Delivery Date</th>
+                                                                    <th>Actual Delivery</th>
                                                                     <th>Delivery By</th>
                                                                     <th>Leadtime</th>
                                                                     <th>Packing List</th>
