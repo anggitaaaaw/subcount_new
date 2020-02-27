@@ -83,6 +83,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function receiving_disubcount_report(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/making_label/receiving_disubcount_report');
+		$this->load->view('footer');
+	}
+
 	public function delivery_note(){
 		$this->load->helper('url');
 		$this->load->view('header');

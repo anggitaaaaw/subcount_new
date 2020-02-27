@@ -39,7 +39,7 @@
                                                 <form id="myForm     " class="forms-sample">
                                                     <div class="modal-body">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Item No </label>
+                                                            <label class="col-sm-4 col-form-label">Item No </label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="item_no" onchange="select_item_no(this.value)">
                                                                    
@@ -47,13 +47,13 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label"> Description</label>
+                                                            <label class="col-sm-4 col-form-label"> Description</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="item_name" name="item_name">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Subcont Vendor </label>
+                                                            <label class="col-sm-4 col-form-label">Subcont Vendor </label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="subcount_vendor" onchange="select_subcount_vendor(this.value)">
                                                                    
@@ -61,7 +61,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Process Name </label>
+                                                            <label class="col-sm-4 col-form-label">Process Name </label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="process_code" >
                                                                    
@@ -69,19 +69,37 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Leadtime</label>
+                                                            <label class="col-sm-4 col-form-label">Price</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control" id="price" name="price">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">Lower Tolerance</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control" id="low_tolerance" name="low_tolerance">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">Upper Tolerance</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control" id="up_tolerance" name="up_tolerance">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">Leadtime</label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="leadtime" name="leadtime">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Batch QTY </label>
+                                                            <label class="col-sm-4 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="batch_qty" name="batch_qty" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Capacity</label>
+                                                            <label class="col-sm-4 col-form-label">Capacity</label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="container_qty" name="container_qty" readonly>
                                                             </div>
@@ -109,20 +127,20 @@
                                           
                                                     <div class="modal-body">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Item No </label>
+                                                            <label class="col-sm-4 col-form-label">Item No </label>
                                                             <div class="col-sm-8">
                                                                <input type="text" class="form-control" id="edit_item_no" disabled="disabled">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label"> Description</label>
+                                                            <label class="col-sm-4 col-form-label"> Description</label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="edit_item_name" name="item_name">
                                                             </div>
                                                         </div>
                                                         <input type="hidden" id="edit_vendor_code">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Subcont Vendor </label>
+                                                            <label class="col-sm-4 col-form-label">Subcont Vendor </label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="edit_subcount_vendor" onchange="edit_select_subcount_vendor(this.value)">
                                                                    
@@ -131,7 +149,7 @@
                                                         </div>
                                                         <input type="hidden" id="edit_process">
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Process Name </label>
+                                                            <label class="col-sm-4 col-form-label">Process Name </label>
                                                             <div class="col-sm-8">
                                                                 <select class="form-control select2" id="edit_process_code" >
                                                                    
@@ -139,19 +157,37 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Leadtime</label>
+                                                            <label class="col-sm-4 col-form-label">Price</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control" id="edit_price" name="edit_price">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">Lower Tolerance</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control" id="edit_low_tolerance" name="edit_low_tolerance">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">Upper Tolerance</label>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control" id="edit_up_tolerance" name="edit_up_tolerance">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-4 col-form-label">Leadtime</label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="edit_leadtime" name="edit_leadtime">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Batch QTY </label>
+                                                            <label class="col-sm-4 col-form-label">Batch QTY </label>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control" id="edit_batch_qty" name="batch_qty" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-3 col-form-label">Capacity</label>
+                                                            <label class="col-sm-4 col-form-label">Capacity</label>
                                                             <div class="col-sm-6">
                                                                 <input type="text" class="form-control" id="edit_container_qty" name="container_qty" readonly>
                                                             </div>
