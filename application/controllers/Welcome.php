@@ -54,6 +54,8 @@ class Welcome extends CI_Controller {
 	public function create_label_batch(){
 		$this->load->helper('url');
 		$this->load->view('header');
+		$this->load->model('labelmodel');
+		$this->labelmodel->delete_m_batch();
 		$this->load->view('page/making_label/create_label_batch');
 		$this->load->view('footer');
 	}

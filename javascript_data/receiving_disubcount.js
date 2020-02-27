@@ -16,6 +16,7 @@ function format ( d ) {
                         '<th>Actual <br>(Kg)</th>'+
                         '<th>Balance <br>(Pcs)</th>'+
                         '<th>Balance <br>(Kg)</th>'+
+                        '<th>Create Report</th>'+
                     '</tr>'+
                 '</thead>'+
                 '<tbody>'+
@@ -38,7 +39,15 @@ function format ( d ) {
                                     '<th>'+dataa[i].qty_actual+'</th>'+
                                     '<th>'+dataa[i].weight_actual+'</th>'+
                                     '<th>'+dataa[i].qty_balance+'</th>'+
-                                    '<th>'+dataa[i].weight_balance+'</th>'+
+                                    '<th>'+dataa[i].weight_balance+'</th>';
+                                    if(dataa[i].qty_balance == '0'){
+                                        table += '<td><button  class="btn btn-info  mr-2"  disabled>Receiving Report</button></td>';
+                                    }else{
+                                        table += '<td><button  class="btn btn-info  mr-2"  >Receiving Report</button></td>';
+
+                                    }
+
+
                                 '</tr>';
                        
                     }

@@ -136,7 +136,7 @@ function simpan_qty(){
 }
 
 function filterColumn ( i ) {
-    $('#vendor_delivery').DataTable().column( 12 ).search(
+    $('#vendor_delivery').DataTable().column( 13 ).search(
         $('#col12_filter').val()
     ).draw();
 }
@@ -162,6 +162,7 @@ $(document).ready(function() {
             { "data": "receive_date" },
             { "data": "receive_user" },
             { "data": "created_date_dn" },
+            { "data": "actual_delivery" },
             { "data": "created_by" },
             { "data": "leadtime" },
             {
@@ -228,7 +229,7 @@ $(document).ready(function() {
     });
 
    
-    $('#vendor_delivery').DataTable().column( 12 ).search(
+    $('#vendor_delivery').DataTable().column( 13 ).search(
       $('#col12_filter').val()
   ).draw();
     

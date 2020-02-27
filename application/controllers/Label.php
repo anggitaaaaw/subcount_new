@@ -574,6 +574,7 @@ class Label extends CI_Controller {
             $data['weight_balance'] = $label->weight_balance;
             $data['receive_user'] = $label->receive_user;
             $data['receive_date'] = $label->receive_date;
+            $data['actual_delivery'] = date('Y-m-d H:m:s');
 
             $this->db->insert('trx_ven_delivery', $data);
           
