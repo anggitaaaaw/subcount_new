@@ -82,13 +82,16 @@ function new_set_vendor(){
     vendor_code = $('#subcount_vendor').val();
     process_code = $('#process_code').val();
     leadtime = $('#leadtime').val();
+    price = $('#price').val();
+    low_tolerance = $('#low_tolerance').val();
+    up_tolerance = $('#up_tolerance').val();
     batch_qty = $('#batch_qty').val();
     container_qty = $('#container_qty').val();
   
-    if(item_no == '' || item_name == '' || subcount_vendor == '' || process_code == '' || batch_qty == '' || container_qty == '' ){
+    if(item_no == '' || item_name == '' || subcount_vendor == '' || process_code == '' || batch_qty == '' || container_qty == '' || price == '' || low_tolerance == '' || up_tolerance == ''){
         alert('mohon lengkapi data anda');
     }else{
-        $.post('../Vendor/new_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'leadtime' : leadtime, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
+        $.post('../Vendor/new_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'leadtime' : leadtime, 'price' : price, 'low_tolerance' : low_tolerance, 'up_tolerance' : up_tolerance, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
         function(data){ 
         console.log(data);
 
@@ -121,6 +124,9 @@ function view_setting_vendor(){
             { "data": "vendor_code" },
             { "data": "process_name" },
             { "data": "leadtime" },
+            { "data": "price" },
+            { "data": "low_tolerance" },
+            { "data": "up_tolerance" },
             { "data": "qty_batch" },
             { "data": "qty_container" }
         ]   
@@ -195,6 +201,9 @@ function edit_set_vendor(nik){
         $('#edit_process').val(dataa.process_code);
         $('#edit_batch_qty').val(dataa.qty_batch);
         $('#edit_leadtime').val(dataa.leadtime);
+        $('#edit_price').val(dataa.price);
+        $('#edit_low_tolerance').val(dataa.low_tolerance);
+        $('#edit_up_tolerance').val(dataa.up_tolerance);
         $('#edit_container_qty').val(dataa.qty_container);
 
        
@@ -251,11 +260,14 @@ function proses_edit_set_vendor(){
         
     }
     leadtime = $('#edit_leadtime').val();
+    price = $('#edit_price').val();
+    low_tolerance = $('#edit_low_tolerance').val();
+    up_tolerance = $('#edit_up_tolerance').val();
     batch_qty = $('#edit_batch_qty').val();
     container_qty = $('#edit_container_qty').val();
   
     
-    $.post('../Vendor/proses_edit_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'leadtime' : leadtime, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
+    $.post('../Vendor/proses_edit_set_vendor',{ 'item_no' : item_no ,'item_name' : item_name, 'vendor_code' : vendor_code, 'process_code' : process_code , 'leadtime' : leadtime, 'price' : price, 'low_tolerance' : low_tolerance, 'up_tolerance' : up_tolerance, 'batch_qty' : batch_qty, 'container_qty' : container_qty},
     function(data){ 
       console.log(data);
 

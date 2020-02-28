@@ -100,6 +100,9 @@ class Vendor extends CI_Controller {
             $data['vendor_code'] = $this->input->post('vendor_code');
             $data['process_code'] = $this->input->post('process_code');
             $data['leadtime'] = $this->input->post('leadtime');
+            $data['price'] = $this->input->post('price');
+            $data['low_tolerance'] = $this->input->post('low_tolerance');
+            $data['up_tolerance'] = $this->input->post('up_tolerance');
             $data['qty_batch'] = $this->input->post('batch_qty');
             $data['qty_container'] = $this->input->post('container_qty');
             $data['created_by'] = $this->session->userdata('username');
@@ -140,6 +143,9 @@ class Vendor extends CI_Controller {
         $data['vendor_code'] = $this->input->post('vendor_code');
         $data['process_code'] = $this->input->post('process_code');
         $data['leadtime'] = $this->input->post('leadtime');
+        $data['price'] = $this->input->post('price');
+        $data['low_tolerance'] = $this->input->post('low_tolerance');
+        $data['up_tolerance'] = $this->input->post('up_tolerance');
         $data['qty_batch'] = $this->input->post('batch_qty');
         $data['qty_container'] = $this->input->post('container_qty');
         $data['created_by'] = $this->session->userdata('username');

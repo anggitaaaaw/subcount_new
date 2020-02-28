@@ -220,6 +220,9 @@
                                                                     <th>Subcont</th>
                                                                     <th>Process Name</th>
                                                                     <th>Leadtime</th>
+                                                                    <th>Price</th>
+                                                                    <th>Low Tolerance</th>
+                                                                    <th>Up Tolerance</th>
                                                                     <th>Batch No</th>
                                                                     <th>Container QTY</th>
                                                                 </tr>
