@@ -55,7 +55,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Subcont Vendor </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="subcount_vendor" onchange="select_subcount_vendor(this.value)">
+                                                                <select class="form-control select2" id="subcount_vendor" onchange="select_subcount_vendor(this.value)" style="width: 100%; important!">
                                                                    
                                                                 </select>
                                                             </div>
@@ -63,7 +63,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Process Name </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="process_code" >
+                                                                <select class="form-control select2" id="process_code" style="width: 100%; important!">
                                                                    
                                                                 </select>
                                                             </div>
@@ -142,7 +142,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Subcont Vendor </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="edit_subcount_vendor" onchange="edit_select_subcount_vendor(this.value)">
+                                                                <select class="form-control select2" id="edit_subcount_vendor" onchange="edit_select_subcount_vendor(this.value)" style="width: 100%; important!">
                                                                    
                                                                 </select>
                                                             </div>
@@ -151,7 +151,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Process Name </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="edit_process_code" >
+                                                                <select class="form-control select2" id="edit_process_code" style="width: 100%; important!">
                                                                    
                                                                 </select>
                                                             </div>
