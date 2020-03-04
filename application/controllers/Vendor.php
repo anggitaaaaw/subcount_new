@@ -94,10 +94,10 @@ class Vendor extends CI_Controller {
 
         public function new_set_vendor(){
          $data['item_no'] = $this->input->post('item_no');
-         $cek_item = $this->vendormodel->cek_item($data['item_no'])->result();
+         $data['vendor_code'] = $this->input->post('vendor_code');
+         $cek_item = $this->vendormodel->cek_item($data['item_no'], $data['vendor_code'])->result();
          if($cek_item == null){
             $data['item_name'] = $this->input->post('item_name');
-            $data['vendor_code'] = $this->input->post('vendor_code');
             $data['process_code'] = $this->input->post('process_code');
             $data['leadtime'] = $this->input->post('leadtime');
             $data['price'] = $this->input->post('price');

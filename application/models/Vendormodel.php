@@ -106,10 +106,11 @@ class Vendormodel extends CI_Model {
         return $this->db->get();
     }
     
-    function cek_item($item_no){
+    function cek_item($item_no, $vendor_code){
         $this->db->select('*');
         $this->db->from('m_vendor_set');
         $this->db->where('item_no', $item_no);
+        $this->db->where('vendor_code', $vendor_code);
         
         return $this->db->get();
     }
