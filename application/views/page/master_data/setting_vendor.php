@@ -41,7 +41,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Item No </label>
                                                             <div class="col-sm-8">
-                                                                <select class="form-control select2" id="item_no" onchange="select_item_no(this.value)">
+                                                                <select class="form-control select2" id="item_no" onchange="select_item_no(this.value)" style="width: 100%; important!">
                                                                    
                                                                 </select>
                                                             </div>
@@ -129,7 +129,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-4 col-form-label">Item No </label>
                                                             <div class="col-sm-8">
-                                                               <input type="text" class="form-control" id="edit_item_no" disabled="disabled">
+                                                               <input type="text" class="form-control" id="edit_item_no" disabled="disabled" style="width: 100%; important!">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
