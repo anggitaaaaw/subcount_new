@@ -335,7 +335,7 @@ class Label extends CI_Controller {
 
             $this->db->insert('trx_deliverynote', $data);
         }
-        $this->labelmodel->delete_dn();
+        //$this->labelmodel->delete_dn();
     }
 
     public function view_deliverynote(){

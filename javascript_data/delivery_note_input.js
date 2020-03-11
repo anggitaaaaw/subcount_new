@@ -55,8 +55,9 @@ function scan_label(scan){
                 swal(data);
             }
            
-            document.getElementById("print_dn").disabled = false;
-            document.getElementById("print_packing").disabled = false;
+            document.getElementById("create_dn").disabled = false;
+            document.getElementById("print_dn").disabled = true;
+            document.getElementById("print_packing").disabled = true;
             document.getElementById("scan_label").value = '';
         });
     }
@@ -101,6 +102,9 @@ function create_dn(){
         swal("Label save in trx_Deliverynote!", {
             icon: "success",
           });
+
+        document.getElementById("print_dn").disabled = false;
+        document.getElementById("print_packing").disabled = false;
        
     });
 
