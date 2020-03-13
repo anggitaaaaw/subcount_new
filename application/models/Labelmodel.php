@@ -70,7 +70,7 @@ class Labelmodel extends CI_Model {
     }
 
     function viewLabelSpkVen($spk){
-        $sql = "SELECT DISTINCT a.*, b.spk_start, b.spk_end, c.vendor_name, c.vendor_code, d.qty_batch, e.process_name, f.qty_real, f.weight_real, f.qty_actual, f.weight_actual, f.qty_balance, f.weight_balance from m_batch a join trx_spk b on a.spk_no = b.spk_number join m_vendor c on SUBSTR(a.serial_number, 3, 6) = c.vendor_code JOIN m_vendor_set d on d.vendor_code = c.vendor_code and a.item_id = d.item_no LEFT JOIN m_prosesproduksi e on e.process_code = d.process_code JOIN trx_ven_delivery f on a.serial_number = f.batch_no  where a.spk_no = '$spk' ";
+        $sql = "SELECT DISTINCT a.*, b.spk_start, b.spk_end, c.vendor_name, c.vendor_code, d.qty_batch, e.process_name, f.qty_real, f.weight_real, f.qty_actual, f.weight_actual, f.qty_balance, f.weight_balance from m_batch a join trx_spk b on a.spk_no = b.spk_number join m_vendor c on SUBSTR(a.serial_number, 3, 6) = c.vendor_code JOIN m_vendor_set d on d.vendor_code = c.vendor_code and a.item_id = d.item_no LEFT JOIN m_prosesproduksi e on e.process_code = d.process_code JOIN trx_ven_delivery f on a.serial_number = f.batch_no  where a.serial_number = '$spk' ";
   
         $result = $this->db->query($sql)->result();
         return $result;
@@ -398,9 +398,9 @@ class Labelmodel extends CI_Model {
     function view_vendor_delivery(){
         $this->db->select('*,  trx_ven_delivery.actual_delivery as actual_delivery, trx_deliverynote.created_date as created_date_dn,');
         $this->db->from('trx_deliverynote'); 
-        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
-        $this->db->join('trx_ven_delivery', 'trx_ven_delivery.batch_no = trx_deliverynote.serial_id');
-        $this->db->join('m_vendor_set', 'm_vendor_set.item_no = trx_deliverynote.item_code');
+        $this->db->join('trx_ven_delivery', 'trx_ven_delivery.batch_no = trx_deliverynote.serial_id', 'left');
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id', 'left');
+        $this->db->join('m_vendor_set', 'm_vendor_set.item_no = trx_deliverynote.item_code','left');
        // $this->db->where('trx_deliverynote.status_dn', $status);
         $this->db->group_by('trx_ven_receive.dn_no');
         $this->db->order_by('trx_deliverynote.created_date','DESC');
@@ -411,8 +411,8 @@ class Labelmodel extends CI_Model {
     function trx_ven_delivery_det($dn_no){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
-        $this->db->join('trx_ven_delivery', 'trx_ven_delivery.batch_no = trx_deliverynote.serial_id');
-        $this->db->where('trx_ven_delivery.dn_no', $dn_no);
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id' ,'left');
+        $this->db->where('trx_ven_receive.dn_no', $dn_no);
         return $this->db->get();
     }
 

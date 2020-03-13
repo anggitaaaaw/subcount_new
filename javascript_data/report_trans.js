@@ -252,13 +252,28 @@ function filter(){
             },
            
           
-            { "data": "vendor_name" },
+          //  { "data": "vendor_name" },
+            {
+                "targets": -1,
+                "data": "vendor_name", 
+                render: function(data,type,row,meta) { 
+                  if(data !== null) {
+                    return  row.vendor_name
+                  }
+                  else {
+                     return  swal("data does not exist !");
+                  }
+  
+                },
+               // "defaultContent": "vendor_name"
+            },
             { "data": "jml_sendqty_pcs" },
             { "data": "jml_sendqty_kg" },
             { "data": "jml_receipt_pcs" },
             { "data": "jml_receipt_kg" },
             { "data": "jml_bal_pcs" },
             { "data": "jml_bal_kg" },
+
       
         ],
         "order": [[1, 'asc']]

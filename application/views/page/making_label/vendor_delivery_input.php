@@ -214,7 +214,7 @@
                                                             <button type="button" id="save_vd" class="btn btn-primary" onclick="create_vd()">Save Data</button>
                                                             <button type="button" class="btn btn-secondary" onclick="delete_vd_temp()">Clear</button>
                                                             <button type="button" class="btn btn-info" id="print_pl" onclick="print_vd()">Print Packing List</button>
-                                                            <button type="button" class="btn btn-info" id="print_lbl" onclick="print_lb()">Print Label</button>
+                                                           <!-- <button type="button" class="btn btn-info" id="print_lbl" onclick="print_lb()">Print Label</button> -->
                                                         </div>
                                                     </div>
                                                 </form>

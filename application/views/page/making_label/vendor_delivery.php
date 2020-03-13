@@ -71,6 +71,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                  
+                                  
                                     <!-- Edit QTY -->
                                     <div class="modal fade" id="editQty" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">

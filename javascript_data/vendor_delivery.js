@@ -15,6 +15,7 @@ function format  ( d ) {
                         '<th>Actual (Kg)</th>'+
                         '<th>Balance (Pcs)</th>'+
                         '<th>Balance (Kg)</th>'+
+                        '<th>Print</th>'+
                         '<th>Status</th>'+
                     '</tr>'+
                 '</thead>'+
@@ -38,13 +39,12 @@ function format  ( d ) {
                                 '<td>'+dataa[i].weight_actual+'</td>'+
                                 '<td>'+dataa[i].qty_balance+'</td>'+
                                 '<td>'+dataa[i].weight_balance+'</td>';
-                               /* if(dataa[i].status_dn == 'open'){
-                                    table += '<td><button data-toggle="modal" data-target="#editQty" class="btn btn-danger    mr-2" value='+dataa[i].batch_no+' onclick="edit_qty(this.value)" disabled><i class="ik ik-edit"></i>Edit Qty</button></td>'+
-                                    '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)" disabled><i class="ik ik-printer"></i>Print</button></td>';
+                                
+                                if(dataa[i].status_dn == 'open'){
+                                    table += '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].batch_no+' onclick="print_label(this.value)" disabled><i class="ik ik-printer"></i>Print</button></td>';
                                 }else{
-                                    table += '<td><button data-toggle="modal" data-target="#editQty" class="btn btn-danger    mr-2" value='+dataa[i].batch_no+' onclick="edit_qty(this.value)"><i class="ik ik-edit"></i>Edit Qty</button></td>'+
-                                    '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].spk_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button></td>';
-                                }*/
+                                    table += '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].batch_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button></td>';
+                                }
                                
                                 table += '<td>'+dataa[i].status_dn+'</td>'+
                             '</tr>';
@@ -183,12 +183,15 @@ $(document).ready(function() {
                 },
                 "defaultContent": "<button class='btn btn-primary mr-2'><i class='ik ik-plus'></i>Create</button>"
             },
+          
             { "data": "status_dn" }
         ],
         "order": [[3, 'asc']]
     
     } );
-    
+
+
+
     $('#vendor_delivery tbody').on( 'click', 'button', function () {
         var data = table.row( $(this).parents('tr') ).data();
             console.log(data.status_dn);
