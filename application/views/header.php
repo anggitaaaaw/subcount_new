@@ -58,6 +58,46 @@
                         </div>
                         <div class="top-menu d-flex align-items-center">
                             <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="notiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-bell"></i><span class="badge bg-danger">3</span></a>
+                                <div class="dropdown-menu dropdown-menu-right notification-dropdown" aria-labelledby="notiDropdown">
+                                    <h4 class="header">Notifications</h4>
+                                    <div class="notifications-wrap">
+                                        <a href="#" data-target="#editQty" data-toggle="modal" class="media">
+                                            <span class="d-flex">
+                                                <i class="ik ik-check"></i> 
+                                            </span>
+                                            <span class="media-body">
+                                                <span class="heading-font-family media-heading">Receiving Report <br></span> 
+                                                <span class="media-content">DNVEN001200200001 <br> 2020-02-21 12:12:59</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="notifications-wrap">
+                                        <a href="#" data-target="#editQty" data-toggle="modal" class="media">
+                                            <span class="d-flex">
+                                                <i class="ik ik-check"></i> 
+                                            </span>
+                                            <span class="media-body">
+                                                <span class="heading-font-family media-heading">Receiving Report <br></span> 
+                                                <span class="media-content">DNVEN001200200002 <br> 2020-02-21 12:12:59</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="notifications-wrap">
+                                        <a href="#" data-target="#editQty" data-toggle="modal" class="media">
+                                            <span class="d-flex">
+                                                <i class="ik ik-check"></i> 
+                                            </span>
+                                            <span class="media-body">
+                                                <span class="heading-font-family media-heading">Receiving Report <br></span> 
+                                                <span class="media-content">DNVEN001200200003 <br> 2020-02-21 12:12:59</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="footer"><a href="javascript:void(0);">See all activity</a></div>
+                                </div>
+                            </div>
+                            <div class="dropdown">
                                 <a class="dropdown-toggle" href="<?php echo base_url() ?>assets/#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo base_url() ?>assets/img/user.jpg" alt=""></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" data-toggle="modal" data-target="#change_pass"><i class="ik ik-settings dropdown-icon"></i> Change Password</a>
@@ -68,6 +108,101 @@
                     </div>
                 </div>
             </header>
+
+            <div class="modal fade" id="editQty" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="demoModalLabel">Receiving Report</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <form class="forms-sample" id="myForm">
+                            <div class="modal-body">
+                                <p>Transaction Date: <b>20 Februari 2020</b></p>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">DN NO</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">SPK NO</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">LPP NO</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Item Code</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Description</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Heat No</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Qty Del (Pcs)</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Qty Del (Kg)</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Qty Rec (Pcs)</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Qty Rec (Kg)</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Deviation (Pcs)</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">Deviation (Kg)</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="qty_pcs" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <!-- Change Password -->
             <div class="modal fade" id="change_pass" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
