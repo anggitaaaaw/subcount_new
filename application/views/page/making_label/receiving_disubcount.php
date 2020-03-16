@@ -27,106 +27,105 @@
                                         </div>
                                     </div>
 
-<<<<<<< HEAD
-                                    <div class="modal fade" id="editQty" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="demoModalLabel">Receiving Report</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <form class="forms-sample" id="myForm">
-                            <div class="modal-body">
-                                <p id="trans_date">Transaction Date: <b>20 Februari 2020</b></p>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">DN NO</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="dn_no" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">SPK NO</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="spk_no" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">LPP NO</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="lpp_no" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Item Code</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="item_code" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Description</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="item_name" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Heat No</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="heatno_a" readonly>
+                                    <div class="modal fade" id="editQty2" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="demoModalLabel">Receiving Report</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                </div>
+                                                <form class="forms-sample" id="myForm">
+                                                    <div class="modal-body">
+                                                        <p id="trans_date">Transaction Date: <b>20 Februari 2020</b></p>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">DN NO</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="dn_no" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">SPK NO</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="spk_no" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">LPP NO</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="lpp_no" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">Item Code</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="item_code" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">Description</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="item_name" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-3 col-form-label">Heat No</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="heatno_a" readonly>
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Qty Del (Pcs)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="qty_real" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Qty Del (Kg)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="weight_real" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Qty Rec (Pcs)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="qty_real2" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Qty Rec (Kg)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="weight_real2" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Deviation (Pcs)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="qty_real3" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label">Deviation (Kg)</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="weight_real3" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label">Qty Del (Pcs)</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="qty_real" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label">Qty Del (Kg)</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="weight_real" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label">Qty Rec (Pcs)</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="qty_real2" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label">Qty Rec (Kg)</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="weight_real2" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label">Deviation (Pcs)</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="qty_real3" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-sm-4 col-form-label">Deviation (Kg)</label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" class="form-control" id="weight_real3" readonly>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
                                                         <button type="button" class="btn btn-primary" onclick="simpan_receiving_report()">Save Data</button>
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                     </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-12">

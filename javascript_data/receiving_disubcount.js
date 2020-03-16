@@ -41,10 +41,10 @@ function format ( d ) {
                                     '<th>'+dataa[i].qty_balance+'</th>'+
                                     '<th>'+dataa[i].weight_balance+'</th>';
                                     if(dataa[i].qty_balance == '0'){
-                                        table += '<button class="btn btn-primary mr-2" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'"><i class="ik ik-plus"></i>Receiving</button>';
+                                        table += '<th><button class="btn btn-info btn-sm"  data-target="#editQty2" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'">Receiving report</button></th>';
                                     }else{
 
-                                        table += '<button class="btn btn-primary mr-2" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'"><i class="ik ik-plus"></i>Receiving</button>';
+                                        table += '<th><button class="btn btn-info btn-sm" data-target="#editQty2" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'">Receiving report</button></th>';
 
                                     }
 

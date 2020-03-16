@@ -61,39 +61,6 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="notiDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-bell"></i><span class="badge bg-danger">3</span></a>
                                 <div id="list_notif" class="dropdown-menu dropdown-menu-right notification-dropdown" aria-labelledby="notiDropdown">
                                    
-                                   <!-- <div class="notifications-wrap">
-                                        <a href="#" data-target="#editQty" data-toggle="modal" class="media">
-                                            <span class="d-flex">
-                                                <i class="ik ik-check"></i> 
-                                            </span>
-                                            <span class="media-body">
-                                                <span class="heading-font-family media-heading">Receiving Report <br></span> 
-                                                <span class="media-content">DNVEN001200200001 <br> 2020-02-21 12:12:59</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div class="notifications-wrap">
-                                        <a href="#" data-target="#editQty" data-toggle="modal" class="media">
-                                            <span class="d-flex">
-                                                <i class="ik ik-check"></i> 
-                                            </span>
-                                            <span class="media-body">
-                                                <span class="heading-font-family media-heading">Receiving Report <br></span> 
-                                                <span class="media-content">DNVEN001200200002 <br> 2020-02-21 12:12:59</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div class="notifications-wrap">
-                                        <a href="#" data-target="#editQty" data-toggle="modal" class="media">
-                                            <span class="d-flex">
-                                                <i class="ik ik-check"></i> 
-                                            </span>
-                                            <span class="media-body">
-                                                <span class="heading-font-family media-heading">Receiving Report <br></span> 
-                                                <span class="media-content">DNVEN001200200003 <br> 2020-02-21 12:12:59</span>
-                                            </span>
-                                        </a>
-                                    </div> -->
                                     <div class="footer"><a href="javascript:void(0);">See all activity</a></div>
                                 </div>
                             </div>
