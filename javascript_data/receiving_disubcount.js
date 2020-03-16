@@ -41,10 +41,11 @@ function format ( d ) {
                                     '<th>'+dataa[i].qty_balance+'</th>'+
                                     '<th>'+dataa[i].weight_balance+'</th>';
                                     if(dataa[i].qty_balance == '0'){
-                                        table += '<th><button class="btn btn-info btn-sm"  data-target="#editQty2" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'">Receiving report</button></th>';
+
+                                        table += '<th><button class="btn btn-primary mr-2" data-target="#editQty2" data-toggle="modal" onclick="modal_notif_receive(this.value)" value="'+d.dn_no+'"><i class="ik ik-plus"></i>Receiving</button></th>';
                                     }else{
 
-                                        table += '<th><button class="btn btn-info btn-sm" data-target="#editQty2" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'">Receiving report</button></th>';
+                                        table += '<th><button class="btn btn-primary mr-2" data-target="#editQty2" data-toggle="modal" onclick="modal_notif_receive(this.value)" value="'+d.dn_no+'"><i class="ik ik-plus"></i>Receiving</button></th>';
 
                                     }
 
@@ -106,32 +107,33 @@ $(document).ready(function() {
 });
 
 
-function modal_notif(q){
+function modal_notif_receive(q){
     var dataId = q;
     //console.log(dataId);
 
     $.post('../Label/trx_ven_receive_det',{'dn_no' : dataId},function(data){ 
         dataa = JSON.parse(data);
-        console.log(dataa);
+      //  console.log(dataa);
         var d = new Date();
         tgl = d.getDate();
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         bulan = months[d.getMonth()];
         tahun = d.getFullYear();
         trans_date = 'Transaction Date: <b>'+tgl+' '+bulan+' '+tahun+'</b>';
-        $('#trans_date').html(trans_date);
-        $('#dn_no').val(dataa[0].dn_no);
-        $('#spk_no').val(dataa[0].spk_no);
-        $('#lpp_no').val(dataa[0].lpp_no);
-        $('#item_code').val(dataa[0].item_code);
-        $('#item_name').val(dataa[0].item_name);
-        $('#heatno_a').val(dataa[0].heatno_a);
-        $('#qty_real').val(dataa[0].qty_real);
-        $('#weight_real').val(dataa[0].weight_real);
-        $('#qty_real2').val(dataa[0].qty_real);
-        $('#weight_real2').val(dataa[0].weight_real);
-        $('#qty_real3').val(dataa[0].qty_real);
-        $('#weight_real3').val(dataa[0].weight_real);
+        console.log(trans_date);
+        $('#trans_date2').html(trans_date);
+        $('#dn_no2').val(dataa[0].dn_no);
+        $('#spk_no2').val(dataa[0].spk_no);
+        $('#lpp_no2').val(dataa[0].lpp_no);
+        $('#item_code2').val(dataa[0].item_code);
+        $('#item_name2').val(dataa[0].item_name);
+        $('#heatno_a2').val(dataa[0].heatno_a);
+        $('#qty_real12').val(dataa[0].qty_real);
+        $('#weight_real12').val(dataa[0].weight_real);
+        $('#qty_real22').val(dataa[0].qty_real);
+        $('#weight_real22').val(dataa[0].weight_real);
+        $('#qty_real32').val(dataa[0].qty_real);
+        $('#weight_real32').val(dataa[0].weight_real);
         
     });
 
