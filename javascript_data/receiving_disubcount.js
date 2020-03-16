@@ -41,8 +41,9 @@ function format ( d ) {
                                     '<th>'+dataa[i].qty_balance+'</th>'+
                                     '<th>'+dataa[i].weight_balance+'</th>';
                                     if(dataa[i].qty_balance == '0'){
-                                        table += '<td><button  class="btn btn-info  mr-2"  disabled>Receiving Report</button></td>';
+                                        table += '<button class="btn btn-primary mr-2" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'"><i class="ik ik-plus"></i>Receiving</button>';
                                     }else{
+
                                         table += '<button class="btn btn-primary mr-2" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this.value)" value="'+d.dn_no+'"><i class="ik ik-plus"></i>Receiving</button>';
 
                                     }
