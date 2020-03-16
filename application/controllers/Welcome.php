@@ -167,7 +167,7 @@ class Welcome extends CI_Controller {
 		}
 	}
 
-	public function print_label_ven_del($spk ){
+	public function print_label_ven_del($spk){
 	
 		$this->load->helper('url');
 		$this->load->model('labelmodel');

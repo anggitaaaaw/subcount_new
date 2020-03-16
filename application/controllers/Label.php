@@ -478,6 +478,10 @@ class Label extends CI_Controller {
         echo json_encode($label);
     }
 
+    public function ven_receive(){
+        $label = $this->labelmodel->trx_ven_receive()->result();
+        echo json_encode($label);
+    }
     public function vendor_delivery(){
         $label = $this->labelmodel->view_vendor_delivery()->result();
         $data['data'] = $label;
