@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="modal fade" id="editQty" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="editQty2" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -134,7 +134,6 @@
                                                         <div class="form-group row">
                                                             <div class="col-sm-8">
                                                                 <a class="btn btn-primary mr-2" href="<?php echo site_url('welcome/receiving_disubcount_input') ?>"><i class="ik ik-plus"></i>Vendor Receive</a>
-                                                                <button class="btn btn-primary mr-2" data-target="#editQty" data-toggle="modal"><i class="ik ik-plus"></i>Receiving</button>
                                                             </div>
                                                         </div>
                                                         <div class="dt-responsive">
