@@ -73,18 +73,18 @@ $(document).ready(function() {
             tahun = d.getFullYear();
             trans_date = 'Transaction Date: <b>'+tgl+' '+bulan+' '+tahun+'</b>';
             $('#trans_date').html(trans_date);
-            $('#dn_no').val(dataa[0].dn_no);
-            $('#spk_no').val(dataa[0].spk_no);
-            $('#lpp_no').val(dataa[0].lpp_no);
-            $('#item_code').val(dataa[0].item_code);
-            $('#item_name').val(dataa[0].item_name);
-            $('#heatno_a').val(dataa[0].heatno_a);
-            $('#qty_real').val(dataa[0].qty_real);
-            $('#weight_real').val(dataa[0].weight_real);
-            $('#qty_real2').val(dataa[0].qty_real);
-            $('#weight_real2').val(dataa[0].weight_real);
-            $('#qty_real3').val(dataa[0].qty_real);
-            $('#weight_real3').val(dataa[0].weight_real);
+            $('#notif_dn_no').val(dataa[0].dn_no);
+            $('#notif_spk_no').val(dataa[0].spk_no);
+            $('#notif_lpp_no').val(dataa[0].lpp_no);
+            $('#notif_item_code').val(dataa[0].item_code);
+            $('#notif_item_name').val(dataa[0].item_name);
+            $('#notif_heatno_a').val(dataa[0].heatno_a);
+            $('#notif_qty_real').val(dataa[0].qty_real);
+            $('#notif_weight_real').val(dataa[0].weight_real);
+            $('#notif_qty_real2').val(dataa[0].qty_real);
+            $('#notif_weight_real2').val(dataa[0].weight_real);
+            $('#notif_qty_real3').val(dataa[0].qty_real);
+            $('#notif_weight_real3').val(dataa[0].weight_real);
             
         });
 

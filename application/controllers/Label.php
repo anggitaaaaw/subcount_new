@@ -385,6 +385,10 @@ class Label extends CI_Controller {
             $data['batch_no'] = $l->serial_id;
             $data['qty_real'] = $l->lpp_qty;
             $data['weight_real'] = $l->weight;
+            $data['qty_actual'] = $l->lpp_qty;
+            $data['weight_actual'] = $l->weight;
+            $data['qty_balance'] = '0';
+            $data['weight_balance'] = '0';
 
             $this->db->insert('trx_ven_receive_temp', $data);
         }
