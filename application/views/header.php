@@ -92,37 +92,37 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">DN NO</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="dn_no" readonly>
+                                                <input type="text" class="form-control" id="notif_dn_no" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">SPK NO</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="spk_no" readonly>
+                                                <input type="text" class="form-control" id="notif_spk_no" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">LPP NO</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="lpp_no" readonly>
+                                                <input type="text" class="form-control" id="notif_lpp_no" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Item Code</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="item_code" readonly>
+                                                <input type="text" class="form-control" id="notif_item_code" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Description</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="item_name" readonly>
+                                                <input type="text" class="form-control" id="notif_item_name" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Heat No</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="heatno_a" readonly>
+                                                <input type="text" class="form-control" id="notif_heatno_a" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -130,37 +130,37 @@
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Qty Del (Pcs)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="qty_real" readonly>
+                                                <input type="text" class="form-control" id="notif_qty_real" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Qty Del (Kg)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="weight_real" readonly>
+                                                <input type="text" class="form-control" id="notif_weight_real" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Qty Rec (Pcs)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="qty_real2" readonly>
+                                                <input type="text" class="form-control" id="notif_qty_real2" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Qty Rec (Kg)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="weight_real2" readonly>
+                                                <input type="text" class="form-control" id="notif_weight_real2" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Deviation (Pcs)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="qty_real3" readonly>
+                                                <input type="text" class="form-control" id="notif_qty_real3" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label">Deviation (Kg)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="weight_real3" readonly>
+                                                <input type="text" class="form-control" id="notif_weight_real3" readonly>
                                             </div>
                                         </div>
                                     </div>

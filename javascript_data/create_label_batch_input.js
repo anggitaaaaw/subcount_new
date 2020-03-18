@@ -1,10 +1,10 @@
 $(document).ready(function() {
     
-        $('#spk_no').select2();
+     $('#spk_no').select2();
     
     $.post('../Label/select_spk',{},function(data){ 
         dataa = JSON.parse(data);
-       // console.log(dataa);
+        console.log(dataa);
             table = '<option>-SELECT SPK NO-</option>';
         for(i in dataa){
             table += '<option value="'+dataa[i].id_spk+'.'+dataa[i].spk_number+'">'+dataa[i].spk_number+'</option>';
