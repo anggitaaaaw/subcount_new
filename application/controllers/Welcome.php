@@ -203,6 +203,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function report_receiving_subcont(){
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('page/making_label/report_receiving_subcont');
+		$this->load->view('footer');
+	}
+
 	//MODUL MASTER DATA
 	public function mst_vendor(){
 		$this->load->helper('url');
