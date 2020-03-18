@@ -138,3 +138,52 @@ function modal_notif_receive(q){
     });
 
 }
+
+function notif(){
+    $.post('../Label/receiving_report',{},function(data){ 
+        dataa = JSON.parse(data);
+
+        list =  '<h4 class="header">Notifications</h4>';
+        a = 0;
+        for(i in dataa){
+            list += '<div class="notifications-wrap">'+
+                                        '<a href="#" data-id="'+dataa[i].dn_no+'" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this)" class="media">'+
+                                            '<span class="d-flex">'+
+                                                '<i class="ik ik-check"></i> '+
+                                            '</span>'+
+                                            '<span class="media-body">'+
+                                                '<span class="heading-font-family media-heading">Receiving Report <br></span> '+
+                                                '<span class="media-content">'+dataa[i].dn_no+' <br> '+dataa[i].receive_date+'</span>'+
+                                            '</span>'+
+                                        '</a>'+
+                                    '</div>';
+                                    a++;
+        }
+        
+        list += '<div class="footer"><a href="javascript:void(0);">See all activity</a></div>';
+
+        $('#list_notif').html(list);
+        $('#angka_notif').html('<span class="badge bg-danger">'+a+'</span>');
+    });
+}
+function simpan_receiving_report(){
+    dn_no = $('#dn_no2').val();
+  //  console.log(dn_no);
+    $.post('../Label/simpan_receiving_report',{'dn_no' : dn_no},function(data){ 
+        dataa = JSON.parse(data);
+        console.log(dataa);
+
+        if(data == 1){
+            swal("receiving report success!", {
+                icon: "success",
+              });
+              notif();
+          }else{
+            swal("receiving report failed!", {
+                icon: "failed",
+              });
+              
+          }
+    });
+
+}

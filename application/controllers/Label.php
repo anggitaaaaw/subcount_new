@@ -843,5 +843,35 @@ class Label extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function simpan_receiving_report(){
+        $data['dn_no'] = $this->input->post('dn_no');
+        $data['status'] = 'true';
+        $data['create_by'] = $this->session->userdata('username');
+        $data['create_date'] = date('Y-m-d H:m:s');
+
+        $this->db->insert('trx_receive_report', $data);
+        if ($this->db->affected_rows() == 1) {
+            echo "1";
+        }else{
+            echo "gagal";
+
+       }
+    }
+
+    public function receiving_report(){
+        $label = $this->labelmodel->trx_receive_report()->result();
+        echo json_encode($label);
+    }
+
+    public function view_receiving_report(){
+        $label = $this->labelmodel->view_trx_receive_report()->result();
+        echo json_encode($label);
+    }
+
+    public function ubah_status_receive(){
+        $this->db->set('status', 'false');
+        $this->db->where('status', 'true');
+        $this->db->update('trx_receive_report');
+    }
 }
      

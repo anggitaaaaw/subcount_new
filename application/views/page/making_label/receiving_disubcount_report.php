@@ -52,7 +52,7 @@
                                                         </div>
                                                         <br>
                                                         <div class="dt-responsive">
-                                                            <table id="tbl_dn_no" class="table table-striped table-bordered nowrap">
+                                                            <table id="receiving_disubcount_report" class="table table-striped table-bordered nowrap">
                                                             <!-- <table id="tbl_dn_no" class="tabel_dn"> -->
                                                                 <thead>
                                                                     <tr>
@@ -73,7 +73,7 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                   <!-- <tr>
+                                                                    <tr>
                                                                         <td width="10">1</td>
                                                                         <td width="100">23090123</td>
                                                                         <td width="100">239800102930</td>
@@ -87,7 +87,7 @@
                                                                         <td style="width: 60px;"><input readonly style="width: 100%;" type="text"></td>
                                                                         <td style="width: 60px;"><input readonly style="width: 100%;" type="text"></td>
                                                                         
-                                                                    </tr>-->
+                                                                    </tr>
                                                                 </tbody>
                                                             </table>
                                                             <br>
@@ -104,4 +104,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-                    <script src="<?php echo base_url() ?>javascript_data/receiving_disubcount_input.js?<?php echo time() ?>"></script>
+                    <script src="<?php echo base_url() ?>javascript_data/receiving_disubcont_report.js?<?php echo time() ?>"></script>

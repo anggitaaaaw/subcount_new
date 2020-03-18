@@ -34,31 +34,48 @@ $(document).ready(function() {
       $('#tree_menu').html(table);
    
     });
+
+    isi_notif();
+        
+    });
+
+    function isi_notif(){
+        $.post('../Label/receiving_report',{},function(data){ 
+            dataa = JSON.parse(data);
     
-    $.post('../Label/ven_receive',{},function(data){ 
-        dataa = JSON.parse(data);
-
-        list =  '<h4 class="header">Notifications</h4>';
-        for(i in dataa){
-            list += '<div class="notifications-wrap">'+
-                                        '<a href="#" data-id="'+dataa[i].dn_no+'" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this)" class="media">'+
-                                            '<span class="d-flex">'+
-                                                '<i class="ik ik-check"></i> '+
-                                            '</span>'+
-                                            '<span class="media-body">'+
-                                                '<span class="heading-font-family media-heading">Receiving Report <br></span> '+
-                                                '<span class="media-content">'+dataa[i].dn_no+' <br> '+dataa[i].receive_date+'</span>'+
-                                            '</span>'+
-                                        '</a>'+
-                                    '</div>';
-        }
-        list += '<div class="footer"><a href="javascript:void(0);">See all activity</a></div>';
-
-        $('#list_notif').html(list);
-    });
-
-    });
-
+            list =  '<h4 class="header">Notifications</h4>';
+            a = 0;
+            for(i in dataa){
+                list += '<div class="notifications-wrap">'+
+                                            '<a href="#" data-id="'+dataa[i].dn_no+'" data-target="#editQty" data-toggle="modal" onclick="modal_notif(this)" class="media">'+
+                                                '<span class="d-flex">'+
+                                                    '<i class="ik ik-check"></i> '+
+                                                '</span>'+
+                                                '<span class="media-body">'+
+                                                    '<span class="heading-font-family media-heading">Receiving Report <br></span> '+
+                                                    '<span class="media-content">'+dataa[i].dn_no+' <br> '+dataa[i].receive_date+'</span>'+
+                                                '</span>'+
+                                            '</a>'+
+                                        '</div>';
+                                        a++;
+            }
+            
+            list += '<div class="footer"><a href="javascript:void(0);">See all activity</a></div>';
+    
+            $('#list_notif').html(list);
+            if(a != 0){
+            $('#angka_notif').html('<span class="badge bg-danger">'+a+'</span>');
+            }else{
+                $('#angka_notif').html('');
+            }
+        });
+    
+    }
+    $("#notiDropdown").click(function(){
+        $.post('../Label/ubah_status_receive',{},function(data){ 
+            $('#angka_notif').html('');
+        });
+      });
     function modal_notif(q){
         var dataId = $(q).data("id");
         //console.log(dataId);

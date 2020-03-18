@@ -654,6 +654,28 @@ class Labelmodel extends CI_Model {
         return $result;
     }
 
+    function trx_receive_report(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->join('trx_receive_report', 'trx_receive_report.dn_no = trx_deliverynote.dn_no');
+        $this->db->group_by('trx_ven_receive.dn_no');
+        $this->db->where('trx_receive_report.status','true');
+        $this->db->limit(5);
+        return $this->db->get();
+    }
+
+    function view_trx_receive_report(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->join('trx_receive_report', 'trx_receive_report.dn_no = trx_deliverynote.dn_no');
+        $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
+        $this->db->group_by('trx_ven_receive.dn_no');
+        return $this->db->get();
+    }
+
+
 
 }
 /* End of file usersmodel.php */
