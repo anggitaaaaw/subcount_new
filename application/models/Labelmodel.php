@@ -70,7 +70,7 @@ class Labelmodel extends CI_Model {
     }
 
     function viewLabelSpkVen($spk){
-        $sql = "SELECT DISTINCT a.*, b.spk_start, b.spk_end, c.vendor_name, c.vendor_code, d.qty_batch, e.process_name, f.qty_real, f.weight_real, f.qty_actual, f.weight_actual, f.qty_balance, f.weight_balance from m_batch a join trx_spk b on a.spk_no = b.spk_number join m_vendor c on SUBSTR(a.serial_number, 3, 6) = c.vendor_code JOIN m_vendor_set d on d.vendor_code = c.vendor_code and a.item_id = d.item_no LEFT JOIN m_prosesproduksi e on e.process_code = d.process_code JOIN trx_ven_delivery f on a.serial_number = f.batch_no  where a.serial_number = '$spk' ";
+        $sql = "SELECT DISTINCT a.*, b.spk_start, b.spk_end, c.vendor_name, c.vendor_code, d.qty_batch, e.process_name, f.qty_real, f.weight_real, f.qty_actual, f.weight_actual, f.qty_balance, f.weight_balance from m_batch a join trx_spk b on a.spk_no = b.spk_number join m_vendor c on SUBSTR(a.serial_number, 3, 6) = c.vendor_code JOIN m_vendor_set d on d.vendor_code = c.vendor_code and a.item_id = d.item_no LEFT JOIN m_prosesproduksi e on e.process_code = d.process_code JOIN trx_ven_receive f on a.serial_number = f.batch_no  where a.serial_number = '$spk' ";
   
         $result = $this->db->query($sql)->result();
         return $result;
@@ -665,13 +665,55 @@ class Labelmodel extends CI_Model {
         return $this->db->get();
     }
 
-    function view_trx_receive_report(){
+    /*function view_trx_receive_report(){
         $this->db->select('*');
         $this->db->from('trx_deliverynote'); 
         $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
         $this->db->join('trx_receive_report', 'trx_receive_report.dn_no = trx_deliverynote.dn_no');
         $this->db->join('m_vendor', 'm_vendor.vendor_code = trx_deliverynote.vendor_code');
         $this->db->group_by('trx_ven_receive.dn_no');
+        return $this->db->get();
+    }*/
+
+    function view_trx_receive_report($date_from, $date_to, $subcount, $spk_no, $item_code, $dn_no, $lpp_no){
+        $this->db->select('*');
+        //$this->db->select('*');
+        $this->db->from('trx_deliverynote');
+        $this->db->join('trx_ven_receive', 'trx_ven_receive.batch_no = trx_deliverynote.serial_id');
+        $this->db->join('trx_receive_report', 'trx_receive_report.dn_no = trx_deliverynote.dn_no');
+        $this->db->join('m_vendor','m_vendor.vendor_code = trx_deliverynote.vendor_code');
+        if($date_to != 'null'){
+            
+            $this->db->where('trx_incoming_wip.created_date >=', $date_to);
+            
+        }
+        if($date_from != 'null'){
+            $this->db->where('trx_incoming_wip.created_date <=', $date_from);
+        }
+        if($subcount != 'null'){
+            $this->db->where('trx_deliverynote.vendor_code', $subcount);
+        }
+        if($spk_no != 'null'){
+            $this->db->where('trx_deliverynote.spk_no', $spk_no);
+        }
+        if($dn_no != 'null'){
+            $this->db->where('trx_deliverynote.dn_no', $dn_no);
+        }
+        if($lpp_no != 'null'){
+            $this->db->where('trx_deliverynote.lpp_no', $lpp_no);
+        }
+        if($item_code != 'null'){
+            $this->db->where('trx_deliverynote.item_code', $item_code);
+        }
+        
+      
+        return $this->db->get();
+    }
+
+    function view_dn_no_report(){
+        $this->db->select('*');
+        $this->db->from('trx_deliverynote'); 
+        $this->db->join('trx_receive_report', 'trx_receive_report.dn_no = trx_deliverynote.dn_no');
         return $this->db->get();
     }
 

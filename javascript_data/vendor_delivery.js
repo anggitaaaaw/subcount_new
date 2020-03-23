@@ -40,7 +40,7 @@ function format  ( d ) {
                                 '<td>'+dataa[i].qty_balance+'</td>'+
                                 '<td>'+dataa[i].weight_balance+'</td>';
                                 
-                                if(dataa[i].status_dn == 'open'){
+                                if(dataa[i].status_dn != 'open'){
                                     table += '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].batch_no+' onclick="print_label(this.value)" disabled><i class="ik ik-printer"></i>Print</button></td>';
                                 }else{
                                     table += '<td><button data-toggle="modal" data-target="#modal_printlabel" class="btn btn-warning mr-2" value='+dataa[i].batch_no+' onclick="print_label(this.value)"><i class="ik ik-printer"></i>Print</button></td>';

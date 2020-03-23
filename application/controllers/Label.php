@@ -389,6 +389,8 @@ class Label extends CI_Controller {
             $data['weight_actual'] = $l->weight;
             $data['qty_balance'] = '0';
             $data['weight_balance'] = '0';
+            $data['receive_user'] = $this->session->userdata('username');
+            $data['receive_date'] = date('Y-m-d H:m:s');
 
             $this->db->insert('trx_ven_receive_temp', $data);
         }
@@ -863,15 +865,23 @@ class Label extends CI_Controller {
         echo json_encode($label);
     }
 
-    public function view_receiving_report(){
-        $label = $this->labelmodel->view_trx_receive_report()->result();
-        echo json_encode($label);
-    }
+
+    public function view_receiving_report($date_to, $date_from, $subcount, $spk_no, $item_code, $dn_no, $lpp_no){
+          $label = $this->labelmodel->view_trx_receive_report($date_from, $date_to, $subcount, $spk_no, $item_code, $dn_no, $lpp_no)->result();
+          $data['data'] = $label;
+        
+          echo json_encode($data);
+      }
 
     public function ubah_status_receive(){
         $this->db->set('status', 'false');
         $this->db->where('status', 'true');
         $this->db->update('trx_receive_report');
+    }
+
+    public function dn_no_report(){
+        $label = $this->labelmodel->view_dn_no_report()->result();
+        echo json_encode($label);
     }
 }
      

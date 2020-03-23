@@ -75,12 +75,12 @@
                                                                     <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-4 col-form-label">DN No</label>
                                                                         <div class="col-sm-6">
-                                                                            <select type="text" id="subcount_name_report" class="form-control select2" onchange="select_subcount(this.value)"></select>
+                                                                            <select type="text" id="dn_no_report" class="form-control select2" onchange="select_dn_no(this.value)"></select>
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <div class="checkbox-fade fade-in-primary">
                                                                                 <label>
-                                                                                    <input type="checkbox" value="" id="check_subcount" checked onchange="check_subcount()">
+                                                                                    <input type="checkbox" value="" id="check_dn_no" checked onchange="check_dn_no()">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-primary"></i>
                                                                                     </span>
@@ -122,12 +122,12 @@
                                                                     <div class="form-group row" style="margin: 1px;">
                                                                         <label class="col-sm-4 col-form-label">LPP No</label>
                                                                         <div class="col-sm-6">
-                                                                            <select type="text" id="subcount_name_report" class="form-control select2" onchange="select_subcount(this.value)"></select>
+                                                                            <select type="text" id="lpp_no_report" class="form-control select2" onchange="select_lpp_no(this.value)"></select>
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <div class="checkbox-fade fade-in-primary">
                                                                                 <label>
-                                                                                    <input type="checkbox" value="" id="check_subcount" checked onchange="check_subcount()">
+                                                                                    <input type="checkbox" value="" id="check_lpp_no" checked onchange="check_lpp_no()">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-primary"></i>
                                                                                     </span>
@@ -164,7 +164,7 @@
                                                         </div>
                                                         <br>
                                                         <div class="dt-responsive">
-                                                            <table id="receiving_disubcount" class="table table-striped table-bordered nowrap">
+                                                            <table id="tbl_report_receive" class="table table-striped table-bordered nowrap">
                                                                 <thead>
                                                                     
                                                                     <tr>
@@ -204,4 +204,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-                    <!--<script src="<?php echo base_url() ?>javascript_data/receiving_disubcount.js?<?php echo time() ?>"></script> -->
+                    <script src="<?php echo base_url() ?>javascript_data/report_receive.js?<?php echo time() ?>"></script>

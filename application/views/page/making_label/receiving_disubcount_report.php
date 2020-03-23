@@ -104,4 +104,4 @@
                         </div>
                     </div>
                     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-                    <script src="<?php echo base_url() ?>javascript_data/receiving_disubcont_report.js?<?php echo time() ?>"></script>
+                    <script src="<?php echo base_url() ?>javascript_data/report_receive.js?<?php echo time() ?>"></script>
